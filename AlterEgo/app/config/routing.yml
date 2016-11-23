@@ -1,0 +1,19 @@
+alter_ego:
+    resource: "@AlterEgoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+company:
+    resource: "@CompanyBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+worker:
+    resource: "@WorkerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+coach:
+    resource: "@CoachBundle/Controller/"
+    type:     annotation
+    prefix:   /

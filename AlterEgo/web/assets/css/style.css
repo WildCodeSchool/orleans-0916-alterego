@@ -1,1 +1,117 @@
-body{min-height:100vh; background-image: url("../images/background.jpg");}
+@media screen and (min-width: 640px) {
+    body {
+        background-image: url("../images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content {
+        padding: 20px;
+        text-align: center;
+        margin-top: 36vh;
+        animation: hover_color 2.5s ease-in-out forwards;
+    }
+
+    .logo {
+        animation: translate 2s ease-in-out forwards;
+    }
+
+    .login {
+        position: absolute;
+        z-index: 10;
+        top: 42vh;
+        left: 47vw;
+        animation: hover 2s ease-in-out forwards;
+    }
+
+    input[type=text] {
+        border: 1px solid #999;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+        -webkit-appearance: none;
+    }
+
+    @keyframes translate {
+        0% {
+            transform: translateX(0px);
+        }
+        100% {
+            transform: translateX(-150px);
+        }
+    }
+    @keyframes hover {
+        0% {
+            opacity: 0;
+        }
+        40% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes hover_color {
+        0% {
+            background: rgba(255, 255, 255, 0);
+        }
+        100% {
+            background: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        background-image: url("../images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content {
+        padding: 20px;
+        text-align: center;
+        margin-top: 36vh;
+    }
+
+    .logo {
+        animation: translate 2s ease-in-out forwards;
+    }
+
+    .login {
+        position: absolute;
+        z-index: 10;
+        top: 42vh;
+        animation: hover 2s ease-in-out forwards;
+    }
+
+    input[type=text] {
+        border: 1px solid #999;
+        border-radius: 5px;
+        margin: 5px;
+        padding: 5px;
+        -webkit-appearance: none;
+    }
+
+    @keyframes translate {
+        0% {
+            transform: translateY(0px);
+        }
+        100% {
+            transform: translateY(-170px);
+        }
+    }
+    @keyframes hover {
+        0% {
+            opacity: 0;
+        }
+        40% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+}

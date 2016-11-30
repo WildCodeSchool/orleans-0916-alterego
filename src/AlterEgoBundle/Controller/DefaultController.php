@@ -8,10 +8,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/worker")
      */
-    public function indexAction()
+    public function workerAction()
     {
-        return $this->render('AlterEgoBundle:Default:index.html.twig');
+        return $this->render('AlterEgoBundle:Default:worker.html.twig');
+    }
+
+    /**
+     * @Route("/coach")
+     */
+    public function coachAction()
+    {
+        return $this->render('AlterEgoBundle:Default:coach.html.twig');
     }
 }

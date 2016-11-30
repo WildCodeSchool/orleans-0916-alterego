@@ -1,14 +1,4 @@
-Alter Ego
-=======
+AlterEgo
+========
 
-## Team :
-
-  * [Guillaume Thiellon]
-  * [Guillaume Curielle])
-  * [Quentin Chapelle]
-  * [Louis RICHARD](https://github.com/louri45)
-
-### Supervisors :
-  
-  * Julien KEITA
-  * Sylvain BLONDEAU
+A Symfony project created on November 30, 2016, 2:17 pm.

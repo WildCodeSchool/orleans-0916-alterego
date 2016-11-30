@@ -1,1 +1,23 @@
 {% extends 'AlterEgoBundle::layout_worker.html.twig' %}
+
+{% block head %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/worker.css')}}">
+{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+
+{% endblock %}

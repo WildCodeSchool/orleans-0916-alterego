@@ -1,4 +1,0 @@
-services:
-#    worker.example:
-#        class: WorkerBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

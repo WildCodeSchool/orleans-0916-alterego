@@ -6,7 +6,7 @@ AlterEgo
   * [Guillaume Thiellon]
   * [Guillaume Curiel](https://github.com/Guillaume4545)
   * [Quentin Chapelle](https://github.com/QuentinChapelle)
-  * [Louis RICHARD](https://github.com/louri45)
+  * [Louise RICHARD](https://github.com/louri45)
 
 ### Supervisors :
   

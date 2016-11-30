@@ -5,7 +5,7 @@ Alter Ego
 
   * [Guillaume Thiellon]
   * [Guillaume Curielle])
-  * [Quentin Chapelle]
+  * [Quentin Chapelle](https://github.com/QuentinChapelle)
   * [Louis RICHARD](https://github.com/louri45)
 
 ### Supervisors :

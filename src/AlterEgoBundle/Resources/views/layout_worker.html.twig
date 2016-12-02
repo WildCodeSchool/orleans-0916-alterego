@@ -2,16 +2,18 @@
 
 {% block head %}
     {{ parent() }}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/worker.css')}}">
+    {% endblock %}
 {% endblock %}
 
 {% block body %}
     {% block header %}
-        {{ parent() }}
     {% endblock %}
 
+    {% block content %}
+    {% endblock %}
 
     {% block footer %}
-        {{ parent() }}
     {% endblock %}
-
 {% endblock %}

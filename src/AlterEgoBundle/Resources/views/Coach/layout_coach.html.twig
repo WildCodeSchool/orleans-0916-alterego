@@ -2,16 +2,20 @@
 
 {% block head %}
     {{ parent() }}
+    {% block stylesheets
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/coach.css')}}">
+    {% endblock %}
 {% endblock %}
 
 {% block body %}
+
     {% block header %}
-        {{ parent() }}
     {% endblock %}
+
+    {% block content %}
 
 
     {% block footer %}
-        {{ parent() }}
     {% endblock %}
 
 {% endblock %}

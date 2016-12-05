@@ -1,21 +1,17 @@
-{% extends 'AlterEgoBundle:Default:layout_coach.html.twig' %}
-
-
+{% extends '::base.html.twig' %}
 
 {% block head %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/coach.css')}}">
 {% endblock %}
+
 {% block body %}
     {% block header %}
         {{ parent() }}
     {% endblock %}
-    {% block content %}
 
-
-    {% endblock %}
 
     {% block footer %}
         {{ parent() }}
     {% endblock %}
+
 {% endblock %}

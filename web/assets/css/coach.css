@@ -1,1 +1,107 @@
 /*---------------CSS COACH----------------*/
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
+@import url('https://fonts.googleapis.com/css?family=');
+
+body{
+    background-color: lightsteelblue;
+}
+/* Profil */
+.profil_picture{
+    margin-top: 10px;
+}
+.title_profil h2{
+    font-size: 5em;
+}
+.title_profil h3{
+    font-size: 4em;
+}
+#qui{
+    background-color: #FF6600;
+    font-family: 'Hammersmith One', sans-serif;
+    color: white;
+    padding: 5px 0 5px 0;
+}
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    font-size: 3em;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    color: gold;
+}
+.text_note{
+    font-size: 1.5em;
+}
+.number_note{
+    font-size: 3em;
+}
+.fake_rating{
+    color: gold;
+}
+.fa{
+    margin-right: 5px;
+}
+.coach_i{
+    margin-left: 5px;
+}
+/* Activité */
+#create_activity{
+    background-color: white;
+}
+.add_block{
+    font-weight: 800;
+}
+.add_block a{
+    color: #333333;
+}
+.add_title{
+    font-weight: bold;
+    font-size: 4em;
+    border: solid 4px black;
+}
+.add_button i{
+    font-size: 6.5em;
+}
+.add_button:hover{
+    color: #FF6600;
+}
+/* Agenda du coach */
+.agenda{
+    background-color: #FF6600;
+    color: white;
+
+}
+.titre_agenda{
+    font-weight: 800;
+    font-size: 4em;
+    border: solid 4px white;
+}
+.fc-content{
+    padding-bottom: 10px;
+}
+/* Formation du Coach */
+.formation_coach{
+    background-color: white;
+}
+.formation_coach h2{
+    font-weight: 800;
+    font-size: 4em;
+    border: solid 4px black;
+
+}
+.formation_coach h3{
+    font-size: 3em;
+    text-decoration: underline;
+
+}
+.formation_coach li{
+    font-size: 2em;
+}

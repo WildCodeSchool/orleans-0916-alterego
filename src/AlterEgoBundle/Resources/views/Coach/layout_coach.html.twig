@@ -1,21 +1,16 @@
 {% extends '::base.html.twig' %}
 
-{% block head %}
-    {{ parent() }}
-    {% block stylesheets
+
+    {% block title %}Espace Coach - Alter-Ego{% endblock %}
+    {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/coach.css')}}">
     {% endblock %}
-{% endblock %}
-
-{% block body %}
 
     {% block header %}
     {% endblock %}
 
     {% block content %}
-
+    {% endblock %}
 
     {% block footer %}
     {% endblock %}
-
-{% endblock %}

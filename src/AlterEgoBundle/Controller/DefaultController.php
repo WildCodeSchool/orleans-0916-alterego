@@ -12,7 +12,7 @@ class DefaultController extends Controller
      */
     public function workerAction()
     {
-        return $this->render('AlterEgoBundle:Default:worker.html.twig');
+        return $this->render('AlterEgoBundle:Worker:worker.html.twig');
     }
 
     /**
@@ -20,6 +20,6 @@ class DefaultController extends Controller
      */
     public function coachAction()
     {
-        return $this->render('AlterEgoBundle:Default:coach.html.twig');
+        return $this->render('AlterEgoBundle:Coach:coach.html.twig');
     }
 }

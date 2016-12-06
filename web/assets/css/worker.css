@@ -1,1 +1,17 @@
 /*---------------CSS WORKER----------------*/
+.worker_name {
+    color: blue;
+    text-align: center;
+}
+.img_worker {
+    height: 150px;
+    width: 150px;
+}
+.progress {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.home_title_worker {
+    text-align: center;
+    font-size: 18px;
+}

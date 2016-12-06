@@ -1,13 +1,12 @@
 {% extends '::base.html.twig' %}
 
-{% block head %}
-    {{ parent() }}
+
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/worker.css')}}">
     {% endblock %}
-{% endblock %}
 
-{% block body %}
+
+
     {% block header %}
 
     {% endblock %}
@@ -17,5 +16,3 @@
 
     {% block footer %}
     {% endblock %}
-
-{% endblock %}

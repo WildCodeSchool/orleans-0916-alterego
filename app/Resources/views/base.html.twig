@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Alter Ego{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo_favicon.ico') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
-        <script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        {% block head %}
+            <meta charset="UTF-8" />
+            <title>{% block title %}Alter Ego{% endblock %}</title>
+            <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo_favicon.ico') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
+            <script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+            {% block stylesheets %}
+            {% endblock %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        {% endblock %}
     </head>
     <body>
         {% block body %}

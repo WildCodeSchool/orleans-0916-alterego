@@ -3,12 +3,25 @@
 {% block head %}
     {{ parent() }}
     {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/RH.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/rh.css')}}">
     {% endblock %}
 {% endblock %}
 
 {% block body %}
     {% block header %}
+        <div class="navbar">
+            <div id="shutter">
+                <a href="#">shutter</a>
+                <a class="fa fa-times close_nav" href="#"></a>
+            </div>
+            <ul id="navbar_mobile">
+                <li><a class="fa fa-home" href="#"></a></li>
+                <li><a class="fa fa-users" href="#"></a></li>
+                <li><a class="fa fa-line-chart" href="#"></a></li>
+                <li><a class="fa fa-heartbeat" href="#"></a></li>
+                <li><a class="fa fa-cogs" href="#shutter"></a></li>
+            </ul>
+        </div>
     {% endblock %}
 
     {% block content %}

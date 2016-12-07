@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=');
 
 body{
-    background-color: lightsteelblue;
+    background-color: #FF6600;
 }
 /* Profil */
 .profil_picture{
@@ -62,7 +62,7 @@ body{
 .add_block a{
     color: #333333;
 }
-.add_title{
+.add_block h2{
     font-weight: bold;
     font-size: 4em;
     border: solid 4px black;
@@ -104,4 +104,19 @@ body{
 }
 .formation_coach li{
     font-size: 2em;
+}
+
+/* Coach Activite */
+.my_activity{
+    background-color: #ffffff;
+}
+.my_activity h1{
+    color: #FF6600;
+}
+.my_list{
+    margin-top: 8px;
+}
+.activity_list h3{
+    background-color: #FF6600;
+    color: #ffffff;
 }

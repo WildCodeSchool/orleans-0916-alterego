@@ -14,12 +14,4 @@ class DefaultController extends Controller
     {
         return $this->render('AlterEgoBundle:Worker:worker.html.twig');
     }
-
-    /**
-     * @Route("/coach")
-     */
-    public function coachAction()
-    {
-        return $this->render('AlterEgoBundle:Coach:coach.html.twig');
-    }
 }

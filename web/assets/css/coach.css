@@ -33,19 +33,23 @@
     height: 100vh;
     left: 100px;
     text-align: center;
+    background-color: wheat;
     -webkit-transform: translateX(-100vw);
     -moz-transform: translateX(-100vw);
     -ms-transform: translateX(-100vw);
     -o-transform: translateX(-100vw);
     transform: translateX(-100vw);
+    -webkit-transition-duration: 1.5s;
+    -moz-transition-duration: 1.5s;
+    -ms-transition-duration: 1.5s;
+    -o-transition-duration: 1.5s;
     transition-duration: 1.5s;
+
 }
 
 #shutter:target {
     display: block;
-    background-color: wheat;
-    animation: translate 1.5s ease forwards;
-
+    animation: translate 1s ease forwards;
 }
 @keyframes translate {
     0% {

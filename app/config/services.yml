@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.admin.terrain:
+            class: AlterEgoBundle\Admin\EntrepriseAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Client", label: "Entreprise" }
+            arguments:
+                - ~
+                - AlterEgoBundle\Entity\Entreprise
+                - ~

@@ -1,250 +1,50 @@
 /*---------------CSS WORKER----------------*/
-.worker_name {
-    text-align: center;
-}
-.img_worker {
-    height: 150px;
-    width: 150px;
-}
-.progress {
-    margin-left: 7%;
-    margin-right: 7%;
-}
-.home_title_worker {
-    text-align: center;
-    font-size: 18px;
-}
 body {
-    background-color: blue;
+    background-color: darkslategray;
 }
-.clasp {
-    background: #aaaaaa;
-    border: 1px solid #999999;
-    border-radius: 4px;
-    box-shadow: 0 -1px 5px rgba(0,0,0,0.4), inset -1px 1px 2px white;
-    display: block;
-    height: 16px;
-    position: absolute;
-    top: -5px;
-    width: 4px;
-    z-index: 2000;
-}
-.clasp.hole-left {
-    left: 9px;
-}
-.clasp.hole-right {
-    right: 9px;
-}
-
-.hole {
-    background: #99ccff;
-    border-radius: 8px;
-    box-shadow: 0 -1px 0 black, inset 0 0 20px #878787;
-    display: block;
-    height: 8px;
-    position: absolute;
-    top: 8px;
-    width: 8px;
-}
-
-.hole-left {
-    left: 8px;
-}
-.hole-right {
-    right: 8px;
-}
-
-#calendar {
-    background: #e4e0e7;
-    box-shadow: 0 0 20px #878787;
-    height: 208px;
-    margin: 20px auto;
-    position: relative;
-    text-align: center;
-    width: 216px;
-}
-
-#month {
-    background: linear-gradient(#bcde4b, #8bc620);
-    color: white;
-    height: 30px;
-    line-height: 30px;
-    text-shadow: 0 -1px 0 #878787;
-    width: 216px;
-}
-
-#days {
-    background: linear-gradient(#f4f4f4, #ebebeb);
-    -webkit-box-shadow: 0 1px 0 #aaaaaa;
-}
-
-table.days {
-    color: #888888;
-    font-size: 11px;
-    width: 216px;
-}
-
-table.day td, table.days td {
-    width: 30px;
-}
-
-table.day td {
-    background: #f4f0f7;
-    color: #878787;
-    height: 29px;
-    box-shadow: 0 -1px 0 white;
-}
-
-table.day td.old-month {
-    color: #aaaaaa;
-}
-
-table.day td:hover {
-    background: #e9e9ee;
-    cursor: pointer;
-}
-
-table.day td.selected {
-    background: linear-gradient(#bcde4b, #8bc620);
-    color: white;
-    text-shadow: 0 -1px 0 #878787;
-}
-
-table.day td.appoint {
-    border-bottom: 2px solid #99ccff;
-}
-h2 {
-    text-align: center;
-    color: white;
-}
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
-body {
-    padding: 30px 0;
-    background-color: #2f3439;
-    font-family: "Noto Sans", sans-serif;
-}
-
-.wrap {
-    width: 600px;
-    margin-left: 4%;
-}
-
-/* -------------------------------------
- * Bar container
- * ------------------------------------- */
-.progress-radial {
-    float: left;
-    margin-right: 30px;
-    position: relative;
-    width: 100px;
+.top_worker {
     height: 100px;
-    border-radius: 50%;
-    border: 2px solid #2f3439;
-    background-color: tomato;
+    width: 100px;
 }
-
-/* -------------------------------------
- * Optional centered circle w/text
- * ------------------------------------- */
-.progress-radial .overlay {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: #fffde8;
-    border-radius: 50%;
-    margin-left: 20px;
-    margin-top: 20px;
+.name_user_worker {
+    font-size: 14px;
+    color: white;
     text-align: center;
-    line-height: 60px;
-    font-size: 16px;
 }
+.last_seance {
+    font-size: 14px;
+    text-align: left;
+}
+.next_seance {
+    font-size: 14px;
+    text-align: left;
 
-/* -------------------------------------
- * Mixin for progress-% class
- * ------------------------------------- */
-.progress-0 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(90deg, #ff6347 50%, #2f3439 50%, #2f3439);
 }
-
-.progress-5 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(108deg, #ff6347 50%, #2f3439 50%, #2f3439);
+.block_worker {
+    border: 1px solid darkslategrey;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 4% 5px 4%;
+    background-color: #1ab7ea;
+    height: 230px;
 }
-
-.progress-10 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(126deg, #ff6347 50%, #2f3439 50%, #2f3439);
+.text_last_seance {
+    font-size: 9px;
+    text-align: center;
 }
-
-.progress-15 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(144deg, #ff6347 50%, #2f3439 50%, #2f3439);
+.last_seance_date {
+    font-size: 12px;
+    text-align: center;
 }
-
-.progress-20 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(162deg, #ff6347 50%, #2f3439 50%, #2f3439);
+.icon_last_seance {
+    height: 40px;
+    width: 40px;
 }
-
-.progress-25 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(180deg, #ff6347 50%, #2f3439 50%, #2f3439);
+.link_photo_coach {
+    height: 60px;
+    width: 60px;
 }
-
-.progress-30 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(198deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-35 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(216deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-40 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(234deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-45 {
-    background-image: linear-gradient(90deg, #2f3439 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(252deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-50 {
-    background-image: linear-gradient(-90deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-55 {
-    background-image: linear-gradient(-72deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-60 {
-    background-image: linear-gradient(-54deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-65 {
-    background-image: linear-gradient(-36deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-70 {
-    background-image: linear-gradient(-18deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-75 {
-    background-image: linear-gradient(0deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-80 {
-    background-image: linear-gradient(18deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-85 {
-    background-image: linear-gradient(36deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-90 {
-    background-image: linear-gradient(54deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-95 {
-    background-image: linear-gradient(72deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-
-.progress-100 {
-    background-image: linear-gradient(90deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #2f3439 50%, #2f3439);
-}
-h3 {
-    font-size: 8px;
+.text_next_seance {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
 }

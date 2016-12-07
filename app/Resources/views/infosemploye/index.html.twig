@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Infosemployes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Poids</th>
+                <th>Taille</th>
+                <th>Imc</th>
+                <th>Forme</th>
+                <th>Iduser</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infosEmploye in infosEmployes %}
+            <tr>
+                <td><a href="{{ path('infosemploye_show', { 'id': infosEmploye.id }) }}">{{ infosEmploye.id }}</a></td>
+                <td>{{ infosEmploye.poids }}</td>
+                <td>{{ infosEmploye.taille }}</td>
+                <td>{{ infosEmploye.imc }}</td>
+                <td>{{ infosEmploye.forme }}</td>
+                <td>{{ infosEmploye.idUser }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('infosemploye_show', { 'id': infosEmploye.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('infosemploye_edit', { 'id': infosEmploye.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('infosemploye_new') }}">Create a new infosEmploye</a>
+        </li>
+    </ul>
+{% endblock %}

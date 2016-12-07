@@ -61,7 +61,8 @@ doctrine:
                 mappings:
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
-                    FOSUserBundle: ~                                    # If SonataUserBundle extends it
+                    FOSUserBundle: ~
+                    AlterEgoBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

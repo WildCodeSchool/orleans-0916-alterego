@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Testperves list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Calorie</th>
+                <th>Endurance</th>
+                <th>Souplesse</th>
+                <th>Equilibre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for testPerf in testPerves %}
+            <tr>
+                <td><a href="{{ path('testperf_show', { 'id': testPerf.id }) }}">{{ testPerf.id }}</a></td>
+                <td>{{ testPerf.calorie }}</td>
+                <td>{{ testPerf.endurance }}</td>
+                <td>{{ testPerf.souplesse }}</td>
+                <td>{{ testPerf.equilibre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('testperf_show', { 'id': testPerf.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('testperf_edit', { 'id': testPerf.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('testperf_new') }}">Create a new testPerf</a>
+        </li>
+    </ul>
+{% endblock %}

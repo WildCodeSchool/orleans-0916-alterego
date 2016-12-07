@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Activites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Activite</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Capacite</th>
+                <th>Type</th>
+                <th>Info</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
+                <td>{{ activite.activite }}</td>
+                <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ activite.lieu }}</td>
+                <td>{{ activite.capacite }}</td>
+                <td>{{ activite.type }}</td>
+                <td>{{ activite.info }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('activite_show', { 'id': activite.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('activite_edit', { 'id': activite.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('activite_new') }}">Create a new activite</a>
+        </li>
+    </ul>
+{% endblock %}

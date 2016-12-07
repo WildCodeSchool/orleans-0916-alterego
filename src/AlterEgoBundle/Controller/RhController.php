@@ -5,14 +5,14 @@ namespace AlterEgoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends Controller
+class RhController extends Controller
 {
-    
+
     /**
-     * @Route("/coach")
+     * @Route("/rh")
      */
-    public function coachAction()
+    public function rhAction()
     {
-        return $this->render('AlterEgoBundle:Coach:coach.html.twig');
+        return $this->render('AlterEgoBundle:RH:rh.html.twig');
     }
 }

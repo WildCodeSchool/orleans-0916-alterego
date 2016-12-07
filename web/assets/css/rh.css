@@ -1,6 +1,7 @@
 /*===========================  NAVBAR MOBILE ========================*/
 .navbar {
     position: fixed;
+    z-index: 10;
 }
 
 #navbar_mobile {
@@ -19,15 +20,15 @@
 #navbar_mobile a {
     font-size: 3vmax;
     width: 1.3em;
-    color: orange;
+    color: steelblue;
     padding: 6vh 0 6vh 0;
 }
 
 #shutter{
     position: absolute;
-    width: calc(100vw - 5em);
+    width: calc(100vw - 100px);
     height: 100vh;
-    left: 5em;
+    left: 100px;
     text-align: center;
     -webkit-transform: translateX(-100vw);
     -moz-transform: translateX(-100vw);

@@ -36,7 +36,7 @@ class Entreprise
     private $nom;
 
     /**
-     * @var string
+     * @var text
      *
      * @ORM\Column(name="contact", type="text")
      */

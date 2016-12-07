@@ -72,4 +72,16 @@
     font-size: 5vmin;
     padding: 0;
 }
-/*=====================================================================*/
+
+/*=========================decalage contenu/navbar==========================*/
+
+.content {
+    width: calc(100vw - 100px);
+    margin-left: 100px;
+}
+/*==========================Company page=====================*/
+
+.company_logo {
+    text-align: center;
+    padding: 50px;
+}

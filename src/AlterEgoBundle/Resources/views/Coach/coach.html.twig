@@ -1,89 +1,90 @@
 {% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
-    {% block stylesheets %}
-        {{ parent() }}
-        <link href="//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css" rel="stylesheet" />
-        <link href="http://arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.print.css" rel="stylesheet" />
-    {% endblock %}
 
-    {% block content %}
-        <div class="container-fluid">
-            <div class="row" id="qui">
-                <div class="col-lg-12 profil_picture">
-                    <img src="http://mercipublic.com/wp-content/uploads/2016/08/img-kenny-profil-300x300.jpg" alt="Photo de profile de 'Utilisateur'" class="img-responsive img-circle center-block">
-                </div>
-                <div class="col-lg-12 text-center">
-                    <div class="title_profil">
-                        <h2><i class="fa fa-caret-right"></i>COACH<i class="fa fa-caret-left coach_i"></i></h2>
-                        <h3>BAPTISTE BLOT</h3>
-                    </div>
-                </div>
-                <div class="rating text-center col-lg-6">
-                    <span class="fake_rating">☆</span><span class="fake_rating">☆</span><span class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
-                </div>
-                <!--
-                <div class="col-lg-6 inline-block text-center">
-                    <span class="number_note">3.2/5</span>
-                </div>
-                -->
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="http://arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.print.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row" id="qui">
+            <div class="col-lg-12 profil_picture">
+                <img src="http://mercipublic.com/wp-content/uploads/2016/08/img-kenny-profil-300x300.jpg" alt="Photo de profile de 'Utilisateur'" class="img-responsive img-circle center-block">
             </div>
-            <div class="row" id="create_activity">
-                <div class="col-lg-12 text-center add_block">
-                    <h2 class="add_title">Proposer une Activité</h2>
-                    <a href="#"><p class="add_button"><i class="fa fa-plus-circle"></i></p></a>
+            <div class="col-lg-12 text-center">
+                <div class="title_profil">
+                    <h2><i class="fa fa-caret-right"></i>COACH<i class="fa fa-caret-left coach_i"></i></h2>
+                    <h3>BAPTISTE BLOT</h3>
+                </div>
+            </div>
+            <div class="rating text-center col-lg-6">
+                <span class="fake_rating">☆</span><span class="fake_rating">☆</span><span class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
+            </div>
+            <!--
+            <div class="col-lg-6 inline-block text-center">
+                <span class="number_note">3.2/5</span>
+            </div>
+            -->
+        </div>
+    </div>
+    <div class="container-fluid" id="create_activity">
+        <div class="container text-center add_block">
+            <h2 class="add_title">Proposer une Activité</h2>
+            <a href="#"><p class="add_button"><i class="fa fa-plus-circle"></i></p></a>
+        </div>
+    </div>
+    <div class="container-fluid agenda">
+        <div class="container agenda">
+            <h1 class="text-center titre_agenda">Mon Agenda</h1>
+            <div id='calendar'></div>
+        </div>
+    </div>
+    <div class="container-fluid formation_coach">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="text-center">A Propos de Moi</h2>
+                    <h3>Ma formation:</h3>
+                        <ul class="">
+                            <li>
+                                Diplomé de L'UFR STAPS d'Orléans en 2009, j'exerce depuis en tant que coach sportif dans différentes salles de sports de la Région.
+                            </li>
+                            <li>
+                                Plus récémment, en 2016, j'ai obtenue la certification Coach Alter-Ego.
+                            </li>
+                        </ul>
+                    <h3>Biographie:</h3>
+                        <ul>
+                            <li>
+                                Jeune Prof de 26 ans, pratiquant de manière compétitive le Volley (Nationale 3) et en loisir le Jogging.
+                            </li>
+                        </ul>
+
                 </div>
             </div>
         </div>
-        <div class="container-fluid agenda">
-            <div class="container agenda">
-                <h1 class="text-center titre_agenda">Mon Agenda</h1>
-                <div id='calendar'></div>
-            </div>
-        </div>
-        <div class="container-fluid formation_coach">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 ">
-                        <h2 class="text-center">A Propos de Moi</h2>
-                        <h3>Ma formation:</h3>
-                            <ul class="">
-                                <li>
-                                    Diplomé de L'UFR STAPS d'Orléans en 2009, j'exerce depuis en tant que coach sportif dans différentes salles de sports de la Région.
-                                </li>
-                                <li>
-                                    Plus récémment, en 2016, j'ai obtenue la certification Coach Alter-Ego.
-                                </li>
-                            </ul>
-                        <h3>Biographie:</h3>
-                            <ul>
-                                <li>
-                                    Jeune Prof de 26 ans, pratiquant de manière compétitive le Volley (Nationale 3) et en loisir le Jogging.
-                                </li>
-                            </ul>
+    </div>
+{% endblock %}
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endblock %}
+{% block javascripts %}
+    <script class="cssdesk" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
+    <script class="cssdesk" src="//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
 
-    {% block javascripts %}
-        <script class="cssdesk" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
-        <script class="cssdesk" src="//arshaw.com/js/fullcalendar-1.5.3/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-        <script>
-            $(function () {
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
-
-            $('#calendar').fullCalendar({
-            header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-            },
-            editable: true
-            });
-            });
-        </script>
-    {% endblock %}
+        $('#calendar').fullCalendar({
+        header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+        },
+        editable: true
+        });
+        });
+    </script>
+{% endblock %}

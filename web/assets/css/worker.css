@@ -1,3 +1,86 @@
+/*===========================  NAVBAR MOBILE ========================*/
+.navbar {
+    position: fixed;
+    z-index: 10;
+}
+
+#navbar_mobile {
+    top:0;
+    left: 0;
+    position: fixed;
+    list-style: none;
+    height: 100vh;
+    background-color: #333333;
+    line-height: 20vh;
+    width: 100px;
+    margin: 0;padding: 0;border: 0;
+    text-align: center;
+}
+
+#navbar_mobile a {
+    font-size: 3vmax;
+    width: 1.3em;
+    color: steelblue;
+    padding: 6vh 0 6vh 0;
+}
+
+#shutter{
+    position: absolute;
+    width: calc(100vw - 100px);
+    height: 100vh;
+    left: 100px;
+    text-align: center;
+    -webkit-transform: translateX(-100vw);
+    -moz-transform: translateX(-100vw);
+    -ms-transform: translateX(-100vw);
+    -o-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+    transition-duration: 1.5s;
+}
+
+#shutter:target {
+    display: block;
+    background-color: wheat;
+    animation: translate 1.5s ease forwards;
+
+}
+@keyframes translate {
+    0% {
+        -webkit-transform: translateX(-100vw);
+        -moz-transform: translateX(-100vw);
+        -ms-transform: translateX(-100vw);
+        -o-transform: translateX(-100vw);
+        transform: translateX(-100vw);
+    }
+
+
+    100% {
+        -webkit-transform: translateX(0vw);
+        -moz-transform: translateX(0vw);
+        -ms-transform: translateX(0vw);
+        -o-transform: translateX(0vw);
+        transform: translateX(0vw);
+    }
+}
+
+.close_nav {
+    color: #333333;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    margin-right: 10px;
+    font-size: 5vmin;
+    padding: 0;
+}
+/*=========================decalage contenu/navbar==========================*/
+
+.content {
+    width: calc(100vw - 100px);
+    margin-left: 100px;
+}
+
+/*======================================================================*/
+
 /*---------------CSS WORKER----------------*/
 body {
     background-color: darkslategray;

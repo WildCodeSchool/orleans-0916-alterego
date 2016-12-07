@@ -1,0 +1,21 @@
+{% extends 'AlterEgoBundle:Default:layout_rh.html.twig' %}
+
+
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/rh.css')}}">
+{% endblock %}
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+    {% block content %}
+
+
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}

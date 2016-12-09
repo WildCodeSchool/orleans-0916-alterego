@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Activite
@@ -12,6 +13,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Activite
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="activite")
+     */
+    private $creneaux;
+
+
+
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
+     *
+     */
+    private $user;
+
+
     /**
      * @var int
      *
@@ -217,5 +234,47 @@ class Activite
     {
         return $this->info;
     }
-}
 
+    /**
+     * Set user
+     *
+     * @param \AlterEgoBundle\Entity\User $user
+     *
+     * @return Activite
+     */
+    public function setUser(\AlterEgoBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AlterEgoBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreneaux()
+    {
+        return $this->creneaux;
+    }
+
+    /**
+     * @param mixed $creneaux
+     */
+    public function setCreneaux($creneaux)
+    {
+        $this->creneaux = $creneaux;
+    }
+
+
+
+}

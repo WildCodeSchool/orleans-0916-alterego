@@ -5,13 +5,38 @@ namespace AlterEgoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * InfosEmploye
+ * InfoEmploye
  *
  * @ORM\Table(name="infos_employe")
- * @ORM\Entity(repositoryClass="AlterEgoBundle\Repository\InfosEmployeRepository")
+ * @ORM\Entity(repositoryClass="AlterEgoBundle\Repository\InfoEmployeRepository")
  */
-class InfosEmploye
+class InfoEmploye
 {
+
+    /**
+    * @ORM\OneToOne(targetEntity="TestPerf")
+    */
+    private $testPerf;
+
+    /** @ORM\OneToOne(targetEntity="Reservation")
+    *
+    */
+    private $reservation;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Entreprise", inversedBy="infosEmploye")
+
+     */
+    private $entreprise;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     */
+    private $user;
+
+
     /**
      * @var int
      *
@@ -49,12 +74,12 @@ class InfosEmploye
      */
     private $forme;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     */
-    private $idUser;
+//    /**
+//     * @var int
+//     *
+//     * @ORM\Column(name="id_user", type="integer")
+//     */
+//    private $idUser;
 
 
     /**
@@ -72,7 +97,7 @@ class InfosEmploye
      *
      * @param integer $poids
      *
-     * @return InfosEmploye
+     * @return InfoEmploye
      */
     public function setPoids($poids)
     {
@@ -96,7 +121,7 @@ class InfosEmploye
      *
      * @param integer $taille
      *
-     * @return InfosEmploye
+     * @return InfoEmploye
      */
     public function setTaille($taille)
     {
@@ -120,7 +145,7 @@ class InfosEmploye
      *
      * @param integer $imc
      *
-     * @return InfosEmploye
+     * @return InfoEmploye
      */
     public function setImc($imc)
     {
@@ -144,7 +169,7 @@ class InfosEmploye
      *
      * @param string $forme
      *
-     * @return InfosEmploye
+     * @return InfoEmploye
      */
     public function setForme($forme)
     {
@@ -168,23 +193,90 @@ class InfosEmploye
      *
      * @param integer $idUser
      *
-     * @return InfosEmploye
+     * @return InfoEmploye
      */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
+//    public function setIdUser($idUser)
+//    {
+//        $this->idUser = $idUser;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get idUser
+//     *
+//     * @return int
+//     */
+//    public function getIdUser()
+//    {
+//        return $this->idUser;
+//    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
-     * Get idUser
-     *
-     * @return int
+     * @param mixed $user
      */
-    public function getIdUser()
+    public function setUser($user)
     {
-        return $this->idUser;
+        $this->user = $user;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param mixed $entreprise
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
+
+    /**
+     * @param mixed $reservation
+     */
+    public function setReservation($reservation)
+    {
+        $this->reservation = $reservation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTestPerf()
+    {
+        return $this->testPerf;
+    }
+
+    /**
+     * @param mixed $testPerf
+     */
+    public function setTestPerf($testPerf)
+    {
+        $this->testPerf = $testPerf;
+    }
+
+
+
+
+}

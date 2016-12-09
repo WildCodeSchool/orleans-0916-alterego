@@ -33,19 +33,23 @@
     height: 100vh;
     left: 100px;
     text-align: center;
+    background-color: wheat;
     -webkit-transform: translateX(-100vw);
     -moz-transform: translateX(-100vw);
     -ms-transform: translateX(-100vw);
     -o-transform: translateX(-100vw);
     transform: translateX(-100vw);
+    -webkit-transition-duration: 1.5s;
+    -moz-transition-duration: 1.5s;
+    -ms-transition-duration: 1.5s;
+    -o-transition-duration: 1.5s;
     transition-duration: 1.5s;
+
 }
 
 #shutter:target {
     display: block;
-    background-color: wheat;
-    animation: translate 1.5s ease forwards;
-
+    animation: translate 1s ease forwards;
 }
 @keyframes translate {
     0% {
@@ -87,7 +91,7 @@
 /*---------------CSS COACH----------------*/
 
 body{
-    background-color: lightsteelblue;
+    background-color: #FF6600;
 }
 /* Profil */
 .profil_picture{
@@ -146,7 +150,7 @@ body{
 .add_block a{
     color: #333333;
 }
-.add_title{
+.add_block h2{
     font-weight: bold;
     font-size: 4em;
     border: solid 4px black;
@@ -188,4 +192,19 @@ body{
 }
 .formation_coach li{
     font-size: 2em;
+}
+
+/* Coach Activite */
+.my_activity{
+    background-color: #ffffff;
+}
+.my_activity h1{
+    color: #FF6600;
+}
+.my_list{
+    margin-top: 8px;
+}
+.activity_list h3{
+    background-color: #FF6600;
+    color: #ffffff;
 }

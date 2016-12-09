@@ -8,19 +8,26 @@
 {% block body %}
 
     {% block navbar %}
-        <div class="navbar">
-            <div id="shutter">
-                <a href="#">shutter</a>
-                <a class="fa fa-times close_nav" href="#"></a>
-            </div>
-            <ul id="navbar_mobile">
-                <li><a class="fa fa-home" href="#"></a></li>
-                <li><a class="fa fa-users" href="#"></a></li>
-                <li><a class="fa fa-line-chart" href="#"></a></li>
-                <li><a class="fa fa-heartbeat" href="#"></a></li>
-                <li><a class="fa fa-cogs" href="#shutter"></a></li>
-            </ul>
-        </div>
+        <section class="navbar">
+            <input type="checkbox" id="check_nav" data-target="#">
+            <label id="trans_nav" for="check_nav">
+                <div class="grip_nav container">
+                    <div id="open">
+                        <div class="line_grip grip_1"></div>
+                        <div class="line_grip grip_2"></div>
+                        <div class="line_grip grip_3"></div>
+                    </div>
+                </div>
+                <ul id="navbar_mobile">
+                    <li><a class="fa fa-home" href="#"></a></li>
+                    <li><a class="fa fa-users" href="#"></a></li>
+                    <li><a class="fa fa-line-chart" href="#"></a></li>
+                    <li><a class="fa fa-heartbeat" href="#"></a></li>
+                    <li><a class="fa fa-cogs" href="#"></a></li>
+                    <li><i class="fa fa-times last_child"></i></li>
+                </ul>
+            </label>
+        </section>
     {% endblock %}
     {% block header %}
 
@@ -32,4 +39,4 @@
     {% block footer %}
     {% endblock %}
 
-i{% endblock %}
+{% endblock %}

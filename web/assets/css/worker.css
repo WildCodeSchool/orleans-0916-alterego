@@ -83,74 +83,61 @@
 
 /*---------------CSS WORKER----------------*/
 body {
-    background-color: #01b0f1;
+    background-color: #dedfee;
 }
 .top_worker {
-    height: 250px;
-    width: 250px;
-    margin-top: 10px;
     text-align: center;
-
 }
-.top_worker_zone {
-    margin-bottom: 10px;
+.img_top_w {
+    height: 120px;
+    margin-top: 10px;
 }
-.name_user_worker {
-    font-size: 40px;
+.top_worker_by {
+    text-align: right;
+}
+.by {
+    color: grey;
+    font-size: 55px;
+}
+.img_top_right_w {
+    width: 200px;
+}
+.name_worker {
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+}
+.block_seance_worker {
+    height: 500px;
+    background-color: white;
+    margin: 4%;
+    border-radius: 10px;
+    border-top: 100px solid #42ff18;
+}
+.block_tile2 {
+    margin-top: -100px;
+}
+.ico_clock_worker {
+    height: 80px;
+    width: 100px;
+}
+.title_seance_worker {
+    font-size: 60px;
     font-weight: bold;
     color: white;
-    text-align: center;
-    margin-top: 100px;
 }
-.last_seance {
-    font-size: 14px;
-    text-align: left;
+.time_info_worker {
+    font-size: 60px;
+    margin-top: 8%;
 }
-.next_seance {
-    font-size: 14px;
-    text-align: left;
-
-}
-.block_worker {
-    border-radius: 3px 3px 3px 3px;
-    margin: 5px 4% 5px 4%;
-    background-color: white;
-    height: 350px;
+.datetime_worker {
     text-align: center;
 }
-.text_last_seance {
-    font-size: 30px;
-    text-align: center;
+.start_worker {
+    width: 400px;
 }
-.last_seance_date {
-    font-size: 35px;
-    text-align: center;
-}
-.icon_last_seance {
-    height: 70px;
-    width: 70px;
-    text-align: center;
-}
-.link_photo_coach {
-    height: 180px;
-    width: 180px;
-
-}
-.text_next_seance {
-    font-size: 30px;
+span {
     font-weight: bold;
-    text-align: center;
-}
-.title_h1_worker {
-    font-size: 35px;
-    font-weight: bold;
-    color: #01b0f1;
-    text-align: center;
-}
-.icon_ajout_worker {
-    height: 180px;
-    width: 180px;
-    margin-top: 25px;
 }
 .badges_worker {
     height: 400px;

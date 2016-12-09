@@ -86,13 +86,21 @@ body {
     background-color: #01b0f1;
 }
 .top_worker {
-    height: 100px;
-    width: 100px;
+    height: 250px;
+    width: 250px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+.top_worker_zone {
+    margin-bottom: 10px;
 }
 .name_user_worker {
-    font-size: 14px;
+    font-size: 40px;
+    font-weight: bold;
     color: white;
     text-align: center;
+    margin-top: 100px;
 }
 .last_seance {
     font-size: 14px;
@@ -107,26 +115,54 @@ body {
     border-radius: 3px 3px 3px 3px;
     margin: 5px 4% 5px 4%;
     background-color: white;
-    height: 230px;
+    height: 350px;
+    text-align: center;
 }
 .text_last_seance {
-    font-size: 9px;
+    font-size: 30px;
     text-align: center;
 }
 .last_seance_date {
-    font-size: 12px;
+    font-size: 35px;
     text-align: center;
 }
 .icon_last_seance {
-    height: 40px;
-    width: 40px;
+    height: 70px;
+    width: 70px;
+    text-align: center;
 }
 .link_photo_coach {
-    height: 60px;
-    width: 60px;
+    height: 180px;
+    width: 180px;
+
 }
 .text_next_seance {
-    font-size: 10px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
+}
+.title_h1_worker {
+    font-size: 35px;
+    font-weight: bold;
+    color: #01b0f1;
+    text-align: center;
+}
+.icon_ajout_worker {
+    height: 180px;
+    width: 180px;
+    margin-top: 25px;
+}
+.badges_worker {
+    height: 400px;
+    background-color: white;
+    margin: 4%;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+}
+.title1_badge {
+
+}
+.badges_worker_challenge {
+    border-top: 100px solid darkblue;
+    height: 600px;
 }

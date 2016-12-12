@@ -108,11 +108,12 @@ body {
     font-weight: bold;
 }
 .block_seance_worker {
-    height: 500px;
+    height: 550px;
     background-color: white;
     margin: 4%;
     border-radius: 10px;
     border-top: 100px solid #42ff18;
+    box-shadow: 0 10px 10px 0 black;
 }
 .block_tile2 {
     margin-top: -100px;
@@ -132,6 +133,10 @@ body {
 }
 .datetime_worker {
     text-align: center;
+    margin-top: -20px;
+}
+.lieu_worker {
+    font-size: 40px;
 }
 .start_worker {
     width: 400px;
@@ -146,10 +151,23 @@ span {
     text-align: center;
     border-radius: 10px 10px 10px 10px;
 }
-.title1_badge {
-
+.block_rhnews_worker {
+    height: 350px;
+    background-color: white;
+    margin: 4%;
+    border-radius: 10px;
+    border-top: 100px solid blue;
+    box-shadow: 0 10px 10px 0 black;
+}
+.rh_news {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 25px;
 }
 .badges_worker_challenge {
     border-top: 100px solid darkblue;
     height: 600px;
+}
+.ico_clock_worker {
+
 }

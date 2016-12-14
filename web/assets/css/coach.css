@@ -110,10 +110,10 @@ body{
 
 /* Coach Activite */
 .my_activity{
-    background-color: #ffffff;
+    background-color: #FF6600;
 }
 .my_activity h1{
-    color: #FF6600;
+    color: white;
 }
 .my_list{
     margin-top: 8px;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Sonata\UserBundle\Redirection;
+namespace AlterEgoBundle\Redirection;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -47,7 +47,9 @@ security:
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null
-            logout:             true
+                success_handler: redirect.after.login
+            logout:
+                success_handler: redirect.after.logout
             anonymous:          true
 
     access_control:

@@ -1,87 +1,5 @@
-/*===========================  NAVBAR MOBILE ========================*/
-.navbar {
-    position: fixed;
-    z-index: 10;
-}
-
-#navbar_mobile {
-    top:0;
-    left: 0;
-    position: fixed;
-    list-style: none;
-    height: 100vh;
-    background-color: #333333;
-    line-height: 20vh;
-    width: 100px;
-    margin: 0;padding: 0;border: 0;
-    text-align: center;
-}
-
-#navbar_mobile a {
-    font-size: 3vmax;
-    width: 1.3em;
-    color: steelblue;
-    padding: 6vh 0 6vh 0;
-}
-
-#shutter{
-    position: absolute;
-    width: calc(100vw - 100px);
-    height: 100vh;
-    left: 100px;
-    text-align: center;
-    -webkit-transform: translateX(-100vw);
-    -moz-transform: translateX(-100vw);
-    -ms-transform: translateX(-100vw);
-    -o-transform: translateX(-100vw);
-    transform: translateX(-100vw);
-    transition-duration: 1.5s;
-}
-
-#shutter:target {
-    display: block;
-    background-color: wheat;
-    animation: translate 1.5s ease forwards;
-
-}
-@keyframes translate {
-    0% {
-        -webkit-transform: translateX(-100vw);
-        -moz-transform: translateX(-100vw);
-        -ms-transform: translateX(-100vw);
-        -o-transform: translateX(-100vw);
-        transform: translateX(-100vw);
-    }
-
-
-    100% {
-        -webkit-transform: translateX(0vw);
-        -moz-transform: translateX(0vw);
-        -ms-transform: translateX(0vw);
-        -o-transform: translateX(0vw);
-        transform: translateX(0vw);
-    }
-}
-
-.close_nav {
-    color: #333333;
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-    margin-right: 10px;
-    font-size: 5vmin;
-    padding: 0;
-}
-/*=========================decalage contenu/navbar==========================*/
-
-.content {
-    width: calc(100vw - 100px);
-    margin-left: 100px;
-}
-
-/*======================================================================*/
-
 /*---------------CSS WORKER----------------*/
+/*---------------Home Page-----------------*/
 body {
     background-color: #dedfee;
 }
@@ -110,9 +28,9 @@ body {
 .block_seance_worker {
     height: 550px;
     background-color: white;
-    margin: 4%;
+    margin: 5%;
     border-radius: 10px;
-    border-top: 100px solid #42ff18;
+    border-top: 100px solid #04cd16;
     box-shadow: 0 10px 10px 0 black;
 }
 .block_tile2 {
@@ -154,7 +72,7 @@ span {
 .block_rhnews_worker {
     height: 350px;
     background-color: white;
-    margin: 4%;
+    margin: 5%;
     border-radius: 10px;
     border-top: 100px solid blue;
     box-shadow: 0 10px 10px 0 black;
@@ -170,4 +88,80 @@ span {
 }
 .ico_clock_worker {
 
+}
+/*---------------Settings Page-----------------*/
+.flipswitch {
+    position: relative;
+    width: 130px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+}
+.flipswitch input[type=checkbox] {
+    display: none;
+}
+.flipswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 40px;
+}
+.flipswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -ms-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+.flipswitch-inner:before, .flipswitch-inner:after {
+    float: left;
+    width: 50%;
+    height: 65px;
+    padding: 0;
+    line-height: 42px;
+    font-size: 24px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.flipswitch-inner:before {
+    content: "";
+    padding-left: 12px;
+    background-color: #04cd16;
+    color: #FFFFFF;
+}
+.flipswitch-inner:after {
+    content: "";
+    padding-right: 12px;
+    background-color: #EBEBEB;
+    color: #888888;
+    text-align: right;
+}
+.flipswitch-switch {
+    width: 60px;
+    margin: 5.5px;
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 45px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -moz-transition: all 0.3s ease-in 0s;
+    -ms-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+    margin-left: 0;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+    right: 0;
 }

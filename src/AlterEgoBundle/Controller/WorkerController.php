@@ -31,4 +31,12 @@ class WorkerController extends Controller
         return $this->render('AlterEgoBundle:Worker:friends.html.twig');
     }
 
+    /**
+     * @Route("/worker/settings")
+     */
+    public function settingsAction()
+    {
+        return $this->render('AlterEgoBundle:Worker:settings.html.twig');
+    }
+
 }

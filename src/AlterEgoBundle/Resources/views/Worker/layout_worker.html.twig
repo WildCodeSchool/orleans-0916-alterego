@@ -18,11 +18,13 @@
                        </div>
                    </div>
                    <ul id="navbar_mobile">
-                       <li><a class="fa fa-home" href="#"></a></li>
-                       <li><a class="fa fa-users" href="#"></a></li>
-                       <li><a class="fa fa-line-chart" href="#"></a></li>
-                       <li><a class="fa fa-heartbeat" href="#"></a></li>
-                       <li><a class="fa fa-cogs" href="#"></a></li>
+                       <li><a class="fa fa-home" href="{{ path('worker') }}"></a></li>
+                       <li><a class="fa fa-trophy" href="{{ path('badges') }}"></a></li>
+                       <li><a class="fa fa-users" href="{{ path('friends') }}"></a></li>
+                       <li><a class="fa fa-play-circle-o" href="{{ path('seances') }}"></a></li>
+                       <li><a class="fa fa-calendar" href="{{ path('reservation') }}"></a></li>
+                       <li><a class="fa fa-line-chart" href="{{ path('performances') }}"></a></li>
+                       <li><a class="fa fa-cogs" href="{{ path('settings') }}"></a></li>
                        <li><i class="fa fa-times last_child"></i></li>
                    </ul>
                </label>

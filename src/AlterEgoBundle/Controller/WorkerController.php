@@ -8,7 +8,7 @@ use FOS\RestBundle\Controller\Annotations\Route;
 class WorkerController extends Controller
 {
     /**
-     * @Route("/worker")
+     * @Route("/worker", name="worker")
      */
     public function workerAction()
     {
@@ -16,7 +16,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/badges")
+     * @Route("/worker/badges", name="badges")
      */
     public function badgesAction()
     {
@@ -24,7 +24,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/friends")
+     * @Route("/worker/friends", name="friends")
      */
     public function friendsAction()
     {
@@ -32,11 +32,35 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/settings")
+     * @Route("/worker/settings", name="settings")
      */
     public function settingsAction()
     {
         return $this->render('AlterEgoBundle:Worker:settings.html.twig');
+    }
+
+    /**
+     * @Route("/worker/performances", name="performances")
+     */
+    public function performancesAction()
+    {
+        return $this->render('AlterEgoBundle:Worker:performances.html.twig');
+    }
+
+    /**
+     * @Route("/worker/reservation", name="reservation")
+     */
+    public function reservationAction()
+    {
+        return $this->render('AlterEgoBundle:Worker:reservation.html.twig');
+    }
+
+    /**
+     * @Route("/worker/seances", name="seances")
+     */
+    public function seancesAction()
+    {
+        return $this->render('AlterEgoBundle:Worker:seances.html.twig');
     }
 
 }

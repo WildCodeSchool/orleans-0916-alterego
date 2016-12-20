@@ -13,7 +13,9 @@ class CreneauType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('activiteIdactivite')->add('dateheure')->add('duree')        ;
+        $builder->add('activiteIdactivite')
+                ->add('dateheure')
+                ->add('duree')        ;
     }
     
     /**

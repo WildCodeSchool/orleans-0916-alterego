@@ -9,7 +9,7 @@ class RhController extends Controller
 {
 
     /**
-     * @Route("/rh")
+     * @Route("/rh", name="route_rh")
      */
     public function rhAction()
     {

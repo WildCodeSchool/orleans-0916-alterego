@@ -39,10 +39,16 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         // S'il s'agit d'un admin ou d'un super admin on le redirige vers le backoffice
         if (in_array('ROLE_ADMIN', $rolesTab, true) || in_array('ROLE_SUPER_ADMIN', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
-        // sinon, s'il s'agit d'un commercial on le redirige vers le CRM
+        // sinon il s'agit d'un coach
         elseif (in_array('ROLE_COACH', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('alterego_coach_coach'));
-        // sinon il s'agit d'un membre
+        // sinon il s'agit d'un worker
+        elseif (in_array('ROLE_WORKER', $rolesTab, true))
+            $redirection = new RedirectResponse($this->router->generate('route_worker'));
+        // sinon il s'agit d'un RH
+        elseif (in_array('ROLE_RH', $rolesTab, true))
+            $redirection = new RedirectResponse($this->router->generate('route_rh'));
+        // sinon il s'agit d'une erreur
         else
             $redirection = new RedirectResponse($this->router->generate(''));
 

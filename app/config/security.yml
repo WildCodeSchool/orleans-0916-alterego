@@ -3,6 +3,8 @@
 security:
     role_hierarchy:
             ROLE_COACH:       [ROLE_USER, ROLE_COACH]
+            ROLE_WORKER:       [ROLE_WORKER, ROLE_WORKER]
+            ROLE_RH:       [ROLE_RH, ROLE_RH]
             ROLE_ADMIN:       [ROLE_USER, ROLE_SONATA_ADMIN]
             ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
             SONATA:

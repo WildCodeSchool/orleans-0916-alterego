@@ -8,7 +8,7 @@ use FOS\RestBundle\Controller\Annotations\Route;
 class WorkerController extends Controller
 {
     /**
-     * @Route("/worker")
+     * @Route("/worker", name="route_worker")
      */
     public function workerAction()
     {

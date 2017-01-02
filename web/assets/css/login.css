@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'alterFont';
+    src:    url('../font/Cera-Pro.otf') format('truetype'),
+    url('../font/Cera-ProBold.otf') format('bold'),
+    url('../font/Cera-ProItalic.otf') format('italic');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    body {
+        background-image: url("../images/fond2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: alterFont;
+
+    }
+
+    input[type=text], input[type=password] {
+        border-radius: 0 10px 10px 0;
+        margin: 5px;
+        padding: 5px;
+        height: 40px;
+        border: none;
+        margin-left: -2px;
+    }
+
+
+
+
+i {
+    text-align: center;
+    background-color: #d9d9d9;
+    border-radius: 10px 0 0 10px ;
+    font-size: 20px;
+    padding: 12px;
+    width: 15px;
+
+}
+
+.logo_group {
+     position: fixed;
+     bottom: 30px;
+     left: 0;
+     width: 50vw;
+     background-color: rgba(244, 244, 244, 0.6);
+     padding: 10px 25vw 10px 25vw;
+ }
+
+.content {
+    text-align: center;
+    position: absolute;
+    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+}
+
+table {
+    margin: auto;
+}
+
+.remember {
+    margin: 15px;
+
+}
+
+.remember_label {
+    background-color: #d9d9d9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #00aff2;
+    height: 50px;
+    width: 125px;
+    color: white;
+    font-size: 15px;
+}

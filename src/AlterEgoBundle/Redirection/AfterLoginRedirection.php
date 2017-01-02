@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Sonata\UserBundle\Redirection;
+namespace AlterEgoBundle\Redirection;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,7 +44,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('alterego_coach_coach'));
         // sinon il s'agit d'un membre
         else
-            $redirection = new RedirectResponse($this->router->generate('a'));
+            $redirection = new RedirectResponse($this->router->generate(''));
 
         return $redirection;
     }

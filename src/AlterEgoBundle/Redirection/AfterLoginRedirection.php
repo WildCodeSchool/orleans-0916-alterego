@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Sonata\UserBundle\Redirection;
+namespace AlterEgoBundle\Redirection;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,6 +45,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         // sinon il s'agit d'un membre
         else
             $redirection = new RedirectResponse($this->router->generate('worker'));
+
 
         return $redirection;
     }

@@ -5,10 +5,13 @@ namespace AlterEgoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations\Route;
 
+/**
+ * @Route("/worker", name="worker")
+ */
 class WorkerController extends Controller
 {
     /**
-     * @Route("/worker", name="worker")
+     * @Route("/", name="worker_index")
      */
     public function workerAction()
     {
@@ -16,7 +19,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/badges", name="badges")
+     * @Route("/badges", name="badges")
      */
     public function badgesAction()
     {
@@ -24,7 +27,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/friends", name="friends")
+     * @Route("/friends", name="friends")
      */
     public function friendsAction()
     {
@@ -32,7 +35,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/settings", name="settings")
+     * @Route("/settings", name="settings")
      */
     public function settingsAction()
     {
@@ -40,7 +43,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/performances", name="performances")
+     * @Route("/performances", name="performances")
      */
     public function performancesAction()
     {
@@ -48,7 +51,7 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/reservation", name="reservation")
+     * @Route("/reservation", name="reservation")
      */
     public function reservationAction()
     {
@@ -56,11 +59,13 @@ class WorkerController extends Controller
     }
 
     /**
-     * @Route("/worker/seances", name="seances")
+     * @Route("/seances", name="seances")
      */
     public function seancesAction()
     {
-        return $this->render('AlterEgoBundle:Worker:seances.html.twig');
+        $em=$this->getDoctrine()->getManager();
+        $seances=$em->getRepository('AlterEgoBundle:Activite')->findAll();
+        return $this->render('AlterEgoBundle:Worker:seances.html.twig', array('seances' => $seances));
     }
 
 }

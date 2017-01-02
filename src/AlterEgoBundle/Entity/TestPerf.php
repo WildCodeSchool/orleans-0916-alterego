@@ -156,4 +156,3 @@ class TestPerf
         return $this->equilibre;
     }
 }
-

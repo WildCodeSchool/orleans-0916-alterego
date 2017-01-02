@@ -94,4 +94,3 @@ class Reservation
         return $this->noteCoach;
     }
 }
-

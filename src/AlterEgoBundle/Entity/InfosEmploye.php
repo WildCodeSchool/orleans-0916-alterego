@@ -187,4 +187,3 @@ class InfosEmploye
         return $this->idUser;
     }
 }
-

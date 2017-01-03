@@ -80,13 +80,6 @@ class Activite
      */
     private $info;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="presence", type="text")
-     */
-    private $presence;
-
 
     /**
      * Get id
@@ -267,6 +260,14 @@ class Activite
     }
 
     /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * @return mixed
      */
     public function getCreneaux()
@@ -285,18 +286,34 @@ class Activite
 
 
     /**
-     * @return string
+     * Constructor
      */
-    public function getPresence()
+    public function __construct()
     {
-        return $this->presence;
+        $this->creneaux = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * @param string $presence
+     * Add creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     *
+     * @return Activite
      */
-    public function setPresence($presence)
+    public function addCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
     {
-        $this->presence = $presence;
+        $this->creneaux[] = $creneaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     */
+    public function removeCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux->removeElement($creneaux);
     }
 }

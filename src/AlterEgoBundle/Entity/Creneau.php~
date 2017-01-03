@@ -12,6 +12,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Creneau
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Activite", inversedBy="creneaux")
+     */
+    private $activite;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="TestPerf", mappedBy="creneau")
+     */
+    private $testsPerf;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Reservation", mappedBy="creneau")
+     */
+    private $reservations;
+
+
     /**
      * @var int
      *
@@ -124,5 +144,55 @@ class Creneau
     {
         return $this->duree;
     }
-}
 
+    /**
+     * @return mixed
+     */
+    public function getTestsPerf()
+    {
+        return $this->testsPerf;
+    }
+
+    /**
+     * @param mixed $testsPerf
+     */
+    public function setTestsPerf($testsPerf)
+    {
+        $this->testsPerf = $testsPerf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations)
+    {
+        $this->reservations = $reservations;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * @param mixed $activite
+     */
+    public function setActivite($activite)
+    {
+        $this->activite = $activite;
+    }
+
+
+
+}

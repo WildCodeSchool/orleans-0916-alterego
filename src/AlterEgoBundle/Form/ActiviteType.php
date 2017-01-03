@@ -19,8 +19,7 @@ class ActiviteType extends AbstractType
                 ->add('capacite')
                 ->add('type')
                 ->add('info')
-                ->add('info')
-                ->add('presence');
+                ->add('info');
     }
     
     /**

@@ -193,4 +193,60 @@ class Creneau
         $this->activite = $activite;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->testsPerf = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add testsPerf
+     *
+     * @param \AlterEgoBundle\Entity\TestPerf $testsPerf
+     *
+     * @return Creneau
+     */
+    public function addTestsPerf(\AlterEgoBundle\Entity\TestPerf $testsPerf)
+    {
+        $this->testsPerf[] = $testsPerf;
+
+        return $this;
+    }
+
+    /**
+     * Remove testsPerf
+     *
+     * @param \AlterEgoBundle\Entity\TestPerf $testsPerf
+     */
+    public function removeTestsPerf(\AlterEgoBundle\Entity\TestPerf $testsPerf)
+    {
+        $this->testsPerf->removeElement($testsPerf);
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     *
+     * @return Creneau
+     */
+    public function addReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
 }

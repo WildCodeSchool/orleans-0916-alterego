@@ -163,6 +163,7 @@ class Entreprise
 
     /**
      * @return mixed
+
      */
     public function getInfosEmploye()
     {
@@ -175,6 +176,63 @@ class Entreprise
     public function setInfosEmploye($infosEmploye)
     {
         $this->infosEmploye = $infosEmploye;
+
+
+//
+//    /**
+//     * Set idUser
+//     *
+//     * @param integer $idUser
+//     *
+//     * @return Entreprise
+//     */
+//    public function setIdUser($idUser)
+//    {
+//        $this->idUser = $idUser;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get idUser
+//     *
+//     * @return int
+//     */
+//    public function getIdUser()
+//    {
+//        return $this->idUser;
+//    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->infosEmploye = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add infosEmploye
+     *
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
+     *
+     * @return Entreprise
+     */
+    public function addInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
+    {
+        $this->infosEmploye[] = $infosEmploye;
+
+        return $this;
+    }
+
+    /**
+     * Remove infosEmploye
+     *
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
+     */
+    public function removeInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
+    {
+        $this->infosEmploye->removeElement($infosEmploye);
+
     }
 
 

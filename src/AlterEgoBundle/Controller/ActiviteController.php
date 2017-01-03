@@ -73,6 +73,21 @@ class ActiviteController extends Controller
         ));
     }
 
+
+    /**
+     * Finds and displays a activite entity.
+     *
+     * @Route("/worker/{id}", name="seance_show")
+     * @Method("GET")
+     */
+    public function seancesShowAction(Activite $activite)
+    {
+        return $this->render('activite/show_worker.html.twig', array(
+            'activite' => $activite,
+        ));
+    }
+
+
     /**
      * Displays a form to edit an existing activite entity.
      *

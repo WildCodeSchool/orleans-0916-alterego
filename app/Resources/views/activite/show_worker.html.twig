@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Activite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ activite.id }}</td>
+            </tr>
+            <tr>
+                <th>Activite</th>
+                <td>{{ activite.activite }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ activite.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Capacite</th>
+                <td>{{ activite.capacite }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ activite.type }}</td>
+            </tr>
+            <tr>
+                <th>Info</th>
+                <td>{{ activite.info }}</td>
+            </tr>
+            <tr>
+                <th>Presence</th>
+                <td>{{ activite.presence }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('seances') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

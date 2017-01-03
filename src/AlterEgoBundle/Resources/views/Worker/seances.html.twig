@@ -7,7 +7,7 @@
 {% block content %}
     <ul>
 {% for seance in seances %}
-    <li>{{ seance.activite }} {{ seance.date|date('Y-m-d H:i:s') }} {{ seance.lieu }}{{ seance.capacite }}  <a href="{{ path('activite_show', { 'id': seance.id }) }}">En savoir / Réserver</a></li>
+    <li>{{ seance.activite }} {{ seance.date|date('Y-m-d H:i:s') }} {{ seance.lieu }}{{ seance.capacite }}  <a href="{{ path('seance_show', { 'id': seance.id }) }}">En savoir / Réserver</a></li>
  {% endfor %}
     </ul>
 {% endblock %}

@@ -12,6 +12,26 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Creneau
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Activite", inversedBy="creneaux")
+     */
+    private $activite;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="TestPerf", mappedBy="creneau")
+     */
+    private $testsPerf;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Reservation", mappedBy="creneau")
+     */
+    private $reservations;
+
+
     /**
      * @var int
      *
@@ -123,5 +143,112 @@ class Creneau
     public function getDuree()
     {
         return $this->duree;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTestsPerf()
+    {
+        return $this->testsPerf;
+    }
+
+    /**
+     * @param mixed $testsPerf
+     */
+    public function setTestsPerf($testsPerf)
+    {
+        $this->testsPerf = $testsPerf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations)
+    {
+        $this->reservations = $reservations;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * @param mixed $activite
+     */
+    public function setActivite($activite)
+    {
+        $this->activite = $activite;
+    }
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->testsPerf = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add testsPerf
+     *
+     * @param \AlterEgoBundle\Entity\TestPerf $testsPerf
+     *
+     * @return Creneau
+     */
+    public function addTestsPerf(\AlterEgoBundle\Entity\TestPerf $testsPerf)
+    {
+        $this->testsPerf[] = $testsPerf;
+
+        return $this;
+    }
+
+    /**
+     * Remove testsPerf
+     *
+     * @param \AlterEgoBundle\Entity\TestPerf $testsPerf
+     */
+    public function removeTestsPerf(\AlterEgoBundle\Entity\TestPerf $testsPerf)
+    {
+        $this->testsPerf->removeElement($testsPerf);
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     *
+     * @return Creneau
+     */
+    public function addReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
     }
 }

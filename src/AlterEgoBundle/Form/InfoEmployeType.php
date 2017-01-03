@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class InfosEmployeType extends AbstractType
+class InfoEmployeType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,14 +19,14 @@ class InfosEmployeType extends AbstractType
                 ->add('forme')
                 ->add('idUser')        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AlterEgoBundle\Entity\InfosEmploye'
+            'data_class' => 'AlterEgoBundle\Entity\InfoEmploye'
         ));
     }
 
@@ -35,7 +35,7 @@ class InfosEmployeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'alteregobundle_infosemploye';
+        return 'alteregobundle_infoemploye';
     }
 
 

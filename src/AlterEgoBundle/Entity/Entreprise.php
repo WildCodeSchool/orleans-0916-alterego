@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Entreprise
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="InfoEmploye", mappedBy="entreprise")
+     */
+    private $infosEmploye;
+
+
     /**
      * @var int
      *
@@ -20,6 +27,28 @@ class Entreprise
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="entreprise")
+     *
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * @var string
@@ -42,12 +71,12 @@ class Entreprise
      */
     private $contact;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     */
-    private $idUser;
+//    /**
+//     * @var int
+//     *
+//     * @ORM\Column(name="id_user", type="integer")
+//     */
+//    private $idUser;
 
 
     /**
@@ -133,26 +162,75 @@ class Entreprise
     }
 
     /**
-     * Set idUser
+     * @return mixed
+     */
+    public function getInfosEmploye()
+    {
+        return $this->infosEmploye;
+    }
+
+    /**
+     * @param mixed $infosEmploye
+     */
+    public function setInfosEmploye($infosEmploye)
+    {
+        $this->infosEmploye = $infosEmploye;
+    }
+
+
+//
+//    /**
+//     * Set idUser
+//     *
+//     * @param integer $idUser
+//     *
+//     * @return Entreprise
+//     */
+//    public function setIdUser($idUser)
+//    {
+//        $this->idUser = $idUser;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get idUser
+//     *
+//     * @return int
+//     */
+//    public function getIdUser()
+//    {
+//        return $this->idUser;
+//    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->infosEmploye = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add infosEmploye
      *
-     * @param integer $idUser
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
      *
      * @return Entreprise
      */
-    public function setIdUser($idUser)
+    public function addInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
     {
-        $this->idUser = $idUser;
+        $this->infosEmploye[] = $infosEmploye;
 
         return $this;
     }
 
     /**
-     * Get idUser
+     * Remove infosEmploye
      *
-     * @return int
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
      */
-    public function getIdUser()
+    public function removeInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
     {
-        return $this->idUser;
+        $this->infosEmploye->removeElement($infosEmploye);
     }
 }

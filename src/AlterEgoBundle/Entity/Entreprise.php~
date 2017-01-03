@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Entreprise
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="InfoEmploye", mappedBy="entreprise")
+     */
+    private $infosEmploye;
+
+
     /**
      * @var int
      *
@@ -20,6 +27,28 @@ class Entreprise
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="entreprise")
+     *
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * @var string
@@ -42,12 +71,12 @@ class Entreprise
      */
     private $contact;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     */
-    private $idUser;
+//    /**
+//     * @var int
+//     *
+//     * @ORM\Column(name="id_user", type="integer")
+//     */
+//    private $idUser;
 
 
     /**
@@ -133,27 +162,44 @@ class Entreprise
     }
 
     /**
-     * Set idUser
-     *
-     * @param integer $idUser
-     *
-     * @return Entreprise
+     * @return mixed
      */
-    public function setIdUser($idUser)
+    public function getInfosEmploye()
     {
-        $this->idUser = $idUser;
-
-        return $this;
+        return $this->infosEmploye;
     }
 
     /**
-     * Get idUser
-     *
-     * @return int
+     * @param mixed $infosEmploye
      */
-    public function getIdUser()
+    public function setInfosEmploye($infosEmploye)
     {
-        return $this->idUser;
+        $this->infosEmploye = $infosEmploye;
     }
-}
 
+
+//
+//    /**
+//     * Set idUser
+//     *
+//     * @param integer $idUser
+//     *
+//     * @return Entreprise
+//     */
+//    public function setIdUser($idUser)
+//    {
+//        $this->idUser = $idUser;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get idUser
+//     *
+//     * @return int
+//     */
+//    public function getIdUser()
+//    {
+//        return $this->idUser;
+//    }
+}

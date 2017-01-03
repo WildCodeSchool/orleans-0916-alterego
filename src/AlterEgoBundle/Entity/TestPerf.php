@@ -12,6 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TestPerf
 {
+
+    /**
+    * @ORM\OneToOne(targetEntity="InfoEmploye")
+    */
+    private $infoEmploye;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Creneau", inversedBy="testsPerf")
+     */
+    private $creneau;
+
+
+
+
+
     /**
      * @var int
      *
@@ -155,4 +170,39 @@ class TestPerf
     {
         return $this->equilibre;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCreneau()
+    {
+        return $this->creneau;
+    }
+
+    /**
+     * @param mixed $creneau
+     */
+    public function setCreneau($creneau)
+    {
+        $this->creneau = $creneau;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInfoEmploye()
+    {
+        return $this->infoEmploye;
+    }
+
+    /**
+     * @param mixed $infoEmploye
+     */
+    public function setInfoEmploye($infoEmploye)
+    {
+        $this->infoEmploye = $infoEmploye;
+    }
+
+
+
 }

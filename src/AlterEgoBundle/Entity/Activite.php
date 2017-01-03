@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Activite
@@ -12,6 +13,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Activite
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="activite")
+     */
+    private $creneaux;
+
+
+
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
+     *
+     */
+    private $user;
+
+
     /**
      * @var int
      *
@@ -62,13 +79,6 @@ class Activite
      * @ORM\Column(name="info", type="text")
      */
     private $info;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="presence", type="text")
-     */
-    private $presence;
 
 
     /**
@@ -226,18 +236,76 @@ class Activite
     }
 
     /**
-     * @return string
+     * Set user
+     *
+     * @param \AlterEgoBundle\Entity\User $user
+     *
+     * @return Activite
      */
-    public function getPresence()
+    public function setUser(\AlterEgoBundle\Entity\User $user = null)
     {
-        return $this->presence;
+        $this->user = $user;
+
+        return $this;
     }
 
     /**
-     * @param string $presence
+     * Get user
+     *
+     * @return \AlterEgoBundle\Entity\User
      */
-    public function setPresence($presence)
+    public function getUser()
     {
-        $this->presence = $presence;
+        return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreneaux()
+    {
+        return $this->creneaux;
+    }
+
+    /**
+     * @param mixed $creneaux
+     */
+    public function setCreneaux($creneaux)
+    {
+        $this->creneaux = $creneaux;
+    }
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->creneaux = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     *
+     * @return Activite
+     */
+    public function addCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux[] = $creneaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     */
+    public function removeCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux->removeElement($creneaux);
     }
 }

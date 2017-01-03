@@ -1,16 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Activite creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('activite_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="container well text-center">
+        <h1>Création d'une Activité</h1>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.activite, "Nom de l'activité", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                    {{ form_widget(form.activite) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                {{ form_widget(form.date) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.capacite, "Capacité", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                {{ form_widget(form.capacite) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.lieu, "Lieu de l'activité", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                {{ form_widget(form.lieu) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.type, "Type", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                {{ form_widget(form.type) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {{ form_label(form.info, "Détails Activité", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                <div class="col-sm-8">
+                {{ form_widget(form.info) }}
+                </div>
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-success" type="submit" value="Créer !" />
+        </div>
+        <div>
+            <a class="btn btn-primary" href="{{ path('activite_index') }}">Retourner à la liste de Mes Activités</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

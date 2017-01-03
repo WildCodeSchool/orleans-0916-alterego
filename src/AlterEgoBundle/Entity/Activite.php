@@ -4,6 +4,7 @@ namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Activite
  *
@@ -63,7 +64,35 @@ class Activite
      */
     private $info;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presence", type="text")
+     */
+    private $presence;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="activites")
+     */
+    private $creneaux;
+
+    /**
+     * @return mixed
+     */
+    public function getCreneaux()
+    {
+        return $this->creneaux;
+    }
+
+    /**
+     * @param mixed $creneaux
+     */
+    public function setCreneaux($creneaux)
+    {
+        $this->creneaux = $creneaux;
+    }
+
+    
     /**
      * Get id
      *
@@ -217,5 +246,51 @@ class Activite
     {
         return $this->info;
     }
-}
 
+    /**
+     * @return string
+     */
+    public function getPresence()
+    {
+        return $this->presence;
+    }
+
+    /**
+     * @param string $presence
+     */
+    public function setPresence($presence)
+    {
+        $this->presence = $presence;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->creneaux = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     *
+     * @return Activite
+     */
+    public function addCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux[] = $creneaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     */
+    public function removeCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux->removeElement($creneaux);
+    }
+}

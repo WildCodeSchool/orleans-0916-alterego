@@ -49,6 +49,26 @@ class TestPerf
      */
     private $equilibre;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="perfs")
+     */
+    private $creneau;
+
+    /**
+     * @return mixed
+     */
+    public function getCreneau()
+    {
+        return $this->creneau;
+    }
+
+    /**
+     * @param mixed $creneau
+     */
+    public function setCreneau($creneau)
+    {
+        $this->creneau = $creneau;
+    }
 
     /**
      * Get id
@@ -154,6 +174,37 @@ class TestPerf
     public function getEquilibre()
     {
         return $this->equilibre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->creneau = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add creneau
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneau
+     *
+     * @return TestPerf
+     */
+    public function addCreneau(\AlterEgoBundle\Entity\Creneau $creneau)
+    {
+        $this->creneau[] = $creneau;
+
+        return $this;
+    }
+
+    /**
+     * Remove creneau
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneau
+     */
+    public function removeCreneau(\AlterEgoBundle\Entity\Creneau $creneau)
+    {
+        $this->creneau->removeElement($creneau);
     }
 }
 

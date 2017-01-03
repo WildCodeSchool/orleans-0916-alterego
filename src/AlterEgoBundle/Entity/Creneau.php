@@ -42,7 +42,71 @@ class Creneau
      */
     private $duree;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Activite", inversedBy="creneaux")
+     */
+    private $activite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Reservation", inversedBy="creneau")
+     */
+    private $reservations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TestPerf", inversedBy="creneau")
+     */
+    private $perfs;
+
+    /**
+     * @return mixed
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * @param mixed $activite
+     */
+    public function setActivite($activite)
+    {
+        $this->activite = $activite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations)
+    {
+        $this->reservations = $reservations;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPerfs()
+    {
+        return $this->perfs;
+    }
+
+    /**
+     * @param mixed $perfs
+     */
+    public function setPerfs($perfs)
+    {
+        $this->perfs = $perfs;
+    }
+    
+    
+    
     /**
      * Get id
      *
@@ -123,6 +187,37 @@ class Creneau
     public function getDuree()
     {
         return $this->duree;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->activites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     *
+     * @return Creneau
+     */
+    public function addActivite(\AlterEgoBundle\Entity\Activite $activite)
+    {
+        $this->activites[] = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Remove activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     */
+    public function removeActivite(\AlterEgoBundle\Entity\Activite $activite)
+    {
+        $this->activites->removeElement($activite);
     }
 }
 

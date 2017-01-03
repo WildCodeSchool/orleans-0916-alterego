@@ -13,7 +13,10 @@ class TestPerfType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('calorie')->add('endurance')->add('souplesse')->add('equilibre')        ;
+        $builder->add('calorie')
+                ->add('endurance')
+                ->add('souplesse')
+                ->add('equilibre')        ;
     }
     
     /**

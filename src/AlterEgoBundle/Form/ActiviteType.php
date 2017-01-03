@@ -13,7 +13,14 @@ class ActiviteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('activite')->add('date')->add('lieu')->add('capacite')->add('type')->add('info')        ;
+        $builder->add('activite')
+                ->add('date')
+                ->add('lieu')
+                ->add('capacite')
+                ->add('type')
+                ->add('info')
+                ->add('info')
+                ->add('presence');
     }
     
     /**

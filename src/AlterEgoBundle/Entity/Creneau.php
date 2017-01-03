@@ -193,6 +193,4 @@ class Creneau
         $this->activite = $activite;
     }
 
-
-
 }

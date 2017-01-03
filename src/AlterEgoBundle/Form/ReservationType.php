@@ -13,7 +13,8 @@ class ReservationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('statusPayment')->add('noteCoach')        ;
+        $builder->add('statusPayment')
+                ->add('noteCoach')        ;
     }
     
     /**

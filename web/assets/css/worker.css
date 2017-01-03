@@ -1,50 +1,167 @@
 /*---------------CSS WORKER----------------*/
+/*---------------Home Page-----------------*/
 body {
-    background-color: darkslategray;
+    background-color: #dedfee;
 }
 .top_worker {
-    height: 100px;
+    text-align: center;
+}
+.img_top_w {
+    height: 120px;
+    margin-top: 10px;
+}
+.top_worker_by {
+    text-align: right;
+}
+.by {
+    color: grey;
+    font-size: 55px;
+}
+.img_top_right_w {
+    width: 200px;
+}
+.name_worker {
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+}
+.block_seance_worker {
+    height: 650px;
+    background-color: white;
+    margin: 5%;
+    border-radius: 10px;
+    border-top: 100px solid #04cd16;
+    box-shadow: 0 10px 10px 0 black;
+}
+.block_tile2 {
+    margin-top: -100px;
+}
+.ico_clock_worker {
+    height: 80px;
     width: 100px;
 }
-.name_user_worker {
-    font-size: 14px;
+.title_seance_worker {
+    font-size: 60px;
+    font-weight: bold;
     color: white;
+}
+.time_info_worker {
+    font-size: 60px;
+    margin-top: 8%;
+}
+.datetime_worker {
     text-align: center;
+    margin-top: -20px;
 }
-.last_seance {
-    font-size: 14px;
-    text-align: left;
+.lieu_worker {
+    font-size: 40px;
 }
-.next_seance {
-    font-size: 14px;
-    text-align: left;
+.start_worker {
+    width: 300px;
+}
+span {
+    font-weight: bold;
+}
+.badges_worker {
+    height: 400px;
+    background-color: white;
+    margin: 4%;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+}
+.block_rhnews_worker {
+    height: 350px;
+    background-color: white;
+    margin: 5%;
+    border-radius: 10px;
+    border-top: 100px solid blue;
+    box-shadow: 0 10px 10px 0 black;
+}
+.rh_news {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 25px;
+}
+.badges_worker_challenge {
+    border-top: 100px solid darkblue;
+    height: 600px;
+}
+.ico_clock_worker {
 
 }
-.block_worker {
-    border: 1px solid darkslategrey;
-    border-radius: 5px 5px 5px 5px;
-    margin: 5px 4% 5px 4%;
-    background-color: #1ab7ea;
-    height: 230px;
+/*---------------Settings Page-----------------*/
+.flipswitch {
+    position: relative;
+    width: 130px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
 }
-.text_last_seance {
-    font-size: 9px;
-    text-align: center;
+.flipswitch input[type=checkbox] {
+    display: none;
 }
-.last_seance_date {
-    font-size: 12px;
-    text-align: center;
+.flipswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 40px;
 }
-.icon_last_seance {
-    height: 40px;
-    width: 40px;
+.flipswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -ms-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
 }
-.link_photo_coach {
-    height: 60px;
-    width: 60px;
-}
-.text_next_seance {
-    font-size: 10px;
+.flipswitch-inner:before, .flipswitch-inner:after {
+    float: left;
+    width: 50%;
+    height: 65px;
+    padding: 0;
+    line-height: 42px;
+    font-size: 24px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
     font-weight: bold;
-    text-align: center;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.flipswitch-inner:before {
+    content: "";
+    padding-left: 12px;
+    background-color: #04cd16;
+    color: #FFFFFF;
+}
+.flipswitch-inner:after {
+    content: "";
+    padding-right: 12px;
+    background-color: #EBEBEB;
+    color: #888888;
+    text-align: right;
+}
+.flipswitch-switch {
+    width: 60px;
+    margin: 5.5px;
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 45px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -moz-transition: all 0.3s ease-in 0s;
+    -ms-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+    margin-left: 0;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+    right: 0;
 }

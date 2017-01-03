@@ -203,6 +203,4 @@ class TestPerf
         $this->infoEmploye = $infoEmploye;
     }
 
-
-
 }

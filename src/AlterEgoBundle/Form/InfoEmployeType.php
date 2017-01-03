@@ -13,7 +13,11 @@ class InfoEmployeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('poids')->add('taille')->add('imc')->add('forme')->add('idUser')        ;
+        $builder->add('poids')
+                ->add('taille')
+                ->add('imc')
+                ->add('forme')
+                ->add('idUser')        ;
     }
 
     /**

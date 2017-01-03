@@ -7,38 +7,47 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-offset-4 col-xs-6 top_worker_zone">
-            <img class="img-circle img-responsive top_worker" src="{{ asset ('assets/images/photo_user_worker.jpg') }}" alt="">
-        </div>
-        <div class="col-xs-12">
-            <h1 class="name_user_worker">Bonjour, Sarah Croche</h1>
+        <div class="col-xs-11 top_worker">
+            <img class="img_top_w" src="{{ asset ('assets/images/logo-safran.png') }}" alt="">
         </div>
     </div>
+
+
     <div class="row">
-        <div class="col-xs-5 block_worker">
-            <h1 class="last_seance">Dernière séance :</h1>
-            <h2 class="last_seance_date">du 05/12/2016</h2>
-            <img class="col-xs-offset-4 img-responsive icon_last_seance" src="{{ asset ('assets/images/icon_time.png') }}" alt="">
-            <p class="text_last_seance">Durée : 1h</p>
-            <img class="col-xs-offset-4 img-responsive icon_last_seance" src="{{ asset ('assets/images/icon_calorie.png') }}" alt="">
-            <p class="text_last_seance">386 KCal dépensées</p>
-        </div>
-        <div class="col-xs-5 block_worker">
-            <h1 class="next_seance">Prochaine séance :</h1>
-            <h2 class="last_seance_date">Coach :</h2>
-            <img class="col-xs-offset-3 img-circle img-responsive link_photo_coach" src="{{ asset ('assets/images/photo_coach.jpg') }}" alt="">
-            <p class="text_next_seance">Séance de Yoga - 1h</p>
-            <p class="text_next_seance">le 15 Déc. 2016 - 16:30</p>
-            <p class="text_next_seance">Salle : Halle des sports</p>
-
-        </div>
-        <div class="col-xs-5 block_worker">
-           
-        </div>
-        <div class="col-xs-5 block_worker">
-
-
+        <div class="top_worker_by">
+            <h2 class="col-xs-6 by">by</h2>
+            <img class="col-xs-6 img_top_right_w" src="{{ asset ('assets/images/logo_notext.png') }}" alt="">
         </div>
     </div>
 </div>
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="name_worker">Bonjour Mickaël</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-11 block_seance_worker">
+                <div class="block_tile2">
+                    <img class="col-xs-11 ico_clock_worker fa fa-clock-o" alt="">
+                    <h2 class="title_seance_worker">Ma prochaine Séance</h2>
+                </div>
+                <div class="datetime_worker">
+                    <p class="time_info_worker">Séance de Yoga, <br/>aujourd'hui à <span>9:30</span></p>
+                    <p class="lieu_worker">Lieu : Atelier Peinture, Bat. A</p>
+                    <img class="start_worker" src="{{ asset ('assets/images/start.png') }}" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-11 block_rhnews_worker">
+                    <div class="block_tile2">
+                        <img class="col-xs-11 ico_clock_worker" src="{{ asset ('assets/images/hp.png') }}" alt="">
+                        <h2 class="title_seance_worker">Votre Actualité RH</h2>
+
+                    <div class="title_rh_news">
+                        <p class="rh_news">Safran vous souhaite une excellente journée !</p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

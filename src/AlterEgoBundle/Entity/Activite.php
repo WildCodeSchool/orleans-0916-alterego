@@ -80,6 +80,13 @@ class Activite
      */
     private $info;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presence", type="text")
+     */
+    private $presence;
+
 
     /**
      * Get id
@@ -277,4 +284,19 @@ class Activite
 
 
 
+    /**
+     * @return string
+     */
+    public function getPresence()
+    {
+        return $this->presence;
+    }
+
+    /**
+     * @param string $presence
+     */
+    public function setPresence($presence)
+    {
+        $this->presence = $presence;
+    }
 }

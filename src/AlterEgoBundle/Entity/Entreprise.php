@@ -178,6 +178,7 @@ class Entreprise
     }
 
 
+
 //
 //    /**
 //     * Set idUser
@@ -202,4 +203,5 @@ class Entreprise
 //    {
 //        return $this->idUser;
 //    }
+
 }

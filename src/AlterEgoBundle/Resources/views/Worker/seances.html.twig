@@ -1,0 +1,13 @@
+{% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <ul>
+{% for seance in seances %}
+    <li>{{ seance.activite }} {{ seance.date|date('Y-m-d H:i:s') }} {{ seance.lieu }}{{ seance.capacite }}  <a href="{{ path('seance_show', { 'id': seance.id }) }}">En savoir / Réserver</a></li>
+ {% endfor %}
+    </ul>
+{% endblock %}

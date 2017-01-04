@@ -1,13 +1,12 @@
 /*---------------CSS WORKER----------------*/
 /*---------------Home Page-----------------*/
 body {
-    background-color: #dedfee;
+    font-family: alterFont;
 }
 .top_worker {
     text-align: center;
 }
 .img_top_w {
-    height: 120px;
     margin-top: 10px;
 }
 .top_worker_by {
@@ -15,14 +14,16 @@ body {
 }
 .by {
     color: grey;
-    font-size: 55px;
+    font-size: 20px;
+    margin-top: 0;
+    padding: 0;
 }
 .img_top_right_w {
-    width: 200px;
+    width: 80px;
 }
 .name_worker {
     text-align: center;
-    font-size: 55px;
+    font-size: 25px;
     font-weight: bold;
 }
 .block_seance_worker {
@@ -41,13 +42,13 @@ body {
     width: 100px;
 }
 .title_seance_worker {
-    font-size: 60px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
 }
 .time_info_worker {
-    font-size: 60px;
-    margin-top: 8%;
+    font-size: 20px;
+    padding-top: 8%;
 }
 .datetime_worker {
     text-align: center;
@@ -78,9 +79,9 @@ span {
     box-shadow: 0 10px 10px 0 black;
 }
 .rh_news {
-    font-size: 60px;
+    font-size: 20px;
     text-align: center;
-    margin-top: 25px;
+    padding-top: 25px;
 }
 .badges_worker_challenge {
     border-top: 100px solid darkblue;
@@ -164,4 +165,43 @@ span {
 }
 .flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
     right: 0;
+}
+
+/*========================  QUENTIN   ==================================*/
+.tuile {
+    text-align: center;
+    box-shadow: 0 10px 20px 0 black;
+    border-radius: 15px;
+    width: 90vw;
+    margin: 0 5vw 30px 5vw;
+}
+
+.tuile_header {
+    background-color: #04cd16;
+    border-radius: 10px 10px 0 0;
+    height: 100px;
+    margin: 0;
+}
+
+.tuile_header img {
+    float: left;
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.tuile_header h2 {
+    line-height: 100px;
+}
+
+.tuile_body {
+    margin: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 25px;
+}
+
+.actu_rh {
+    background-color: blue;
 }

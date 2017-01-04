@@ -65,7 +65,9 @@ class WorkerController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $seances=$em->getRepository('AlterEgoBundle:Activite')->findAll();
-        return $this->render('AlterEgoBundle:Worker:seances.html.twig', array('seances' => $seances));
+        
+        return $this->render('AlterEgoBundle:Worker:seances.html.twig', array(
+            'seances' => $seances));
     }
 
 }

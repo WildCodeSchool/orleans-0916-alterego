@@ -2,6 +2,7 @@
 
 namespace AlterEgoBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +20,7 @@ class ActiviteType extends AbstractType
                 ->add('capacite')
                 ->add('type')
                 ->add('info')
-                ->add('info');
+                ->add('creneaux', EntityType::class, array('class' => 'AppBundle:User'));
     }
     
     /**

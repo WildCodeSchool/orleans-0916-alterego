@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * InfosEmploye
@@ -50,11 +51,25 @@ class InfosEmploye
     private $forme;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
+     * @ORM\OneToOne(targetEntity="User")
      */
-    private $idUser;
+    private $fosuser;
+
+    /**
+     * @return mixed
+     */
+    public function getFosuser()
+    {
+        return $this->fosuser;
+    }
+
+    /**
+     * @param mixed $fosuser
+     */
+    public function setFosuser($fosuser)
+    {
+        $this->fosuser = $fosuser;
+    }
 
 
     /**

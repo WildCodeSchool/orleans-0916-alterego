@@ -29,6 +29,7 @@ class ActiviteType extends AbstractType
                         )
                     )
                 );
+
     }
     
     /**

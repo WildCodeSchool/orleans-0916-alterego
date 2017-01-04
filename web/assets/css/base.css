@@ -83,17 +83,17 @@
 }
 
 #navbar_mobile a {
-    padding: 25px 0 25px 0;
+    line-height: calc(100vh / 9);
     font-size: 7vmin;
     width: 1.3em;
-    color: steelblue;
+    color: rgb(242,242,242);
 }
 
 #navbar_mobile .last_child {
-    padding: 25px 0 25px 0;
+    line-height: calc(100vh / 9);
     font-size: 8vmin;
     width: 1.3em;
-    color: steelblue;
+    color: rgb(242,242,242);
     position: absolute;
     left: 5vw;
     bottom: 5px;

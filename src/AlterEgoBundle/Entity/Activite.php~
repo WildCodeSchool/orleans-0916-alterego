@@ -235,29 +235,7 @@ class Activite
         return $this->info;
     }
 
-    /**
-     * Set user
-     *
-     * @param \AlterEgoBundle\Entity\User $user
-     *
-     * @return Activite
-     */
-    public function setUser(\AlterEgoBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
 
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AlterEgoBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 
     /**
      * @return mixed
@@ -277,4 +255,35 @@ class Activite
 
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->creneaux = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     *
+     * @return Activite
+     */
+    public function addCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux[] = $creneaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove creneaux
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $creneaux
+     */
+    public function removeCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
+    {
+        $this->creneaux->removeElement($creneaux);
+    }
 }

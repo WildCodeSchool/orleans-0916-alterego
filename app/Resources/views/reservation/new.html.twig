@@ -1,6 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block body %}
+    {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
     <h1>Reservation creation</h1>
 
     {{ form_start(form) }}
@@ -14,3 +15,4 @@
         </li>
     </ul>
 {% endblock %}
+

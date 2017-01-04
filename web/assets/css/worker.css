@@ -2,6 +2,7 @@
 /*---------------Home Page-----------------*/
 body {
     font-family: alterFont;
+    background-color: rgb(242,242,242);
 }
 .top_worker {
     text-align: center;
@@ -32,7 +33,6 @@ body {
     margin: 5%;
     border-radius: 10px;
     border-top: 100px solid #04cd16;
-    box-shadow: 0 10px 10px 0 black;
 }
 .block_tile2 {
     margin-top: -100px;
@@ -54,11 +54,9 @@ body {
     text-align: center;
     margin-top: -20px;
 }
-.lieu_worker {
-    font-size: 40px;
-}
+
 .start_worker {
-    width: 300px;
+    width: 125px;
 }
 span {
     font-weight: bold;
@@ -76,7 +74,6 @@ span {
     margin: 5%;
     border-radius: 10px;
     border-top: 100px solid blue;
-    box-shadow: 0 10px 10px 0 black;
 }
 .rh_news {
     font-size: 20px;
@@ -170,10 +167,9 @@ span {
 /*========================  QUENTIN   ==================================*/
 .tuile {
     text-align: center;
-    box-shadow: 0 10px 20px 0 black;
     border-radius: 15px;
-    width: 90vw;
-    margin: 0 5vw 30px 5vw;
+    width: 80vw;
+    margin: 0 10vw 50px 10vw;
 }
 
 .tuile_header {
@@ -204,4 +200,9 @@ span {
 
 .actu_rh {
     background-color: blue;
+}
+
+.lieu_worker {
+    font-size: 20px;
+    font-weight: 600;
 }

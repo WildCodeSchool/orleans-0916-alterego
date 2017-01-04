@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Creneaus list</h1>
+    <h1>Liste des Créneaux</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Activiteidactivite</th>
                 <th>Dateheure</th>
                 <th>Duree</th>
                 <th>Actions</th>
@@ -17,7 +16,6 @@
         {% for creneau in creneaus %}
             <tr>
                 <td><a href="{{ path('creneau_show', { 'id': creneau.id }) }}">{{ creneau.id }}</a></td>
-                <td>{{ creneau.activiteIdactivite }}</td>
                 <td>{% if creneau.dateheure %}{{ creneau.dateheure|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ creneau.duree }}</td>
                 <td>

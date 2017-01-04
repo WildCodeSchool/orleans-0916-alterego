@@ -2,6 +2,7 @@
 
 namespace AlterEgoBundle\Controller;
 
+use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\Entity\Creneau;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -23,6 +24,7 @@ class CreneauController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        
 
         $creneaus = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
 
@@ -34,10 +36,10 @@ class CreneauController extends Controller
     /**
      * Creates a new creneau entity.
      *
-     * @Route("/new", name="creneau_new")
+     * @Route("/new/{id}", name="creneau_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Activite $activite)
     {
         $creneau = new Creneau();
         $form = $this->createForm('AlterEgoBundle\Form\CreneauType', $creneau);
@@ -45,7 +47,8 @@ class CreneauController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($creneau);
+            $em->persist($creneau);            
+            $creneau->setActivite($activite);
             $em->flush($creneau);
 
             return $this->redirectToRoute('creneau_show', array('id' => $creneau->getId()));
@@ -133,4 +136,6 @@ class CreneauController extends Controller
             ->getForm()
         ;
     }
+    
+    
 }

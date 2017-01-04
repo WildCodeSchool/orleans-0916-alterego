@@ -30,27 +30,6 @@ class Activite
     private $activite;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lieu", type="string", length=255)
-     */
-    private $lieu;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="capacite", type="integer")
-     */
-    private $capacite;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
@@ -107,78 +86,6 @@ class Activite
     public function getActivite()
     {
         return $this->activite;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Activite
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set lieu
-     *
-     * @param string $lieu
-     *
-     * @return Activite
-     */
-    public function setLieu($lieu)
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu
-     *
-     * @return string
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
-    }
-
-    /**
-     * Set capacite
-     *
-     * @param integer $capacite
-     *
-     * @return Activite
-     */
-    public function setCapacite($capacite)
-    {
-        $this->capacite = $capacite;
-
-        return $this;
-    }
-
-    /**
-     * Get capacite
-     *
-     * @return int
-     */
-    public function getCapacite()
-    {
-        return $this->capacite;
     }
 
     /**

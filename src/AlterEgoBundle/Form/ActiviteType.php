@@ -16,20 +16,9 @@ class ActiviteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('activite')
-                ->add('date')
-                ->add('lieu')
-                ->add('capacite')
                 ->add('type')
-                ->add('info')
-                ->add('creneaux', 'collection', array(
-                    'entry_type' => 'entity',
-                    'entry_options' => array(
-                        'class' => 'AlterEgoBundle:Creneau',
-                        'choice_label' => 'creneau',
-                        )
-                    )
-                );
-
+                ->add('info');
+                
     }
     
     /**

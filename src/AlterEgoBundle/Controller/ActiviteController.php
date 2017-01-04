@@ -47,6 +47,8 @@ class ActiviteController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $activite->setUser($user);
             $em->persist($activite);
             $em->flush($activite);
 

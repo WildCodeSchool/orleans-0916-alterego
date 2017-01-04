@@ -49,6 +49,20 @@ class Creneau
      * @ORM\Column(name="duree", type="integer")
      */
     private $duree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu", type="string", length=255)
+     */
+    private $lieu;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="capacite", type="integer")
+     */
+    private $capacite;
     
     /**
      * Get id
@@ -214,6 +228,52 @@ class Creneau
     {
         $this->reservations->removeElement($reservation);
     }
+    
+    /**
+     * Set lieu
+     *
+     * @param string $lieu
+     *
+     * @return Creneau
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
 
+        return $this;
+    }
 
+    /**
+     * Get lieu
+     *
+     * @return string
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * Set capacite
+     *
+     * @param integer $capacite
+     *
+     * @return Creneau
+     */
+    public function setCapacite($capacite)
+    {
+        $this->capacite = $capacite;
+
+        return $this;
+    }
+
+    /**
+     * Get capacite
+     *
+     * @return integer
+     */
+    public function getCapacite()
+    {
+        return $this->capacite;
+    }
 }

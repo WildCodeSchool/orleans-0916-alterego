@@ -10,16 +10,20 @@
                 <td>{{ creneau.id }}</td>
             </tr>
             <tr>
-                <th>Activiteidactivite</th>
-                <td>{{ creneau.activiteIdactivite }}</td>
-            </tr>
-            <tr>
                 <th>Dateheure</th>
                 <td>{% if creneau.dateheure %}{{ creneau.dateheure|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Duree</th>
                 <td>{{ creneau.duree }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ creneau.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Capacité</th>
+                <td>{{ creneau.capacite }}</td>
             </tr>
         </tbody>
     </table>

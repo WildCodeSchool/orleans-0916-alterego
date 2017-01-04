@@ -1,8 +1,7 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 {% block body %}
     <h1>Entreprise creation</h1>
-
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
@@ -14,3 +13,4 @@
         </li>
     </ul>
 {% endblock %}
+

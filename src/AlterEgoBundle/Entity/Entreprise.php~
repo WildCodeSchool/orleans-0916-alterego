@@ -202,4 +202,35 @@ class Entreprise
 //    {
 //        return $this->idUser;
 //    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->infosEmploye = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add infosEmploye
+     *
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
+     *
+     * @return Entreprise
+     */
+    public function addInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
+    {
+        $this->infosEmploye[] = $infosEmploye;
+
+        return $this;
+    }
+
+    /**
+     * Remove infosEmploye
+     *
+     * @param \AlterEgoBundle\Entity\InfoEmploye $infosEmploye
+     */
+    public function removeInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
+    {
+        $this->infosEmploye->removeElement($infosEmploye);
+    }
 }

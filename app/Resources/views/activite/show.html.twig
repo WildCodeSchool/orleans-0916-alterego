@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Activite</h1>
+    <h1 class="title_activity">Activite</h1>
 
     <table>
         <tbody>
@@ -38,7 +38,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('activite_index') }}">Back to the list</a>
+            <a href="{{ path('activite_index') }}">Retour Accueil</a>
         </li>
         <li>
             <a href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>

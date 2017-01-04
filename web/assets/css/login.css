@@ -8,9 +8,9 @@
 }
 
     body {
-        background-image: url("../images/fond2.jpg");
+        background: url("../images/fond2.jpg") no-repeat center fixed;
+        -webkit-background-size: cover;
         background-size: cover;
-        background-repeat: no-repeat;
         font-family: alterFont;
 
     }

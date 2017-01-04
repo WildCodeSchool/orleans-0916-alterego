@@ -4,28 +4,23 @@
 /*---------------CSS COACH----------------*/
 
 body{
-    background-color: #FF6600;
+    background-color: rgb(242,242,242);
+    text-align: center;
+    font-family: alterFont;
+
 }
 /* Profil */
-.profil_picture{
-    margin-top: 10px;
-}
-.title_profil h2{
-    font-size: 5em;
-}
-.title_profil h3{
-    font-size: 4em;
-}
+
 #qui{
-    background-color: #FF6600;
     font-family: 'Hammersmith One', sans-serif;
     color: white;
     padding: 5px 0 5px 0;
+    margin: -15px 0 -10px 0;
 }
 .rating {
     unicode-bidi: bidi-override;
     direction: rtl;
-    font-size: 3em;
+    font-size: 2em;
 }
 .rating > span {
     display: inline-block;
@@ -53,59 +48,6 @@ body{
 .coach_i{
     margin-left: 5px;
 }
-/* Activité */
-#create_activity{
-    background-color: white;
-}
-.add_block{
-    font-weight: 800;
-}
-.add_block a{
-    color: #333333;
-}
-.add_block h2{
-    font-weight: bold;
-    font-size: 4em;
-    border: solid 4px black;
-}
-.add_button i{
-    font-size: 6.5em;
-}
-.add_button:hover{
-    color: #FF6600;
-}
-/* Agenda du coach */
-.agenda{
-    background-color: #FF6600;
-    color: white;
-
-}
-.titre_agenda{
-    font-weight: 800;
-    font-size: 4em;
-    border: solid 4px white;
-}
-.fc-content{
-    padding-bottom: 10px;
-}
-/* Formation du Coach */
-.formation_coach{
-    background-color: white;
-}
-.formation_coach h2{
-    font-weight: 800;
-    font-size: 4em;
-    border: solid 4px black;
-
-}
-.formation_coach h3{
-    font-size: 3em;
-    text-decoration: underline;
-
-}
-.formation_coach li{
-    font-size: 2em;
-}
 
 /* Coach Activite */
 .my_activity{
@@ -117,7 +59,103 @@ body{
 .my_list{
     margin-top: 8px;
 }
-.activity_list h3{
-    background-color: #FF6600;
-    color: #ffffff;
+
+/* tuiles */
+
+.tuile {
+    text-align: center;
+    border-radius: 15px;
+    width: 80vw;
+    margin: 0 10vw 50px 10vw;
+}
+
+.tuile_header {
+    background-color: #04cd16;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+}
+
+.tuile_header i {
+    float: left;
+    padding: 25px 0 25px 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+}
+
+.tuile_header h2 {
+    font-size: 3vmax;
+    padding: 25px;
+    font-weight: 600;
+}
+
+.tuile_body {
+    margin: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 25px;
+    margin-top: -10px;
+}
+
+.eval {
+    background-color: rgb(255, 102, 0);
+}
+
+.lieu_coach {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.top_coach {
+    text-align: center;
+}
+.img_top_w {
+    margin-top: 10px;
+    width: 50vw;
+}
+
+.name_coach {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    font-weight: bold;
+}
+
+.body_first_child {
+    font-size: 15px;
+    padding-top: 8%;
+}
+
+.eval_time {
+    float: right;
+    margin-right: 30px;
+}
+
+.activity_rating {
+    text-align: left;
+    margin: 0 25px 10px 25px;
+}
+
+.start_activity {
+    background-color: rgb(28, 138, 219);
+    height: 50px;
+    width: 55vw;
+    margin-left: 15vw;
+    border-radius: 50px 50px 50px 50px  ;
+    margin-top: 30px;
+}
+
+.start_coach {
+    width: 75px;
+    position: relative;
+    left: -25vw;
+    top: -12.5px;
+}
+
+.start_activity p {
+    position: absolute;
+    margin-left: 20vw;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 600;
 }

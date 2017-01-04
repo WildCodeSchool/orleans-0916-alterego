@@ -84,9 +84,53 @@ span {
     border-top: 100px solid darkblue;
     height: 600px;
 }
-.ico_clock_worker {
 
+
+/*========================  QUENTIN   ==================================*/
+.tuile {
+    text-align: center;
+    border-radius: 15px;
+    width: 80vw;
+    margin: 0 10vw 50px 10vw;
 }
+
+.tuile_header {
+    background-color: #04cd16;
+    border-radius: 10px 10px 0 0;
+    height: 100px;
+    margin: 0;
+}
+
+.tuile_header img {
+    float: left;
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+.tuile_header h2 {
+    line-height: 100px;
+}
+
+.tuile_body {
+    margin: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 25px;
+}
+
+.actu_rh {
+    background-color: blue;
+}
+
+.lieu_worker {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+
 /*---------------Settings Page-----------------*/
 .flipswitch {
     position: relative;
@@ -164,45 +208,3 @@ span {
     right: 0;
 }
 
-/*========================  QUENTIN   ==================================*/
-.tuile {
-    text-align: center;
-    border-radius: 15px;
-    width: 80vw;
-    margin: 0 10vw 50px 10vw;
-}
-
-.tuile_header {
-    background-color: #04cd16;
-    border-radius: 10px 10px 0 0;
-    height: 100px;
-    margin: 0;
-}
-
-.tuile_header img {
-    float: left;
-    margin-left: 30px;
-    width: 50px;
-    height: 50px;
-    margin-top: 25px;
-}
-
-.tuile_header h2 {
-    line-height: 100px;
-}
-
-.tuile_body {
-    margin: 0;
-    background-color: white;
-    border-radius: 0 0 10px 10px;
-    padding-bottom: 25px;
-}
-
-.actu_rh {
-    background-color: blue;
-}
-
-.lieu_worker {
-    font-size: 20px;
-    font-weight: 600;
-}

@@ -22,18 +22,11 @@ class ActiviteController extends Controller
      */
     public function indexAction()
     {
-        $user = $this->getUser();
+
         $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository('AlterEgoBundle:Activite')->findOneBy(array(
-            'activite' => 'activite',
+        $activites = $em->getRepository('AlterEgoBundle:Activite')->findBy(array(
             'user' => $this->getUser(),
         ));
-
-        /* findBy(
-        array('activite' => 'activite'),
-        array('user' => 'ASC')); */
-
-
 
         return $this->render('activite/index.html.twig', array(
             'activites' => $activites,

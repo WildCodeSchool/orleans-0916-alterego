@@ -18,7 +18,7 @@ class EntrepriseAdmin extends AbstractAdmin
             ->add('ville')
             ->add('nom')
             ->add('contact')
-            ->add('idUser')
+            ->add('user')
         ;
     }
 
@@ -29,7 +29,7 @@ class EntrepriseAdmin extends AbstractAdmin
             ->add('ville')
             ->add('nom')
             ->add('contact')
-            ->add('idUser')
+            ->add('user')
         ;
     }
 
@@ -40,7 +40,7 @@ class EntrepriseAdmin extends AbstractAdmin
             ->add('ville')
             ->add('nom')
             ->add('contact')
-            ->add('idUser')
+            ->add('user')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'view' => array(),
@@ -58,7 +58,7 @@ class EntrepriseAdmin extends AbstractAdmin
             ->add('ville')
             ->add('nom')
             ->add('contact')
-            ->add('idUser')
+            ->add('user')
         ;
     }
 }

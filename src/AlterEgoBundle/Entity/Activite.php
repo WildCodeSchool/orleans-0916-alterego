@@ -235,29 +235,7 @@ class Activite
         return $this->info;
     }
 
-    /**
-     * Set user
-     *
-     * @param \AlterEgoBundle\Entity\User $user
-     *
-     * @return Activite
-     */
-    public function setUser(\AlterEgoBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
 
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AlterEgoBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 
     /**
      * @return mixed
@@ -307,5 +285,29 @@ class Activite
     public function removeCreneaux(\AlterEgoBundle\Entity\Creneau $creneaux)
     {
         $this->creneaux->removeElement($creneaux);
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $user
+     *
+     * @return Activite
+     */
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Application\Sonata\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

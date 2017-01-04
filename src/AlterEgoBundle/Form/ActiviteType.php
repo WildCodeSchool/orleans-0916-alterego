@@ -2,6 +2,7 @@
 
 namespace AlterEgoBundle\Form;
 
+use Nelmio\ApiDocBundle\Tests\Fixtures\Form\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +21,14 @@ class ActiviteType extends AbstractType
                 ->add('capacite')
                 ->add('type')
                 ->add('info')
-                ->add('creneaux', EntityType::class, array('class' => 'AppBundle:User'));
+                ->add('creneaux', 'collection', array(
+                    'entry_type' => 'entity',
+                    'entry_options' => array(
+                        'class' => 'AlterEgoBundle:Creneau',
+                        'choice_label' => 'creneau',
+                        )
+                    )
+                );
     }
     
     /**

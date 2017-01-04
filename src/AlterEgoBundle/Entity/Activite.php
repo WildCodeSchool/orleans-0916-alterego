@@ -19,9 +19,6 @@ class Activite
      */
     private $creneaux;
 
-
-
-
      /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
      *
@@ -308,4 +305,5 @@ class Activite
     {
         $this->creneaux->removeElement($creneaux);
     }
+    
 }

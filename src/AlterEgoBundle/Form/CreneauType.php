@@ -15,7 +15,7 @@ class CreneauType extends AbstractType
     {
         $builder->add('activiteIdactivite')
                 ->add('dateheure')
-                ->add('duree')        ;
+                ->add('duree');
     }
     
     /**

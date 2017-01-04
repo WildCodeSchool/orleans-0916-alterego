@@ -12,25 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Creneau
 {
-
     /**
      * @ORM\ManyToOne(targetEntity="Activite", inversedBy="creneaux")
      */
     private $activite;
-
 
     /**
      * @ORM\OneToMany(targetEntity="TestPerf", mappedBy="creneau")
      */
     private $testsPerf;
 
-
-
     /**
      * @ORM\OneToMany(targetEntity="Reservation", mappedBy="creneau")
      */
     private $reservations;
-
 
     /**
      * @var int
@@ -40,14 +35,7 @@ class Creneau
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="activite_idactivite", type="integer")
-     */
-    private $activiteIdactivite;
-
+    
     /**
      * @var \DateTime
      *
@@ -61,8 +49,7 @@ class Creneau
      * @ORM\Column(name="duree", type="integer")
      */
     private $duree;
-
-
+    
     /**
      * Get id
      *
@@ -71,30 +58,6 @@ class Creneau
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set activiteIdactivite
-     *
-     * @param integer $activiteIdactivite
-     *
-     * @return Creneau
-     */
-    public function setActiviteIdactivite($activiteIdactivite)
-    {
-        $this->activiteIdactivite = $activiteIdactivite;
-
-        return $this;
-    }
-
-    /**
-     * Get activiteIdactivite
-     *
-     * @return int
-     */
-    public function getActiviteIdactivite()
-    {
-        return $this->activiteIdactivite;
     }
 
     /**
@@ -251,4 +214,6 @@ class Creneau
     {
         $this->reservations->removeElement($reservation);
     }
+
+
 }

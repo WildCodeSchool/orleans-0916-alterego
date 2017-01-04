@@ -276,7 +276,4 @@ class InfoEmploye
         $this->testPerf = $testPerf;
     }
 
-
-
-
 }

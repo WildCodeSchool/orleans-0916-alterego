@@ -230,6 +230,14 @@ class Activite
     }
     
     /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * @return mixed
      */
     public function getCreneaux()

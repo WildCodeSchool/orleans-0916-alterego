@@ -163,6 +163,7 @@ class Entreprise
 
     /**
      * @return mixed
+
      */
     public function getInfosEmploye()
     {
@@ -175,7 +176,6 @@ class Entreprise
     public function setInfosEmploye($infosEmploye)
     {
         $this->infosEmploye = $infosEmploye;
-    }
 
 
 //
@@ -232,5 +232,34 @@ class Entreprise
     public function removeInfosEmploye(\AlterEgoBundle\Entity\InfoEmploye $infosEmploye)
     {
         $this->infosEmploye->removeElement($infosEmploye);
+
     }
+
+
+
+//
+//    /**
+//     * Set idUser
+//     *
+//     * @param integer $idUser
+//     *
+//     * @return Entreprise
+//     */
+//    public function setIdUser($idUser)
+//    {
+//        $this->idUser = $idUser;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get idUser
+//     *
+//     * @return int
+//     */
+//    public function getIdUser()
+//    {
+//        return $this->idUser;
+//    }
+
 }

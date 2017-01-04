@@ -2,5 +2,51 @@ tr {
     text-align: center;
 }
 .title_activity {
+    text-align: center;
+    color: #00a7d0;
+    font-weight: bold;
+    font-size: 35px;
+}
+.title_type_activity {
+    text-align: left;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+    width: 100%;
+    font-weight: normal;
 
+}
+.block_info {
+    margin: 5px;
+}
+.block_body_plus {
+    margin: 10px;
+    background-color: #9acfea;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+}
+li {
+    list-style-type: none;
+    text-align: center;
+}
+.btn-info {
+    width: auto;
+    margin-top: 20px;
+}
+.reservation_access {
+    padding: 5px;
+    background-color: #00aff2;
+    border-radius: 10px;
+}
+.block_seances_list{
+    margin: 5px;
+}
+.list_title {
+    color: #00aff2;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: alterFont;
+    text-align: center;
+    width: 100%;
+    margin: 5px;
 }

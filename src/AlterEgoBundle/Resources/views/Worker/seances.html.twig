@@ -5,9 +5,19 @@
 {% endblock %}
 
 {% block content %}
-    <ul>
-{% for seance in seances %}
-    <li>{{ seance.activite }} {{ seance.date|date('Y-m-d H:i:s') }} {{ seance.lieu }}{{ seance.capacite }}  <a href="{{ path('seance_show', { 'id': seance.id }) }}">En savoir / Réserver</a></li>
- {% endfor %}
-    </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="block_seances_list">
+                    <ul >
+                        {% for seance in seances %}
+                            <li class="list_title">{{ seance.activite }} </li>
+                            <li>   {{ seance.date|date('Y-m-d H:i:s') }} </li>
+                            <li>{{ seance.lieu }}</li>
+                            <li>   {{ seance.capacite }} </li>
+                            <li> <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">En savoir plus/ Réserver</a></li>
+                         {% endfor %}
+                    </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -13,19 +13,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Activite
 {
-
-    /**
-     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="activite")
-     */
-    private $creneaux;
-
-     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
-     *
-     */
-    private $user;
-
-
     /**
      * @var int
      *
@@ -77,6 +64,16 @@ class Activite
      */
     private $info;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Creneau", mappedBy="activite")
+     */
+    private $creneaux;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
+     *
+     */
+    private $user;
 
     /**
      * Get id

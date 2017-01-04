@@ -27,21 +27,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-    /**
-     * @return mixed
-     */
-    public function getEntreprises()
-    {
-        return $this->entreprises;
-    }
-
-    /**
-     * @param mixed $entreprises
-     */
-    public function setEntreprises($entreprises)
-    {
-        $this->entreprises = $entreprises;
-    }
 
     /**
      * @ORM\OneToMany(targetEntity="AlterEgoBundle\Entity\Activite", mappedBy="user")
@@ -69,13 +54,6 @@ class User extends BaseUser
         $this->entreprise = $entreprise;
     }
 
-
-
-
-
-
-
-
     /**
      * @var int $id
      */
@@ -102,14 +80,24 @@ class User extends BaseUser
      *
      * @return int $id
      */
-
-
-
-
-
-
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEntreprises()
+    {
+        return $this->entreprises;
+    }
+
+    /**
+     * @param mixed $entreprises
+     */
+    public function setEntreprises($entreprises)
+    {
+        $this->entreprises = $entreprises;
     }
 }

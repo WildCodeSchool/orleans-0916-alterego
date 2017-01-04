@@ -1,50 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Activites list</h1>
+    <div class="container ">
+        <h1 class="text-center">Liste des Activités</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Activite</th>
-                <th>Date</th>
-                <th>Lieu</th>
-                <th>Capacite</th>
-                <th>Type</th>
-                <th>Info</th>
-                <th>Actions</th>
-                <th>Présence</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for activite in activites %}
-            <tr>
-                <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
-                <td>{{ activite.activite }}</td>
-                <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ activite.lieu }}</td>
-                <td>{{ activite.capacite }}</td>
-                <td>{{ activite.type }}</td>
-                <td>{{ activite.info }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('activite_show', { 'id': activite.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('activite_edit', { 'id': activite.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <ul class="list-unstyled text-center">
+            <li>
+                <a class="btn btn-success" href="{{ path('activite_new') }}">Proposer une nouvelle activité</a>
+            </li>
+        </ul>
 
-    <ul>
-        <li>
-            <a href="{{ path('activite_new') }}">Create a new activite</a>
-        </li>
-    </ul>
+        <table class="table-responsive table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Activite</th>
+                    <th>Date</th>
+                    <th>Lieu</th>
+                    <th>Capacité</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for activite in activites %}
+                <tr>
+                    <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
+                    <td>{{ activite.activite }}</td>
+                    <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i') }}{% endif %}</td>
+                    <td>{{ activite.lieu }}</td>
+                    <td>{{ activite.capacite }}</td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ path('activite_show', { 'id': activite.id }) }}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-pencil-square"></i></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
 {% endblock %}

@@ -2,54 +2,27 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
+
 {% block body %}
     <h1 class="title_activity">Activite</h1>
-<div class="container-fluid">
-
     <table>
-        <tbody class="block_body_plus">
-            <tr class="block_info">
-                <th class="title_type_activity">Numéro activité:</th>
-                <td>{{ activite.id }}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Activite:</th>
-                <td>{{ activite.activite }}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Date:</th>
-                <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Lieu:</th>
-                <td>{{ activite.lieu }}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Capacite:</th>
-                <td>{{ activite.capacite }}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Type:</th>
-                <td>{{ activite.type }}</td>
-            </tr>
-            <tr>
-                <th class="title_type_activity">Info:</th>
-                <td>{{ activite.info }}</td>
-            </tr>
-
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ activite.id }}</td>
+        </tr>
+        <tr>
+            <th>Activite</th>
+            <td>{{ activite.activite }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ activite.type }}</td>
+        </tr>
+        <tr>
+            <th>Info</th>
+            <td>{{ activite.info }}</td>
+        </tr>
         </tbody>
     </table>
-</div>
-    <div class="container-fluid">
-        <div class="row">
-    <ul>
-        <li>
-            <button class="btn btn-info">Réserver</button>
-        </li>
-        <li>
-            <a href="{{ path('seances') }}">Retour à la liste des Activités</a>
-        </li>
-    </ul>
-    </div>
-    </div>
 {% endblock %}

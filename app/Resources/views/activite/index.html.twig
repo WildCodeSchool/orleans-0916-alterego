@@ -15,9 +15,6 @@
                 <tr>
                     <th>N°</th>
                     <th>Activite</th>
-                    <th>Date</th>
-                    <th>Lieu</th>
-                    <th>Capacité</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +22,6 @@
                 <tr>
                     <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
                     <td>{{ activite.activite }}</td>
-                    <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i') }}{% endif %}</td>
-                    <td>{{ activite.lieu }}</td>
-                    <td>{{ activite.capacite }}</td>
                     <td>
                         <ul class="list-unstyled">
                             <li>

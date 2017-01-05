@@ -49,6 +49,20 @@ class Creneau
      * @ORM\Column(name="duree", type="integer")
      */
     private $duree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu", type="string", length=255)
+     */
+    private $lieu;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="capacite", type="integer")
+     */
+    private $capacite;
     
     /**
      * Get id
@@ -141,24 +155,6 @@ class Creneau
     }
 
     /**
-     * @return mixed
-     */
-    public function getActivite()
-    {
-        return $this->activite;
-    }
-
-    /**
-     * @param mixed $activite
-     */
-    public function setActivite($activite)
-    {
-        $this->activite = $activite;
-    }
-
-
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -214,6 +210,78 @@ class Creneau
     {
         $this->reservations->removeElement($reservation);
     }
+    
+    /**
+     * Set lieu
+     *
+     * @param string $lieu
+     *
+     * @return Creneau
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
 
+        return $this;
+    }
 
+    /**
+     * Get lieu
+     *
+     * @return string
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * Set capacite
+     *
+     * @param integer $capacite
+     *
+     * @return Creneau
+     */
+    public function setCapacite($capacite)
+    {
+        $this->capacite = $capacite;
+
+        return $this;
+    }
+
+    /**
+     * Get capacite
+     *
+     * @return integer
+     */
+    public function getCapacite()
+    {
+        return $this->capacite;
+    }
+
+    
+
+    /**
+     * Set activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     *
+     * @return Creneau
+     */
+    public function setActivite(\AlterEgoBundle\Entity\Activite $activite = null)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \AlterEgoBundle\Entity\Activite
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
 }

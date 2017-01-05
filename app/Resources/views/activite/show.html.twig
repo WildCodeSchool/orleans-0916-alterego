@@ -17,18 +17,6 @@
                 <td>{{ activite.activite }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{% if activite.date %}{{ activite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ activite.lieu }}</td>
-            </tr>
-            <tr>
-                <th>Capacite</th>
-                <td>{{ activite.capacite }}</td>
-            </tr>
-            <tr>
                 <th>Type</th>
                 <td>{{ activite.type }}</td>
             </tr>
@@ -44,8 +32,9 @@
             <a href="{{ path('activite_index') }}">Retour Accueil</a>
         </li>
         <li>
-            <a href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>
+            <a class="btn" href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>
         </li>
+        <a class="btn" href="{{ path('creneau_new', { 'id': activite.id }) }}">Ajouter un créneau</a>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">

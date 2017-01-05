@@ -155,24 +155,6 @@ class Creneau
     }
 
     /**
-     * @return mixed
-     */
-    public function getActivite()
-    {
-        return $this->activite;
-    }
-
-    /**
-     * @param mixed $activite
-     */
-    public function setActivite($activite)
-    {
-        $this->activite = $activite;
-    }
-
-
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -275,5 +257,31 @@ class Creneau
     public function getCapacite()
     {
         return $this->capacite;
+    }
+
+    
+
+    /**
+     * Set activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     *
+     * @return Creneau
+     */
+    public function setActivite(\AlterEgoBundle\Entity\Activite $activite = null)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \AlterEgoBundle\Entity\Activite
+     */
+    public function getActivite()
+    {
+        return $this->activite;
     }
 }

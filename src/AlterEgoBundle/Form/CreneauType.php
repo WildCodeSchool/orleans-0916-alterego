@@ -18,16 +18,7 @@ class CreneauType extends AbstractType
         $builder->add('lieu')
                 ->add('dateheure')
                 ->add('duree')
-                ->add('capacite')
-            ->add('activite', 'collection', array(
-                'entry_type' => 'entity',
-                'entry_options' => array(
-                    'class' => 'AlterEgoBundle:Activite',
-                    'choice_label' => 'Activité',
-                ),
-                'required'=>false,
-                'prototype' => true,
-            ));
+                ->add('capacite');
     }
     
     /**

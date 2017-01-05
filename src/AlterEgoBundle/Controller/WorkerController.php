@@ -64,10 +64,10 @@ class WorkerController extends Controller
     public function seancesAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $seances = $em->getRepository('AlterEgoBundle:Activite')->findAll();
-        
+        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
         return $this->render('AlterEgoBundle:Worker:seances.html.twig', array(
-            'seances' => $seances));
+            'seances' => $seances,
+        ));
     }
 
 }

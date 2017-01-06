@@ -9,20 +9,15 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/base.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/form_worker.css') }}">
-        <script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        {% block stylesheets %}
-        {% endblock %}
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        {% block stylesheets %}{% endblock %}
     {% endblock %}
 </head>
 <body>
-{% block body %}
-
-{% endblock %}
-
-{% block javascripts %}
-{% endblock %}
-
+{% block body %}{% endblock %}
+<script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/menu.js') }}"></script>
+{% block javascripts %}{% endblock %}
 </body>
 </html>

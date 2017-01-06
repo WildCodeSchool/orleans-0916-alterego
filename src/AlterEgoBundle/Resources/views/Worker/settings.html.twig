@@ -1,9 +1,6 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
-{% block head %}
-    {{ parent() }}
-{% endblock %}
 
 {% block content %}
-
+ {% include ('ApplicationSonataUserBundle:Profile:edit_profile.html.twig') %}
 {% endblock %}

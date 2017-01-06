@@ -8,10 +8,6 @@
     <table class="table-condensed table-responsive table-striped">
         <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ activite.id }}</td>
-        </tr>
-        <tr>
             <th>Activite</th>
             <td>{{ activite.activite }}</td>
         </tr>
@@ -25,4 +21,5 @@
         </tr>
         </tbody>
     </table>
+    {%   render controller('AlterEgoBundle:Reservation:new') %}
 {% endblock %}

@@ -63,6 +63,28 @@ class Creneau
      * @ORM\Column(name="capacite", type="integer")
      */
     private $capacite;
+
+    /**
+     * @var int
+     * @ORM\Column(name="placerestantes", type="integer")
+     */
+    private $placerestantes;
+
+    /**
+     * @return mixed
+     */
+    public function getPlacerestantes()
+    {
+        return $this->placerestantes;
+    }
+
+    /**
+     * @param mixed $placerestantes
+     */
+    public function setPlacerestantes($placerestantes)
+    {
+        $this->placerestantes = $placerestantes;
+    }
     
     /**
      * Get id

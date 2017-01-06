@@ -2,6 +2,8 @@
 
 namespace AlterEgoBundle\Controller;
 
+use AlterEgoBundle\Entity\Activite;
+use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Reservation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -34,7 +36,7 @@ class ReservationController extends Controller
     /**
      * Creates a new reservation entity.
      *
-     * @Route("/new", name="reservation_new")
+     * @Route("/new/", name="reservation_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -45,6 +47,7 @@ class ReservationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $reservation->getCreneau($creid)->setCreneau();
             $user = $this->getUser();
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);

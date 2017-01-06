@@ -18,11 +18,10 @@ class InfoEmploye
     */
     private $testPerf;
 
-    /** @ORM\OneToOne(targetEntity="Reservation")
-    *
+    /** 
+    * @ORM\OneToOne(targetEntity="Reservation")
     */
     private $reservation;
-
 
     /**
      * @ORM\ManyToOne(targetEntity="Entreprise", inversedBy="infosEmploye")
@@ -73,13 +72,6 @@ class InfoEmploye
      * @ORM\Column(name="forme", type="string", length=255)
      */
     private $forme;
-
-//    /**
-//     * @var int
-//     *
-//     * @ORM\Column(name="id_user", type="integer")
-//     */
-//    private $idUser;
 
 
     /**
@@ -189,30 +181,6 @@ class InfoEmploye
     }
 
     /**
-     * Set idUser
-     *
-     * @param integer $idUser
-     *
-     * @return InfoEmploye
-     */
-//    public function setIdUser($idUser)
-//    {
-//        $this->idUser = $idUser;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get idUser
-//     *
-//     * @return int
-//     */
-//    public function getIdUser()
-//    {
-//        return $this->idUser;
-//    }
-
-    /**
      * @return mixed
      */
     public function getUser()
@@ -247,22 +215,6 @@ class InfoEmploye
     /**
      * @return mixed
      */
-    public function getReservation()
-    {
-        return $this->reservation;
-    }
-
-    /**
-     * @param mixed $reservation
-     */
-    public function setReservation($reservation)
-    {
-        $this->reservation = $reservation;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTestPerf()
     {
         return $this->testPerf;
@@ -276,7 +228,21 @@ class InfoEmploye
         $this->testPerf = $testPerf;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
 
+    /**
+     * @param mixed $reservation
+     */
+    public function setReservation($reservation)
+    {
+        $this->reservation = $reservation;
+    }
 
 
 }

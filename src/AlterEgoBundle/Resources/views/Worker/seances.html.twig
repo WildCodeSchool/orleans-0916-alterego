@@ -8,12 +8,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="block_seances_list">
-                <ul >
-                    <li>{{ dump(seances) }}</li>
+                <ul>
                     {% for seance in seances %}
-                        <li class="list_title">{{ seance.activite.activite }} </li>
-                        <li class="list_title">{{ seance.dateheure | date('Y-m-d H:i:s') }} </li>
-                        <li class="list_title">{{ seance.lieu }} </li>
+                        <li class="list_title">{{ seance.activite.activite | upper }} </li>
+                        <li>Lieu : {{ seance.lieu }} </li>
+                        <li>Coach : {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }} </li>
                         <li> <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.activite.id }) }}">Réserver</a></li>
                      {% endfor %}
                 </ul>

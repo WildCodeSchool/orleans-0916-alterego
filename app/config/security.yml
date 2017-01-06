@@ -1,6 +1,10 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+            
     role_hierarchy:
             ROLE_COACH:       [ROLE_USER, ROLE_COACH]
             ROLE_WORKER:       [ROLE_USER, ROLE_WORKER]
@@ -26,13 +30,13 @@ security:
             context:            user
             form_login:
                 provider:       fos_userbundle
-                login_path:     /admin/login
+                login_path:     /
                 use_forward:    false
                 check_path:     /admin/login_check
                 failure_path:   null
             logout:
-                path:           /admin/logout
-                target:         /admin/login
+                path:           /logout
+                target:         /login
             anonymous:          true
 
         # -> end custom configuration
@@ -42,11 +46,19 @@ security:
         # This firewall is used to handle the public login area
         # This part is handled by the FOS User Bundle
         main:
+            remember_me:
+                            secret:   '%secret%'
+                            lifetime: 604800 # 1 week in seconds
+                            path:     /
+                            # by default, the feature is enabled by checking a
+                            # checkbox in the login form (see below), uncomment the
+                            # following line to always enable it.
+                            always_remember_me: true
             pattern:             .*
             context:             user
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     /
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null
@@ -73,8 +85,8 @@ security:
             # This config requires being logged for the whole site and having the admin role for the admin part.
             # Change these rules to adapt them to your needs
             - { path: ^/worker, role: [ROLE_WORKER, ROLE_ADMIN, ROLE_SONATA_ADMIN] }
-            - { path: ^/coach/, role: [ROLE_COACH, ROLE_ADMIN, ROLE_SONATA_ADMIN] }
-            - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+            - { path: ^/coach, role: [ROLE_COACH, ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+            - { path: ^/admin, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
             - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
     encoders:

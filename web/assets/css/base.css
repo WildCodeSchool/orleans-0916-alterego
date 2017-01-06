@@ -28,10 +28,10 @@
 
 .grip_nav {
     padding: 0;
-    z-index: 20;
+    z-index: 10;
     height:80px;
     width: 25px;
-    background-color: #333333;
+    background-color: black;
     position: absolute;
     top: calc(50vh - 40px);
     left: -1px;
@@ -55,33 +55,42 @@
     margin-top: -40px;
 }
 
-#check_nav:not(:checked) + #trans_nav{
-    transform: translateX(0vw);
-    transition-duration: 1s;
-}
-
 #check_nav:checked + #trans_nav{
-    transform: translateX(12vw);
-    transition-duration: 1s;
+    transform: translateX(0vw);
+    transition-duration: .6s;
 }
 
-#check_nav:checked + #trans_nav .content {
+#check_nav:not(:checked) + #trans_nav{
     transform: translateX(12vw);
+    transition-delay: .6s;
+    transition-duration: .6s;
+}
+
+#check_nav:not(:checked) + #trans_nav .content {
+    transform: translateX(12vw);
+}
+
+#check_nav:not(:checked) + #trans_nav .grip_nav {
+    transform: translateX(-12vw);
+    transition-duration: .6s;
 }
 
 #check_nav:checked + #trans_nav .grip_nav {
-    position: fixed;
-    display: none;
+    transform: translateX(0);
+    transition-duration: .6s;
+    transition-delay: .6s;
 
 }
 
 #navbar_mobile {
+    z-index: 15;
     left: -12vw;
     position: fixed;
     list-style: none;
     height: 100vh;
     background-color: black;
     width: 12vw;
+    max-width: 50px;
     margin: 0;padding: 0;border: 0;
     top: 0;
     text-align: center;
@@ -89,18 +98,17 @@
 
 #navbar_mobile a {
     line-height: calc(100vh / 9);
-    font-size: 7vmin;
+    font-size: 2em;
     width: 1.3em;
     color: rgb(242,242,242);
 }
 
 #navbar_mobile .last_child {
     line-height: calc(100vh / 9);
-    font-size: 8vmin;
+    font-size: 2em;
     width: 1.3em;
     color: rgb(242,242,242);
     position: absolute;
-    left: 5vw;
     bottom: 5px;
     transform: translateX(-50%);
 }
@@ -111,4 +119,5 @@
 .content {
     width: 80vw;
     margin-left: 10vw;
+    transform: translateX(6vw);
 }

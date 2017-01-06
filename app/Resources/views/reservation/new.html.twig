@@ -1,12 +1,11 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block body %}
-    {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
     <h1>Reservation creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Valider Ma réservation" />
     {{ form_end(form) }}
 
     <ul>

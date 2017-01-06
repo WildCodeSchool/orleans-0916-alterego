@@ -39,11 +39,13 @@ class ReservationController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $reservation = new Reservation();
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
             $em->flush($reservation);

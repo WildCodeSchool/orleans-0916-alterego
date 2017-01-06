@@ -78,23 +78,6 @@ class ActiviteController extends Controller
         ));
     }
 
-
-    /**
-     * Finds and displays a activite entity.
-     *
-     * @Route("/worker/{id}/{creid}", name="seance_show")
-     * @Method("GET")
-     */
-    public function seancesShowAction(Activite $activite, $creid)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findById($creid);
-        return $this->render('activite/show_worker.html.twig', array(
-            'activite' => $activite,
-            'seance' => $seances,
-        ));
-    }
-
     /**
      * Displays a form to edit an existing activite entity.
      *

@@ -134,6 +134,23 @@ class CreneauController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Finds and displays a activite entity.
+     *
+     * @Route("/worker/{id}", name="seance_show")
+     * @Method("GET")
+     */
+    public function seancesShowAction(Creneau $creneau)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $seance = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
+        dump($seance);
+        return $this->render('activite/show_worker.html.twig', array(
+            'seance' => $seance,
+        ));
+    }
     
     
 }

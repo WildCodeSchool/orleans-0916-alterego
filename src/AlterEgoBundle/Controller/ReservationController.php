@@ -36,18 +36,20 @@ class ReservationController extends Controller
     /**
      * Creates a new reservation entity.
      *
-     * @Route("/new/", name="reservation_new")
+     * @Route("/new/{id}", name="reservation_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Creneau $creneau)
     {
 
         $reservation = new Reservation();
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
+        dump($request);
+        dump($reservation);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $reservation->getCreneau($creid)->setCreneau();
+            $reservation->setCreneau($creneau);
             $user = $this->getUser();
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);

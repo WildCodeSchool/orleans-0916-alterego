@@ -10,17 +10,25 @@
         <tbody>
         <tr>
             <th>Activite</th>
-            <td>{{ activite.activite }}</td>
+            <td>{{ seance.0.activite.activite }}</td>
         </tr>
         <tr>
             <th>Type</th>
-            <td>{{ activite.type }}</td>
+            <td>{{ seance.0.activite.type }}</td>
         </tr>
         <tr>
             <th>Info</th>
-            <td>{{ activite.info }}</td>
+            <td>{{ seance.0.activite.info }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ seance.0.dateheure | date('Y-m-d H:i') }}</td>
+        </tr>
+        <tr>
+            <th>Coach</th>
+            <td>{{ seance.0.activite.user }}</td>
         </tr>
         </tbody>
     </table>
-    {%   render controller('AlterEgoBundle:Reservation:new') %}
+    {%   render controller('AlterEgoBundle:Reservation:new', {'id': seance.0.id}) %}
 {% endblock %}

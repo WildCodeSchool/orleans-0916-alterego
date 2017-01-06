@@ -13,7 +13,7 @@
                         <li class="list_title">{{ seance.activite.activite | upper }} </li>
                         <li>Lieu : {{ seance.lieu }} </li>
                         <li>Coach : {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }} </li>
-                        <li> <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.activite.id, 'creid': seance.id }) }}">Réserver</a></li>
+                        <li> <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a></li>
                      {% endfor %}
                 </ul>
             </div>

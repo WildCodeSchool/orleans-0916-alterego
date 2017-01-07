@@ -39,9 +39,9 @@ class ReservationController extends Controller
      * @Route("/new/{id}", name="reservation_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, Creneau $creneau)
+    public function newAction(Request $request)
     {
-
+        dump($request);
         $reservation = new Reservation();
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
@@ -49,8 +49,6 @@ class ReservationController extends Controller
         dump($reservation);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $reservation->setCreneau($creneau);
-            $user = $this->getUser();
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
             $em->flush($reservation);

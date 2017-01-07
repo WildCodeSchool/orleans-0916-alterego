@@ -162,7 +162,6 @@ class CreneauController extends Controller
             return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }
 
-        dump($seance);
         return $this->render('activite/show_worker.html.twig', array(
             'seance' => $seance,
         ));

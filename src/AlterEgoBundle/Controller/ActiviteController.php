@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Controller;
 
 use AlterEgoBundle\Entity\Activite;
+use AlterEgoBundle\Entity\Creneau;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -76,21 +77,6 @@ class ActiviteController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
-
-    /**
-     * Finds and displays a activite entity.
-     *
-     * @Route("/worker/{id}", name="seance_show")
-     * @Method("GET")
-     */
-    public function seancesShowAction(Activite $activite)
-    {
-        return $this->render('activite/show_worker.html.twig', array(
-            'activite' => $activite,
-        ));
-    }
-
 
     /**
      * Displays a form to edit an existing activite entity.

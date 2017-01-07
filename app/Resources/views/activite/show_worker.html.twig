@@ -4,22 +4,38 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="title_activity">Activite</h1>
-    <table class="table-condensed table-responsive table-striped">
-        <tbody>
-        <tr>
-            <th>Activite</th>
-            <td>{{ activite.activite }}</td>
-        </tr>
-        <tr>
-            <th>Type</th>
-            <td>{{ activite.type }}</td>
-        </tr>
-        <tr>
-            <th>Info</th>
-            <td>{{ activite.info }}</td>
-        </tr>
-        </tbody>
-    </table>
-    {%   render controller('AlterEgoBundle:Reservation:new') %}
+    <div class="container-fluid">
+        <h1 class="title_activity">Activite</h1>
+        <table class="table-condensed table-responsive table-striped">
+            <tbody>
+            <tr>
+                <th>Activite</th>
+                <td>{{ seance.0.activite.activite }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ seance.0.activite.type }}</td>
+            </tr>
+            <tr>
+                <th>Info</th>
+                <td>{{ seance.0.activite.info }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ seance.0.dateheure | date('Y-m-d H:i') }}</td>
+            </tr>
+            <tr>
+                <th>Coach</th>
+                <td>{{ seance.0.activite.user }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row text-center">
+            {%   render controller('AlterEgoBundle:Reservation:new', {'id': seance.0.id}) %}
+        </div>
+        <div class="text-center">
+            <a class="btn btn-success" href="{{ path('seances') }}">Revenir à la liste des Activité</a>
+        </div>
+
+    </div>
 {% endblock %}

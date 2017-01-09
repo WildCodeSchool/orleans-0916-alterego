@@ -39,6 +39,11 @@ class User extends BaseUser
     private $entreprise;
 
     /**
+     * @ORM\OneToMany(targetEntity="AlterEgoBundle\Entity\Reservation", mappedBy="user")
+     */
+    private $reservations;
+
+    /**
      * @return mixed
      */
     public function getEntreprise()

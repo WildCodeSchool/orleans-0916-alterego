@@ -5,6 +5,8 @@ namespace AlterEgoBundle\Controller;
 use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Reservation;
+use AlterEgoBundle\Form\CreneauType;
+use Doctrine\ORM\Event\PostFlushEventArgs;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -167,6 +169,4 @@ class CreneauController extends Controller
             'seance' => $seance,
         ));
     }
-    
-    
 }

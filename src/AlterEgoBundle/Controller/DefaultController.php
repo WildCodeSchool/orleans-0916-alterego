@@ -66,4 +66,5 @@ class DefaultController extends Controller
         throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
 
+
 }

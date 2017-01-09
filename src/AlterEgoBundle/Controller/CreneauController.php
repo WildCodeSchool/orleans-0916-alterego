@@ -153,7 +153,8 @@ class CreneauController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $user = $this->getUser();
+            $reservation->setInfoEmploye($user);
             $reservation->setCreneau($creneau);
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);

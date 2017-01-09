@@ -11,29 +11,42 @@
         background: url("../images/fond2.jpg") no-repeat center fixed;
         -webkit-background-size: cover;
         background-size: cover;
-        font-family: alterFont;
+        font-family: 'alterFont';
         margin: 0;
 
     }
 
     input[type=text], input[type=password] {
-        border-radius: 0 10px 10px 0;
-        margin: 5px;
-        padding: 5px;
+        margin: 3px 15px 3px 15px;
         height: 40px;
         border: none;
-        margin-left: -2px;
+        background-color: rgba(244, 244, 244, 0);
+        border-bottom: 1px solid rgb(172,172,172);
+        font-size: 15px;
+    }
+
+input:hover
+{
+    border: none;
+}
+
+    .entry {
+        background-color: rgba(244, 244, 244, 0.7);
+
     }
 
 
 
+body input:-webkit-autofill {
+    background: rgba(244, 244, 244, 0.6);
+}
 
 i {
     text-align: center;
-    background-color: #d9d9d9;
-    border-radius: 10px 0 0 10px ;
+    background-color: rgba(244, 244, 244, 0);
+    border-radius: 3px 0 0 3px ;
     font-size: 20px;
-    padding: 12px;
+    padding: 7px 15px 7px 15px;
     width: 15px;
 
 }
@@ -71,6 +84,7 @@ table {
 
 }
 
+
 .btn {
     border: 0;
     border-radius: 10px;
@@ -97,7 +111,7 @@ table {
     line-height: 38px;
 }
 td {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 #remember_me {

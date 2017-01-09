@@ -19,7 +19,7 @@ class CoachController extends Controller
      * @Route("/coach/activite")
      */
     public function coachActiviteAction()
-    {
+                    {
         return $this->render('AlterEgoBundle:Coach:coach_activite.html.twig');
     }
 }

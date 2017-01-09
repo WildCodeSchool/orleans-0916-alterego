@@ -4,10 +4,10 @@ namespace AlterEgoBundle\Controller;
 
 use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\Entity\Creneau;
-use AlterEgoBundle\Entity\Reservation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\TrueValidator;
 
 /**
  * Creneau controller.
@@ -135,37 +135,4 @@ class CreneauController extends Controller
             ->getForm()
         ;
     }
-
-    /**
-     * Finds and displays a activite entity.
-     *
-     * @Route("/worker/{id}", name="seance_show")
-     * @Method({"GET", "POST"})
-     */
-    public function seancesShowAction(Request $request, Creneau $creneau)
-    {
-
-        $em = $this->getDoctrine()->getManager();
-        $seance = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
-
-        $reservation = new Reservation();
-        $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $reservation->setCreneau($creneau);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($reservation);
-            $em->flush($reservation);
-
-            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
-        }
-
-        return $this->render('activite/show_worker.html.twig', array(
-            'seance' => $seance,
-        ));
-    }
-    
-    
 }

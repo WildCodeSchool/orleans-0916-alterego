@@ -71,6 +71,12 @@ class Creneau
     private $placerestantes;
 
     /**
+     * @var int
+     * @ORM\Column(name="startseance", type="integer")
+     */
+    private $startseance;
+
+    /**
      * @return mixed
      */
     public function getPlacerestantes()
@@ -305,5 +311,29 @@ class Creneau
     public function getActivite()
     {
         return $this->activite;
+    }
+
+    /**
+     * Set startseance
+     *
+     * @param integer $startseance
+     *
+     * @return Creneau
+     */
+    public function setStartseance($startseance)
+    {
+        $this->startseance = $startseance;
+
+        return $this;
+    }
+
+    /**
+     * Get startseance
+     *
+     * @return integer
+     */
+    public function getStartseance()
+    {
+        return $this->startseance;
     }
 }

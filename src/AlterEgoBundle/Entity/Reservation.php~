@@ -15,7 +15,6 @@ class Reservation
 
     /**
     * @ORM\OneToOne(targetEntity="InfoEmploye")
-    *
     */
     private $infoEmploye;
 

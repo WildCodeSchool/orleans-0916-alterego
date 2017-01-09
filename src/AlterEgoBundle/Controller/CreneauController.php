@@ -7,6 +7,7 @@ use AlterEgoBundle\Entity\Creneau;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\TrueValidator;
 
 /**
  * Creneau controller.
@@ -134,6 +135,4 @@ class CreneauController extends Controller
             ->getForm()
         ;
     }
-    
-    
 }

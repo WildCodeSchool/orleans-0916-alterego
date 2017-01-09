@@ -4,7 +4,6 @@ namespace AlterEgoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Security\Core\SecurityContext;
 
 class DefaultController extends Controller
@@ -29,10 +28,9 @@ class DefaultController extends Controller
             $error = '';
         }
 
-        if ($error) {
-            // TO //DO: this is a potential security risk (see http://trac.symfony-project.org/ticket/9523)
-            $error = $error->getMessage();
-        }
+//        if ($error) {
+//            $error = $error->getMessage();
+//        }
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
@@ -66,4 +64,8 @@ class DefaultController extends Controller
         throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
 
+    public function logoutAction()
+    {
+        throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
+    }
 }

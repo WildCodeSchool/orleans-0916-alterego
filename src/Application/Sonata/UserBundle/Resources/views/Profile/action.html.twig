@@ -22,11 +22,11 @@ file that was distributed with this source code.
 
 <div class="sonata-user-show row row-fluid">
 
-    <div class="span2 col-lg-2" style="padding: 8px 0;">
-        {% block sonata_profile_menu %}
-            {{ sonata_block_render({'type': 'sonata.user.block.menu'}, {'current_uri': app.request.requestUri}) }}
-        {% endblock %}
-    </div>
+    {#<div class="span2 col-lg-2" style="padding: 8px 0;">#}
+        {#{% block sonata_profile_menu %}#}
+            {#{{ sonata_block_render({'type': 'sonata.user.block.menu'}, {'current_uri': app.request.requestUri}) }}#}
+        {#{% endblock %}#}
+    {#</div>#}
 
     <div class="span10 col-lg-10">
         {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}

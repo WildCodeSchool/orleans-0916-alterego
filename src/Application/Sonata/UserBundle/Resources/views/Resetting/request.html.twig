@@ -1,6 +1,8 @@
 {% extends "SonataUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{ "title_user_resetting" | trans({}, 'SonataUserBundle') }}</h3>

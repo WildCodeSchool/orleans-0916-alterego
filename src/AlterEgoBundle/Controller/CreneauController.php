@@ -4,12 +4,15 @@ namespace AlterEgoBundle\Controller;
 
 use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\Entity\Creneau;
+use AlterEgoBundle\Entity\InfoEmploye;
 use AlterEgoBundle\Entity\Reservation;
 use AlterEgoBundle\Form\CreneauType;
 use Doctrine\ORM\Event\PostFlushEventArgs;
+use AlterEgoBundle\Entity\TestPerf;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Creneau controller.
@@ -154,13 +157,24 @@ class CreneauController extends Controller
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
 
+        $testPerf = new TestPerf();
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $testPerf->setReservation($reservation);
+            $testid = $testPerf->getId();
+
             $user = $this->getUser();
-            $reservation->setInfoEmploye($user);
+
+            $reservation->setTestsPerf($testid);
             $reservation->setCreneau($creneau);
+            $reservation->setUser($user);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
-            $em->flush($reservation);
+            $em->persist($testPerf);
+
+            $em->flush();
 
             return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }

@@ -13,19 +13,16 @@ class TestPerfType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('calorie')
-                ->add('endurance')
-                ->add('souplesse')
-                ->add('equilibre');
+
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AlterEgoBundle\Entity\TestPerf'
+            'data_class' => null
         ));
     }
 

@@ -47,13 +47,34 @@ class Image
      * @var File
      *
      * @Assert\File(
-     *     maxSize = "2M",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
-     *     maxSizeMessage = "The maxmimum allowed file size is 1MB.",
-     *     mimeTypesMessage = "Only the filetypes image are allowed."
+     *     maxSize = "500K",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff", "image/jpg"},
+     *     maxSizeMessage = "Taille maximum : 500ko",
+     *     mimeTypesMessage = "Seul les fichiers de type 'image' sont autorisés"
      * )
      */
     protected $file;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * @return int

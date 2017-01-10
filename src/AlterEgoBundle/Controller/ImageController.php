@@ -28,15 +28,11 @@ class ImageController extends Controller
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image);
         $form->handleRequest($request);
+        $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $image->setUser($user);
             $em = $this->getDoctrine()->getManager();
-
-            $fichier = $image->getFile();
-            //$fileName = $this->get('app.image_uploader')->upload($fichier);
-
-            //$image->setPath($fileName);
             $em->persist($image);
             $em->flush($image);
 

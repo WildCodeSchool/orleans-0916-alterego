@@ -44,6 +44,29 @@ class User extends BaseUser
     private $reservations;
 
     /**
+     * @ORM\OneToOne(targetEntity="AlterEgoBundle\Entity\Image")
+     */
+    private $photoprofil;
+
+    /**
+     * @return mixed
+     */
+    public function getPhotoprofil()
+    {
+        return $this->photoprofil;
+    }
+
+    /**
+     * @param mixed $photoprofil
+     */
+    public function setPhotoprofil($photoprofil)
+    {
+        $this->photoprofil = $photoprofil;
+    }
+
+
+
+    /**
      * @return mixed
      */
     public function getReservations()

@@ -9,6 +9,8 @@ use AlterEgoBundle\Entity\Image;
 use AlterEgoBundle\Form\ImageType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeExtensionGuesser;
+use AlterEgoBundle\FileUploader;
 
 
 /**
@@ -31,20 +33,19 @@ class ImageController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            $file = $image->getFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('image_directory'),$fileName);
-            $image->setPath($fileName);
+            $fichier = $image->getFile();
+            //$fileName = $this->get('app.image_uploader')->upload($fichier);
 
+            //$image->setPath($fileName);
             $em->persist($image);
             $em->flush($image);
 
             return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }
 
-    return $this->render('image/new.html.twig', array(
-    'form' => $form->createView(),
-    ));
+        return $this->render('image/new.html.twig', array(
+        'form' => $form->createView(),
+        ));
     }
 
     /**

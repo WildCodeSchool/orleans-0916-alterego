@@ -46,6 +46,22 @@ class User extends BaseUser
     /**
      * @return mixed
      */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations)
+    {
+        $this->reservations = $reservations;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getEntreprise()
     {
         return $this->entreprise;

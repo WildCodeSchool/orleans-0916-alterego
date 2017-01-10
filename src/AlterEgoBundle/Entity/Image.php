@@ -12,6 +12,7 @@ namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class Image
@@ -46,7 +47,7 @@ class Image
      * @var File
      *
      * @Assert\File(
-     *     maxSize = "1M",
+     *     maxSize = "2M",
      *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
      *     maxSizeMessage = "The maxmimum allowed file size is 1MB.",
      *     mimeTypesMessage = "Only the filetypes image are allowed."

@@ -16,11 +16,11 @@
             </tr>
             <tr>
                 <th>Date de début :</th>
-                <td>{{ reservation.creneau.dateheure | date(" m/d/Y à H:i") }}</td>
+                <td>Le {{ reservation.creneau.dateheure | date(" m/d/Y à H:i") }}</td>
             </tr>
             <tr>
                 <th>Durée</th>
-                <td>{{ reservation.creneau.duree }}</td>
+                <td>{{ reservation.creneau.duree }} min</td>
             </tr>
             <tr>
                 <th>Durée</th>

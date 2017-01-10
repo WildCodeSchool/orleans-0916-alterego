@@ -94,6 +94,18 @@ fos_user:
     db_driver:      orm # can be orm or odm
     firewall_name:  main
     user_class:     Application\Sonata\UserBundle\Entity\User
+    registration:
+        confirmation:
+            enabled: true
+            from_email:
+                    address:        l.richard45@gmail.com
+                    sender_name:    Administrateur AlterEgo
+            template:   '@FOSUser/Registration/email.txt.twig'
+    resetting:
+        email:
+            from_email:
+                address:        l.richard45@gmail.com
+                sender_name:    Administrateur AlterEgo
 
 
     group:
@@ -102,3 +114,4 @@ fos_user:
 
     service:
         user_manager: sonata.user.orm.user_manager # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        mailer: fos_user.mailer.twig_swift

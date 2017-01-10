@@ -2,6 +2,7 @@
 
 namespace AlterEgoBundle\Controller;
 
+use FOS\UserBundle\Form\Type\UsernameFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations\Route;
 use Symfony\Component\DependencyInjection\ContainerAware;

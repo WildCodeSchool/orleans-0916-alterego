@@ -8,6 +8,9 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
+use AlterEgoBundle\Entity\Creneau;
+use AlterEgoBundle\Entity\Activite;
+use AlterEgoBundle\entity\Reservation;
 
 /**
  * @Route("/worker", name="worker")
@@ -19,7 +22,22 @@ class WorkerController extends Controller
      */
     public function workerAction()
     {
-        return $this->render('AlterEgoBundle:Worker:worker.html.twig');
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
+        foreach($reservations as $reservation) {
+            if (!isset($nextResa)) {
+                $nextResa = $reservation;
+            }
+            //$resaDate = $reservation->getCreneau()->getDateheure();
+            if ($nextResa->getCreneau()->getDateheure() < $reservation->getCreneau()->getDateheure() ) {
+                $nextResa = $reservation;
+            }
+        }
+        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+            'reservation' => $nextResa
+        ));
+
     }
 
     /**
@@ -91,6 +109,7 @@ class WorkerController extends Controller
             'seances' => $seances,
         ));
     }
-    
+
+
 
 }

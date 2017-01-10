@@ -27,7 +27,7 @@ class TestPerf
     private $infoEmploye;
 
     /**
-     * @ORM\OneToOne(targetEntity="Reservation", mappedBy="testsPerf")
+     * @ORM\OneToOne(targetEntity="Reservation", inversedBy="testsPerf")
      */
     private $reservation;   
 

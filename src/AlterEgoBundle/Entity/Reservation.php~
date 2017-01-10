@@ -141,14 +141,16 @@ class Reservation
     }
 
 
+
+
     /**
      * Set testsPerf
      *
-     * @param \AlterEgoBundle\Entity\TestPerf $testsPerf
+     * @param \AlterEgoBundle\Entity\Creneau $testsPerf
      *
      * @return Reservation
      */
-    public function setTestsPerf(\AlterEgoBundle\Entity\TestPerf $testsPerf = null)
+    public function setTestsPerf(\AlterEgoBundle\Entity\Creneau $testsPerf = null)
     {
         $this->testsPerf = $testsPerf;
 

@@ -68,4 +68,5 @@ class DefaultController extends Controller
     {
         throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
     }
+
 }

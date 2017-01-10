@@ -155,22 +155,21 @@ class CreneauController extends Controller
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
 
-        $testPerf = new TestPerf();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $testPerf = new TestPerf();
+            $em->persist($testPerf);
 
             $testPerf->setReservation($reservation);
-            $testid = $testPerf->getId();
 
             $user = $this->getUser();
 
-            $reservation->setTestsPerf($testid);
+            $reservation->setTestsPerf($testPerf);
             $reservation->setCreneau($creneau);
             $reservation->setUser($user);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
-            $em->persist($testPerf);
 
             $em->flush();
 

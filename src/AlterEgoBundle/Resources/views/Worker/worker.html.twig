@@ -25,11 +25,15 @@
                 <h2 class="title_seance_worker">Ma prochaine Séance</h2>
             </div>
             <div class="tuile_body">
-                <p class="time_info_worker">Séance de Yoga, <br/>aujourd'hui à <span>9:30</span></p>
-                <p class="lieu_worker">Lieu : Atelier Peinture, Bat. A</p>
+                {% for reservation in reservations %}
+                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("h:m") }}</span></p>
+                <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
+                    {% endfor %}
                 <div class="start_activity">
+                    {# <a href="{{ path('worker', {'creneau': creaneau.startseance }) }}"> #}
                     <p>DEMARRER</p>
                     <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
+                    {# </a> #}
                 </div>
             </div>
         </div>

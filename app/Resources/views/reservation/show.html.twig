@@ -1,38 +1,55 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block body %}
+    <div class="container-fluid">
+        <h1>Récapitulatif de votre réservation :</h1>
 
-    <h1>Reservation</h1>
-
-    <table>
-        <tbody>
+        <table class="table-condensed table-responsive table-striped">
+            <tbody>
             <tr>
-                <th>Id</th>
+                <th>Réservation N° </th>
                 <td>{{ reservation.id }}</td>
             </tr>
             <tr>
-                <th>Statuspayment</th>
-                <td>{{ reservation.statusPayment }}</td>
+                <th>Activite</th>
+                <td>{{ reservation.creneau.activite.activite }}</td>
             </tr>
             <tr>
-                <th>Notecoach</th>
-                <td>{{ reservation.noteCoach }}</td>
+                <th>Date de début :</th>
+                <td>Le {{ reservation.creneau.dateheure | date(" m/d/Y à H:i") }}</td>
             </tr>
-        </tbody>
-    </table>
+            <tr>
+                <th>Durée</th>
+                <td>{{ reservation.creneau.duree }} min</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ reservation.creneau.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ reservation.creneau.activite.type }}</td>
+            </tr>
+            <tr>
+                <th>Infos Complémentaire</th>
+                <td>{{ reservation.creneau.activite.info }}</td>
+            </tr>
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('reservation_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
+        <ul>
+            <li>
+                <a class="btn btn-success" href="{{ path('reservation_index') }}">Back to the list</a>
+            </li>
+            <li>
+                <a class="btn btn-primary" href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </div>
 {% endblock %}
 

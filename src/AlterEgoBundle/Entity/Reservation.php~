@@ -12,18 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
-
     /**
-    * @ORM\OneToOne(targetEntity="InfoEmploye")
-    */
-    private $infoEmploye;
+     * @ORM\OneToOne(targetEntity="TestPerf", inversedBy="reservation")
+     */
+    private $testsPerf;
 
     /**
      * @ORM\ManyToOne(targetEntity="Creneau", inversedBy="reservations")
      */
     private $creneau;
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="reservations")
+     */
+    private $user;
+    
     /**
      * @var int
      *
@@ -36,17 +39,16 @@ class Reservation
     /**
      * @var string
      *
-     * @ORM\Column(name="statusPayment", type="string", length=45)
+     * @ORM\Column(name="statusPayment", type="string", length=45, nullable=true)
      */
     private $statusPayment;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="note_coach", type="string", length=45)
+     * @ORM\Column(name="note_coach", type="string", length=45, nullable=true)
      */
     private $noteCoach;
-
 
     /**
      * Get id
@@ -140,4 +142,52 @@ class Reservation
 
 
 
+
+    /**
+     * Set testsPerf
+     *
+     * @param \AlterEgoBundle\Entity\Creneau $testsPerf
+     *
+     * @return Reservation
+     */
+    public function setTestsPerf(\AlterEgoBundle\Entity\Creneau $testsPerf = null)
+    {
+        $this->testsPerf = $testsPerf;
+
+        return $this;
+    }
+
+    /**
+     * Get testsPerf
+     *
+     * @return \AlterEgoBundle\Entity\Creneau
+     */
+    public function getTestsPerf()
+    {
+        return $this->testsPerf;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $user
+     *
+     * @return Reservation
+     */
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Application\Sonata\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

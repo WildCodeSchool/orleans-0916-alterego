@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AlterEgoBundle\Entity\Creneau;
 
 /**
  * Reservation
@@ -119,7 +120,7 @@ class Reservation
     /**
      * @param mixed $creneau
      */
-    public function setCreneau($creneau)
+    public function setCreneau(Creneau $creneau)
     {
         $this->creneau = $creneau;
     }

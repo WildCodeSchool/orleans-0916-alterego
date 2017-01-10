@@ -18,7 +18,8 @@
             </div>
         </div>
     </div>
-            <h1 class="name_worker">Bonjour {{ app.user.username }}</h1>
+            <h1 class="name_worker">Bonjour {{ app.user.username|title }}</h1>
+
         <div class="tuile">
             <div class="tuile_header">
                 <img class="ico_clock_worker fa fa-clock-o" alt="">
@@ -26,14 +27,16 @@
             </div>
             <div class="tuile_body">
                 {% for reservation in reservations %}
-                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("h:m:s") }}</span></p>
+
+                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("h:i") }}</span></p>
+
                 <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
-                    {% endfor %}
                 <div class="start_activity">
-                    {# <a href="{{ path('worker', {'creneau': creaneau.startseance }) }}"> #}
+                    {#<a href="{{ path('/worker', {'reservation': reservation.creneau.startseance }) }}">#}
                     <p>DEMARRER</p>
                     <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
-                    {# </a> #}
+                    {#</a>#}
+
                 </div>
             </div>
         </div>

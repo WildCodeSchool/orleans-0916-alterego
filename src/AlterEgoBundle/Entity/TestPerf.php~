@@ -12,21 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TestPerf
 {
-
-    /**
-    * @ORM\OneToOne(targetEntity="InfoEmploye")
-    */
-    private $infoEmploye;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Creneau", inversedBy="testsPerf")
-     */
-    private $creneau;
-
-
-
-
-
     /**
      * @var int
      *
@@ -35,35 +20,44 @@ class TestPerf
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+    * @ORM\OneToOne(targetEntity="InfoEmploye")
+    */
+    private $infoEmploye;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Reservation", mappedBy="testsPerf")
+     */
+    private $reservation;   
 
     /**
      * @var int
      *
-     * @ORM\Column(name="calorie", type="integer")
+     * @ORM\Column(name="calorie", type="integer", nullable=true)
      */
     private $calorie;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="endurance", type="integer")
+     * @ORM\Column(name="endurance", type="integer", nullable=true)
      */
     private $endurance;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="souplesse", type="integer")
+     * @ORM\Column(name="souplesse", type="integer", nullable=true)
      */
     private $souplesse;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="equilibre", type="integer")
+     * @ORM\Column(name="equilibre", type="integer", nullable=true)
      */
     private $equilibre;
-
 
     /**
      * Get id
@@ -174,22 +168,6 @@ class TestPerf
     /**
      * @return mixed
      */
-    public function getCreneau()
-    {
-        return $this->creneau;
-    }
-
-    /**
-     * @param mixed $creneau
-     */
-    public function setCreneau($creneau)
-    {
-        $this->creneau = $creneau;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getInfoEmploye()
     {
         return $this->infoEmploye;
@@ -202,7 +180,29 @@ class TestPerf
     {
         $this->infoEmploye = $infoEmploye;
     }
+    
 
+    /**
+     * Set reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     *
+     * @return TestPerf
+     */
+    public function setReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservation = $reservation;
 
+        return $this;
+    }
 
+    /**
+     * Get reservation
+     *
+     * @return \AlterEgoBundle\Entity\Reservation
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
 }

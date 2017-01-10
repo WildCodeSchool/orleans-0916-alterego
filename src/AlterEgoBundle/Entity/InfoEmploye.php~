@@ -18,11 +18,6 @@ class InfoEmploye
     */
     private $testPerf;
 
-    /** 
-    * @ORM\OneToOne(targetEntity="Reservation")
-    */
-    private $reservation;
-
     /**
      * @ORM\ManyToOne(targetEntity="Entreprise", inversedBy="infosEmploye")
 

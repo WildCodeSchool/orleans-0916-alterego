@@ -8,6 +8,8 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
+use Symfony\Component\HttpFoundation\Request;
+use AlterEgoBundle\Calendar\CalendarEvent;
 
 /**
  * @Route("/worker", name="worker")
@@ -74,10 +76,41 @@ class WorkerController extends Controller
 
     /**
      * @Route("/reservation", name="reservation")
+     *
+     * Dispatch a CalendarEvent and return a JSON Response of any events returned.
+     *
+     * @param Request $request
+     * @return Response
      */
     public function reservationAction()
     {
-        return $this->render('AlterEgoBundle:Worker:reservation.html.twig');
+//        $startDatetime = new \DateTime();
+//        $startDatetime->setTimestamp($request->get('start'));
+//
+//        $endDatetime = new \DateTime();
+//        $endDatetime->setTimestamp($request->get('end'));
+//
+//        $events = $this->container->get('event_dispatcher')->dispatch(CalendarEvent::CONFIGURE, new CalendarEvent($startDatetime, $endDatetime, $request))->getEvents();
+//
+//        $response = new \Symfony\Component\HttpFoundation\Response();
+//        $response->headers->set('Content-Type', 'application/json');
+//
+//        $return_events = array();
+//
+//        foreach($events as $event) {
+//            $return_events[] = $event->toArray();
+//        }
+//
+//        $response->setContent(json_encode($return_events));
+
+
+        $em = $this->getDoctrine()->getManager();
+        $reservations =$em->getRepository('AlterEgoBundle:Reservation')->findByUser($this->getUser());
+
+
+        return $this->render('AlterEgoBundle:Worker:reservation.html.twig', array(
+            $reservations => 'reservations'
+        ));
     }
 
     /**

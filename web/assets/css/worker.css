@@ -230,3 +230,10 @@ span {
     right: 0;
 }
 
+/*====================== Calendar=============================*/
+
+
+
+.fc-first.fc-last {
+    border-bottom: 1px solid black;
+}

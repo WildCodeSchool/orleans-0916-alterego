@@ -26,7 +26,7 @@
             </div>
             <div class="tuile_body">
                 {% for reservation in reservations %}
-                <p class="time_info_worker">Séance de Yoga, <br/>aujourd'hui à <span>9:30</span></p>
+                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("h:m") }}</span></p>
                 <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
                     {% endfor %}
                 <div class="start_activity">

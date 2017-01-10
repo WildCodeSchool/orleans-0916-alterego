@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Activite;
+use AlterEgoBundle\entity\Reservation;
 
 /**
  * @Route("/worker", name="worker")
@@ -23,11 +24,7 @@ class WorkerController extends Controller
     {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array(
-            'user' => $user
-            )
-        );
-
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
         return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservations' => $reservations
         ));

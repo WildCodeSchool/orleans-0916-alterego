@@ -10,4 +10,29 @@ namespace AlterEgoBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByRegistration()
+    {
+        return $this->createQueryBuilder('reg')
+
+            ->select('reg')
+            ->join('reg.creneau', 'cre')
+            ->join('r')
+
+
+
+//            ->select('h, COUNT(r.hotel) as nbroom')
+//            ->join('h.rooms', 'r')
+//            ->groupBy('r.hotel, h.id')
+//            ->having('nbroom>=:nbroom')
+//            ->setParameter('nbroom', $nbRoom)
+//            ->where('r.book = :book')
+//            ->setParameter('book', 0)
+//            ->andWhere('h.stars >= :stars')
+//            ->setParameter('stars', $stars)
+//            ->andWhere('h.city=:city')
+//            ->setParameter('city', $city)
+//            ->orderBy('nbroom', 'DESC')
+//            ->getQuery()->getResult()
+            ;
+    }
 }

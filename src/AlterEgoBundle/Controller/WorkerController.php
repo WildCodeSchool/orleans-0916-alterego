@@ -25,9 +25,19 @@ class WorkerController extends Controller
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
+        foreach($reservations as $reservation) {
+            if (!isset($nextResa)) {
+                $nextResa = $reservation;
+            }
+            //$resaDate = $reservation->getCreneau()->getDateheure();
+            if ($nextResa->getCreneau()->getDateheure() < $reservation->getCreneau()->getDateheure() ) {
+                $nextResa = $reservation;
+            }
+        }
         return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservations' => $reservations
+            'reservation' => $nextResa
         ));
+
     }
 
     /**

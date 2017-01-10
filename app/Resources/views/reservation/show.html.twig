@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container-fluid">
-        <h1>Récapitulatif de votre réservation :</h1>
+        <h1 class="title_activity">Récapitulatif de votre réservation :</h1>
 
         <table class="table-condensed table-responsive table-striped">
             <tbody>
@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <th>Date de début :</th>
-                <td>Le {{ reservation.creneau.dateheure | date(" m/d/Y à H:i") }}</td>
+                <td>Le {{ reservation.creneau.dateheure | date(" m-d-Y à H:i") | trans }}</td>
             </tr>
             <tr>
                 <th>Durée</th>
@@ -37,7 +37,7 @@
             </tbody>
         </table>
 
-        <ul>
+        <ul class="text-center center-block">
             <li>
                 <a class="btn btn-success" href="{{ path('reservation_index') }}">Back to the list</a>
             </li>

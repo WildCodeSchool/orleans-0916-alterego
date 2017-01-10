@@ -142,8 +142,6 @@ class Reservation
     }
 
 
-
-
     /**
      * Set testsPerf
      *

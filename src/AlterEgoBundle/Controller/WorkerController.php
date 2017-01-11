@@ -27,9 +27,19 @@ class WorkerController extends Controller
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
+        foreach($reservations as $reservation) {
+            if (!isset($nextResa)) {
+                $nextResa = $reservation;
+            }
+            //$resaDate = $reservation->getCreneau()->getDateheure();
+            if ($nextResa->getCreneau()->getDateheure() < $reservation->getCreneau()->getDateheure() ) {
+                $nextResa = $reservation;
+            }
+        }
         return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservations' => $reservations
+            'reservation' => $nextResa
         ));
+
     }
 
     /**
@@ -53,6 +63,7 @@ class WorkerController extends Controller
      */
     public function settingsAction()
     {
+        
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');

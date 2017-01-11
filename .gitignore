@@ -11,4 +11,5 @@
 /app/logs/
 /app/cache/
 /.idea/
-
+/*.php~
+*~

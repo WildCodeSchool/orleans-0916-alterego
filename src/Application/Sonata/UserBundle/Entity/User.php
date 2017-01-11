@@ -1,13 +1,5 @@
 <?php
 
-/**
- * This file is part of the <name> project.
- *
- * (c) <yourname> <youremail>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 namespace Application\Sonata\UserBundle\Entity;
 
@@ -43,6 +35,46 @@ class User extends BaseUser
      */
     private $reservations;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AlterEgoBundle\Entity\Image")
+     */
+    private $photoprofil;
+
+    /**
+     * @return mixed
+     */
+    public function getPhotoprofil()
+    {
+        return $this->photoprofil;
+    }
+
+    /**
+     * @param mixed $photoprofil
+     */
+    public function setPhotoprofil($photoprofil)
+    {
+        $this->photoprofil = $photoprofil;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * @param mixed $reservations
+     */
+    public function setReservations($reservations)
+    {
+        $this->reservations = $reservations;
+    }
+
+   
     /**
      * @return mixed
      */

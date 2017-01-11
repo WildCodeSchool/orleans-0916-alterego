@@ -149,7 +149,5 @@ class WorkerController extends Controller
             'seances' => $seances,
         ));
     }
-
-
-
+    
 }

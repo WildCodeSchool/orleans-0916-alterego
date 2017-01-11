@@ -1,4 +1,4 @@
-{% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+{% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 
 {% block head %}
     {{ parent() }}
@@ -18,6 +18,6 @@
     <script src="{{ asset('assets/fullcalendar-3.1.0/lib/moment.min.js') }}"></script>
     <script src="{{ asset('assets/fullcalendar-3.1.0/fullcalendar.js') }}"></script>
     <script>
-        {{ include('@AlterEgo/Worker/calendar_worker.js.twig') }}
+        {{ include('@AlterEgo/Coach/calendar_coach.js.twig') }}
     </script>
 {% endblock %}

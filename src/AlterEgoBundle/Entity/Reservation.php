@@ -52,6 +52,29 @@ class Reservation
     private $noteCoach;
 
     /**
+     * @var int
+     * 
+     * @ORM\Column(name="is_present", type="integer", nullable=true)
+     */
+    private $ispresent;
+
+    /**
+     * @return mixed
+     */
+    public function getIspresent()
+    {
+        return $this->ispresent;
+    }
+
+    /**
+     * @param mixed $ispresent
+     */
+    public function setIspresent($ispresent)
+    {
+        $this->ispresent = $ispresent;
+    }
+
+    /**
      * Get id
      *
      * @return int

@@ -31,15 +31,17 @@
             <div class="tuile_body">
                 <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("H:i") }}</span></p>
                 <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
-                <a href="{{ path('worker_index',{'startseance':reservation.creneau.startseance,'startseance':1}) }}">
-                <div class="start_activity">
-                    <p>DEMARRER</p>
-                    <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
-                </div>
+                <a href="{{ path('worker_index') }}">
+                    <div class="start_activity">
+                        <p>DEMARRER</p>
+                        <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
+                    </div>
                 </a>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" value="Create" />
+                {{ form_end(form) }}
             </div>
-
-
     {% endif %}
         </div>
 

@@ -29,20 +29,29 @@ class WorkerController extends Controller
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
-        $date = new \DateTime();
-        foreach($reservations as $reservation) {
-            if (!isset($nextResa)) {
-                $nextResa = $reservation;
-            }
-            //$resaDate = $reservation->getCreneau()->getDateheure();
-            if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure()>= $date)) {
-                $nextResa = $reservation;
-            }
-        }
+        dump($reservations);
 
-        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservation' => $nextResa
-        ));
+        if($reservations){
+            $date = new \DateTime();
+            foreach($reservations as $reservation) {
+                if (!isset($nextResa)) {
+                    $nextResa = $reservation;
+                }
+                //$resaDate = $reservation->getCreneau()->getDateheure();
+                if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure() >= $date)) {
+                    $nextResa = $reservation;
+                }
+            }
+
+            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+                'reservation' => $nextResa
+            ));
+        } else {
+
+            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+                'reservation' => $reservations,));
+
+        }
 
     }
 

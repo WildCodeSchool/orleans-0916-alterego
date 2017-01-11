@@ -12,6 +12,7 @@ use FOS\UserBundle\Model\UserInterface;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\entity\Reservation;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
  * @Route("/worker", name="worker")
@@ -20,6 +21,7 @@ class WorkerController extends Controller
 {
     /**
      * @Route("/", name="worker_index")
+     * @Method("GET")
      */
     public function workerAction()
     {
@@ -32,7 +34,7 @@ class WorkerController extends Controller
             }
             //$resaDate = $reservation->getCreneau()->getDateheure();
             if ($nextResa->getCreneau()->getDateheure() < $reservation->getCreneau()->getDateheure() ) {
-                $nextResa = $reservation;
+                $nextResa = $reservations;
             }
         }
         return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(

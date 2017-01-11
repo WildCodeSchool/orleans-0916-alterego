@@ -14,6 +14,7 @@ use AlterEgoBundle\entity\Reservation;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @Route("/worker", name="worker")
@@ -28,15 +29,17 @@ class WorkerController extends Controller
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
+        $date = new \DateTime();
         foreach($reservations as $reservation) {
             if (!isset($nextResa)) {
                 $nextResa = $reservation;
             }
             //$resaDate = $reservation->getCreneau()->getDateheure();
-            if ($nextResa->getCreneau()->getDateheure() < $reservation->getCreneau()->getDateheure() ) {
+            if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure()>= $date)) {
                 $nextResa = $reservation;
             }
         }
+
         return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservation' => $nextResa
         ));

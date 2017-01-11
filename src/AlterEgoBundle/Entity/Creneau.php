@@ -66,13 +66,13 @@ class Creneau
 
     /**
      * @var int
-     * @ORM\Column(name="placerestantes", type="integer")
+     * @ORM\Column(name="placerestantes", type="integer", nullable=true)
      */
     private $placerestantes;
 
     /**
      * @var int
-     * @ORM\Column(name="startseance", type="integer")
+     * @ORM\Column(name="startseance", type="integer", nullable=true)
      */
     private $startseance;
 

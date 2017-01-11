@@ -1,0 +1,47 @@
+$(document).ready(function () {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    $('#calendar').fullCalendar({
+
+        locale: 'fr',
+        timeFormat: 'H:mm',
+        firstDay: 1,
+        defaultView: 'agendaWeek',
+        eventColor: '#378006',
+
+        header: {
+            center: 'agendaWeek,month' // buttons for switching between views
+        },
+
+        views: {
+            basicWeek: {
+
+            }
+        },
+
+        events: [
+            {% for activite in activites %}
+            {% for creneau in activite.creneaux %}
+            {
+                title: '{{ creneau.activite.activite }}',
+                start: '{{ creneau.dateheure|date('Y-m-d\\TH:i:sP') }}',
+                end: '{{ creneau.dateheure|date_modify('+'~creneau.duree ~'minutes')|date('Y-m-d\\TH:i:sP') }}',
+                url: '{{ path('creneau_show',{'id': creneau.id}) }}',
+                allDay: false
+            },
+            {% endfor %}
+            {% endfor %}
+        ],
+
+        eventClick: function(event) {
+            if (event.url) {
+                window.location(event.url);
+                return false;
+            }
+        }
+    })
+});

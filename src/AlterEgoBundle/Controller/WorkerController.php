@@ -13,6 +13,7 @@ use AlterEgoBundle\Entity\Activite;
 use AlterEgoBundle\entity\Reservation;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Calendar\CalendarEvent;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
  * @Route("/worker", name="worker")

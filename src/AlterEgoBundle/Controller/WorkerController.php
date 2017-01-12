@@ -42,7 +42,6 @@ class WorkerController extends Controller
                 if (!isset($nextResa)) {
                     $nextResa = $reservation;
                 }
-                //$resaDate = $reservation->getCreneau()->getDateheure();
                 if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure() >= $date)) {
                     $nextResa = $reservation;
                 }

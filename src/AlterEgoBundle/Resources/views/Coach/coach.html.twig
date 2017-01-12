@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="title_profil">
-        <h3 class="name_coach">Bonjour Baptiste</h3>
+        <h3 class="name_coach">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h3>
     </div>
 
     <div class="tuile">
@@ -53,11 +53,6 @@
                         <span class="fake_rating">☆</span><span class="fake_rating">★</span><span
                                 class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
                     </div>
-                    <!--
-                    <div class="col-lg-6 inline-block text-center">
-                        <span class="number_note">3.2/5</span>
-                    </div>
-                    -->
                 </div>
                 <p class="eval_time">il y a 3j.</p>
             </div>
@@ -70,11 +65,6 @@
                         <span class="fake_rating">☆</span><span class="fake_rating">☆</span><span
                                 class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
                     </div>
-                    <!--
-                    <div class="col-lg-6 inline-block text-center">
-                        <span class="number_note">3.2/5</span>
-                    </div>
-                    -->
                 </div>
                 <p class="eval_time">il y a 6j.</p>
 

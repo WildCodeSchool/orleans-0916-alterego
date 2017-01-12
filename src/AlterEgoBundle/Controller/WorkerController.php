@@ -16,6 +16,7 @@ use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Validator\Constraints\DateTime;
 use AlterEgoBundle\Form\CheckType;
+use AlterEgoBundle\Form\RatingType;
 
 /**
  * @Route("/worker", name="worker")
@@ -152,16 +153,28 @@ class WorkerController extends Controller
 
     /**
      * @Route("/rating", name="rating")
+     * @Method({"GET", "POST"})
      */
-    public function ratingAction()
+    public function ratingAction(Request $request)
     {
-        // worker actuellement connecté
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'noteCoach' => null, 'ispresent' => 1]);
 
+        $form = $this->createForm('AlterEgoBundle\Form\RatingType');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $reservations->setNotecoach($request);
+            $em->persist($request);
+            $em->flush($request);
+
+        }        
+
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,
+            'form' => $form->createView(),
         ));
 
     }

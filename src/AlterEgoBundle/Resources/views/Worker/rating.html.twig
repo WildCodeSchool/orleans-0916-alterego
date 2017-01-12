@@ -2,7 +2,14 @@
 
 {% block content %}
     {% for reservation in reservations %}
-        {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} - * * * * *
+        {% if reservation.ispresent == 1 %}
+        {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="start_activity" type="submit" value="Create"></button>
+        {{ form_end(form) }}
+        {% endif %}
     {% else %}
         Pas d'activité à noter
     {% endfor %}

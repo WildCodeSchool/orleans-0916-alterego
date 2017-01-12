@@ -18,41 +18,53 @@
             </div>
         </div>
     </div>
-            <h1 class="name_worker">Bonjour {{ app.user.username|title }}</h1>
+    <h1 class="name_worker">Bonjour {{ app.user.username|title }}</h1>
+    <div class="tuile">
+        <div class="tuile_header">
+            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance<a
+                        href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
 
-        <div class="tuile">
-            <div class="tuile_header">
-                <img class="ico_clock_worker fa fa-clock-o" alt="">
-                <h2 class="title_seance_worker">Ma prochaine Séance</h2>
-            </div>
+        </div>
     {% if reservation is empty %}
         vous n'avez pas de réservation
     {% else %}
-            <div class="tuile_body">
-                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("H:i") }}</span></p>
-                <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
-                <a href="{{ path('worker_index') }}">
-                    <div class="start_activity">
-                        <p>DEMARRER</p>
-                        <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
-                    </div>
-                </a>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <input class="btn btn-success" type="submit" value="Create" />
-                {{ form_end(form) }}
+        <div class="tuile_body">
+            <div class="info">
+                <p class="activity_info_worker">{{ reservation.creneau.activite.activite|upper }}
+                    <br/>
+                    {% if "now"|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
+                        Aujourd'huis
+                    {% elseif "now"|date_modify('+1 day')|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
+                        Demain
+                    {% else %}
+                        le {{ reservation.creneau.dateheure|date("d\/m\/y") }}
+                    {% endif %}
+                    à<span>{{ reservation.creneau.dateheure|date("h:i") }}</span></p>
+                <p class="lieu_worker"><i class="fa fa-map-marker pin_seance"
+                                          aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>
+            <a class="start_activity" href="{{ path('worker_index') }}">
+                {#<a href="{{ path('/worker', {'reservation': reservation.creneau.startseance }) }}">#}
+                <p>DEMARRER</p>
+                <img class="start_coach" src="{{ asset ('assets/images/start.svg') }}" alt="">
+                {#</a>#}
+            </a>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="btn btn-success" type="submit" value="Create" />
+            {{ form_end(form) }}
+        </div>
     {% endif %}
-        </div>
+    </div>
 
-        <div class="tuile">
-            <div class="tuile_header actu_rh">
-                <img class="ico_clock_worker" src="{{ asset ('assets/images/hp.png') }}" alt="">
-                <h2 class="title_seance_worker">Votre Actualité RH</h2>
-            </div>
-            <div class="tuile_body">
-                <p class="rh_news">Safran vous souhaite une excellente journée !</p>
-            </div>
+    <div class="tuile">
+        <div class="tuile_header actu_rh">
+            <h2 class="title_seance_worker"><i class="fa fa-bullhorn i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mes
+                infos RH</h2>
         </div>
+        <div class="tuile_body">
+            <p class="rh_news">Safran vous souhaite une excellente journée !</p>
+        </div>
+    </div>
 
 {% endblock %}

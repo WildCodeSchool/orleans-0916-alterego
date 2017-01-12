@@ -37,19 +37,7 @@ body {
 .block_tile2 {
     margin-top: -100px;
 }
-.ico_clock_worker {
-    height: 80px;
-    width: 100px;
-}
-.title_seance_worker {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-.time_info_worker {
-    font-size: 20px;
-    padding-top: 8%;
-}
+
 .datetime_worker {
     text-align: center;
     margin-top: -20px;
@@ -76,9 +64,7 @@ span {
     border-top: 100px solid blue;
 }
 .rh_news {
-    font-size: 20px;
     text-align: center;
-    padding-top: 25px;
 }
 .badges_worker_challenge {
     border-top: 100px solid darkblue;
@@ -91,66 +77,85 @@ span {
     text-align: center;
     border-radius: 15px;
     width: 80vw;
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
 }
 
 .tuile_header {
-    background-color: #04cd16;
-    border-radius: 10px 10px 0 0;
-    height: 100px;
+    background-color: #b0f000;
+    border-radius: 7px 7px 0 0;
     margin: 0;
-}
-
-.tuile_header img {
-    float: left;
-    margin-left: 30px;
-    width: 50px;
-    height: 50px;
-    margin-top: 25px;
+    text-align: left;
 }
 
 .tuile_header h2 {
-    line-height: 100px;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    font-family: alterFont;
+    padding: 5px;
 }
+
+.i_left {
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.i_right {
+    float: right;
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+}
+
 
 .tuile_body {
     margin: 0;
     background-color: white;
-    border-radius: 0 0 10px 10px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
+    margin-top: -10px;
+    padding-top: 15px;
+    font-size: 15px;
 }
 
 .actu_rh {
-    background-color: blue;
+    background-color: #00b0f0;
 }
 
 .lieu_worker {
     font-size: 20px;
-    font-weight: 600;
+    line-height: 30px;
+    text-decoration: underline;
 }
 
-.start_activity {
-    background-color: rgb(28, 138, 219);
-    height: 50px;
-    width: 55vw;
-    margin-left: 15vw;
-    border-radius: 50px 50px 50px 50px  ;
-    margin-top: 30px;
+.info {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.pin_seance {
+    font-size: 30px;
+    margin-right: 15px;
 }
 
 .start_coach {
-    width: 75px;
+    width: 55vw;
     position: relative;
-    left: -25vw;
-    top: -12.5px;
+}
+
+.start_activity {
+    width: 55vw;
+    margin: 0;
 }
 
 .start_activity p {
     position: absolute;
-    margin-left: 20vw;
-    line-height: 50px;
-    font-size: 20px;
+    z-index: 5;
+    margin-left: 36vw;
+    line-height: 61px;
+    font-size: 15px;
     font-weight: 600;
+    color: black;
 }
 
 /*---------------Settings Page-----------------*/
@@ -236,4 +241,57 @@ span {
 
 .fc-first.fc-last {
     border-bottom: 1px solid black;
+}
+
+.agenda {
+    padding: 0;
+}
+
+.fc-agenda-view .fc-day-grid {
+    display: none;
+}
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    display: none;
+}
+
+.fc-day-grid-container.fc-scroller {
+    height: auto!important;
+    overflow-y: auto;
+
+}
+
+.fc-time-grid .fc-slats td {
+    font-size: 10px;
+    line-height: 1.5em;
+    height: 1.5em;
+}
+
+.fc-time-grid .fc-slats td {
+}
+
+.fc-ltr .fc-axis {
+    display: none;
+}
+
+.fc th {
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border-style: none;
+}
+
+
+.fc-unthemed .fc-today {
+    background: #b0f000;
+    color: black;
+}
+
+.fc td.fc-today {
+    border-style: none;
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+    border-bottom: none;
+    border-top: none;
 }

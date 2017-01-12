@@ -47,7 +47,7 @@
             </div>
 
             {% if reservation.isPresent == 1 %}
-                séance en cours
+               <p>SEANCE EN COURS <span><img src="{{ asset('assets/images/30.gif') }}" alt="loader"></span></p>
             {% else %}
 
             {{ form_start(form) }}
@@ -72,5 +72,4 @@
             <p class="rh_news">Safran vous souhaite une excellente journée !</p>
         </div>
     </div>
-
 {% endblock %}

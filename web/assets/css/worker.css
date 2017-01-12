@@ -144,14 +144,15 @@ span {
 }
 
 .start_activity {
-    width: 55vw;
     margin: 0;
+    background-color: white;
+    border: none;
 }
 
 .start_activity p {
     position: absolute;
     z-index: 5;
-    margin-left: 36vw;
+    margin-left: 25vw;
     line-height: 61px;
     font-size: 15px;
     font-weight: 600;
@@ -294,4 +295,40 @@ span {
 .fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
     border-bottom: none;
     border-top: none;
+}
+
+/* ===================    Page Séances            ================================*/
+
+.tuile_seance {
+    height: 150px;
+    border-radius: 0px;
+    margin: 0;
+    font-family: alterFont;
+    display: flex;
+    -moz-box-shadow: 0px 10px 15px -10px #656565;
+    -webkit-box-shadow: 0px 10px 15px -10px #656565;
+    -o-box-shadow: 0px 10px 15px -10px #656565;
+    box-shadow: 0px 10px 15px -10px #656565;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=180, Strength=15);
+}
+
+.tuile_body_left {
+    width: 50vw;
+}
+.tuile_body_right {
+    width: 30vw;
+    display: flex;
+}
+
+.reservation_access {
+ height: 30px;
+    margin: auto;
+}
+
+.nom_seance {
+    font-size: 25px;
+}
+
+h1 {
+    margin: 0;
 }

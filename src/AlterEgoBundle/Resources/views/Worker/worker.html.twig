@@ -45,16 +45,20 @@
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance"
                                           aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>
-            <a class="start_activity" href="{{ path('worker_index') }}">
-                {#<a href="{{ path('/worker', {'reservation': reservation.creneau.startseance }) }}">#}
-                <p>DEMARRER</p>
-                <img class="start_coach" src="{{ asset ('assets/images/start.svg') }}" alt="">
-                {#</a>#}
-            </a>
+
+            {% if reservation.isPresent == 1 %}
+                séance en cours
+            {% else %}
+
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input class="btn btn-success" type="submit" value="Create" />
+            <button class="start_activity" type="submit" value="Create">
+                <p>DEMARRER</p>
+                <img class="start_coach" src="{{ asset ('assets/images/start.svg') }}" alt="">
+            </button>
             {{ form_end(form) }}
+
+            {% endif %}
         </div>
     {% endif %}
     </div>

@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-            <h1 class="name_worker">Bonjour {{ app.user.username|title }}</h1>
+            <h1 class="name_worker">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>
 
         <div class="tuile">
             <div class="tuile_header">
@@ -26,22 +26,27 @@
                 <h2 class="title_seance_worker">Ma prochaine Séance</h2>
             </div>
     {% if reservation is empty %}
-        vous n'avez pas de réservation
+        <div class="tuile_body">
+            <p>vous n'avez pas de réservation</p>
+            <a class="btn btn-primary" href="{{ path('seances') }}"> Réserver un séance ?</a>
+        </div>
     {% else %}
-            <div class="tuile_body">
-                <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("H:i") }}</span></p>
-                <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
-                <a href="{{ path('worker_index') }}">
-                    <div class="start_activity">
-                        <p>DEMARRER</p>
-                        <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
-                    </div>
-                </a>
+        <div class="tuile_body">
+            <p class="time_info_worker">Séance de {{ reservation.creneau.activite.activite|upper }}, <br/>le {{ reservation.creneau.dateheure|date("d m y") }} à <span>{{ reservation.creneau.dateheure|date("H:i") }}</span></p>
+            <p class="lieu_worker">Lieu : {{ reservation.creneau.lieu }} </p>
+            <a href="{{ path('worker_index') }}">
+                {#<div class="start_activity">
+                    <p>DEMARRER</p>
+                    <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
+                </div>#}
+            </a>
+            {#{% if reservation.creneau.dateheure < date("now") %}#}
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
-                <input class="btn btn-success" type="submit" value="Create" />
+                <input class="btn-lg btn-success" type="submit" value="CHECK-IN" />
                 {{ form_end(form) }}
-            </div>
+            {#{% endif %}#}
+        </div>
     {% endif %}
         </div>
 

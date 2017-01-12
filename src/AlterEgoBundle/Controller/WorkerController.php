@@ -50,10 +50,9 @@ class WorkerController extends Controller
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $ispresent = $request;
-                $reservation->setIspresent(1);
-                $em->persist($reservation);
-                $em->flush($reservation);
+                $nextResa->setIspresent(1);
+                $em->persist($nextResa);
+                $em->flush($nextResa);
 
             }
 

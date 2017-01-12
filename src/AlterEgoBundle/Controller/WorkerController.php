@@ -113,4 +113,20 @@ class WorkerController extends Controller
 
 
 
+    /**
+     * @Route("/rating", name="rating")
+     */
+    public function ratingAction()
+    {
+        // worker actuellement connecté
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'noteCoach' => null, 'isPresent' => 0]);
+
+        return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
+            'reservations' => $reservations,
+        ));
+
+    }
+
 }

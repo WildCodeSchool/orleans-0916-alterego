@@ -18,15 +18,17 @@
             </div>
         </div>
     </div>
-    <h1 class="name_worker">Bonjour {{ app.user.username|title }}</h1>
-    <div class="tuile">
+        <h1 class="name_worker">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>    <div class="tuile">
         <div class="tuile_header">
-            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance<a
-                        href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
+            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance
+                <a href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
 
         </div>
     {% if reservation is empty %}
-        vous n'avez pas de réservation
+        <div class="tuile_body">
+            <p>vous n'avez pas de réservation</p>
+            <a class="btn btn-primary" href="{{ path('seances') }}"> Réserver un séance ?</a>
+        </div>
     {% else %}
         <div class="tuile_body">
             <div class="info">

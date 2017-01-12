@@ -52,7 +52,9 @@ class CreneauController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($creneau);            
+            $em->persist($creneau);
+            $capacite = $creneau->getCapacite();
+            $creneau->setPlacerestantes($capacite);
             $creneau->setActivite($activite);
             $em->flush($creneau);
 

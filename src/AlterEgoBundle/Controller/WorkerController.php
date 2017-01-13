@@ -30,12 +30,11 @@ class WorkerController extends Controller
     public function workerAction(Request $request)
     {
         $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
 
         $form = $this->createForm('AlterEgoBundle\Form\CheckType');
         $form->handleRequest($request);
-
-        $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
 
         if($reservations){
             $date = new \DateTime();
@@ -47,27 +46,23 @@ class WorkerController extends Controller
                     $nextResa = $reservation;
                 }
             }
+        }
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $nextResa->setIspresent(1);
-                $em->persist($nextResa);
-                $em->flush($nextResa);
-
-            }
-
-            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservation' => $nextResa,
-                'form' => $form->createView(),
-            ));
-        } else {
-
-            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservation' => $reservations,));
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $nextResa->setIspresent(1);
+            $em->persist($nextResa);
+            $em->flush($nextResa);
 
         }
 
+        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+            'reservation' => $nextResa,
+            'form' => $form->createView(),
+        ));
+
     }
+
 
     /**
      * @Route("/badges", name="badges")
@@ -148,9 +143,7 @@ class WorkerController extends Controller
             'seances' => $seances,
         ));
     }
-
-
-
+    
     /**
      * @Route("/rating", name="rating")
      * @Method({"GET", "POST"})

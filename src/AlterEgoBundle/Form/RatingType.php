@@ -18,6 +18,14 @@ class RatingType extends AbstractType
                 '3' => 3,
                 '4' => 4,
                 '5' => 5,
+            ),
+            'placeholder' => array(
+                'year' => 'Year',
+                'month' => 'Month',
+                'day' => 'Day',
+                'hour' => 'hour',
+                'min' => 'min',
+
             )
 
         ));

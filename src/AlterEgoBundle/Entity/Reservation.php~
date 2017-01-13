@@ -45,9 +45,9 @@ class Reservation
     private $statusPayment;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="note_coach", type="string", length=45, nullable=true)
+     * @ORM\Column(name="note_coach", type="integer", nullable=true)
      */
     private $noteCoach;
 
@@ -111,7 +111,7 @@ class Reservation
     /**
      * Set noteCoach
      *
-     * @param string $noteCoach
+     * @param int $noteCoach
      *
      * @return Reservation
      */
@@ -125,7 +125,7 @@ class Reservation
     /**
      * Get noteCoach
      *
-     * @return string
+     * @return int
      */
     public function getNoteCoach()
     {

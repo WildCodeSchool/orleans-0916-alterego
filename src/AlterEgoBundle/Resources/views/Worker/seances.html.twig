@@ -8,6 +8,7 @@
     <h1>Liste des activités disponibles</h1>
     {% if seances %}
         {% for seance in seances %}
+            {% if seance.placerestantes > 0 %}
             <div class="tuile tuile_seance">
                 <div class="tuile_body_left">
                     <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
@@ -21,6 +22,7 @@
 
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     {% else %}
         <h2>Pas de Séances disponible pour le moment !</h2>

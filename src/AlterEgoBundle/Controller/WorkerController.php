@@ -63,11 +63,10 @@ class WorkerController extends Controller
 
         }
 
-        if (isset($nextResa)){
-            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+        if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservation' => $nextResa,
             'form' => $form->createView(),
-            ));
+        ));
         } else {
             return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
                 'reservation' => [],
@@ -167,19 +166,24 @@ class WorkerController extends Controller
     {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user));
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user, 'noteCoach' => null, 'ispresent' => 1));
 
         $form = $this->createForm('AlterEgoBundle\Form\RatingType');
         $form->handleRequest($request);
 
 
-        foreach ($reservations as $reservation){
+
             if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                dump($data);
+                foreach ($reservations as $key => $reservation)
+                {
 
-                $reservation->setNoteCoach($request);
-                $em->flush();
-
-            }
+                    $reservation->setNoteCoach($data['note']);
+                    $em->persist($reservation);
+                    $em->flush();
+                    
+                }
         }
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,

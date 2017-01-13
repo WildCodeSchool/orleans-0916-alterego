@@ -66,15 +66,14 @@ class WorkerController extends Controller
         if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservation' => $nextResa,
             'form' => $form->createView(),
-        ));
+            ));
+
         } else {
             return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
                 'reservation' => [],
                 'form' => $form->createView(),
             ));
         }
-
-
     }
 
 
@@ -99,7 +98,7 @@ class WorkerController extends Controller
      */
     public function settingsAction()
     {
-        
+
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -157,7 +156,7 @@ class WorkerController extends Controller
             'seances' => $seances,
         ));
     }
-    
+
     /**
      * @Route("/rating", name="rating")
      * @Method({"GET", "POST"})
@@ -182,9 +181,10 @@ class WorkerController extends Controller
                     $reservation->setNoteCoach($data['note']);
                     $em->persist($reservation);
                     $em->flush();
-                    
+
                 }
         }
+
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,
             'form' => $form->createView(),
@@ -192,5 +192,5 @@ class WorkerController extends Controller
 
     }
 
-    
+
 }

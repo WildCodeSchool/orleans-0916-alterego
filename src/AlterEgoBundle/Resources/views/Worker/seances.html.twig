@@ -6,18 +6,23 @@
 
 {% block content %}
     <h1>Liste des activités disponibles</h1>
+    {% if seances %}
+        {% for seance in seances %}
+            <div class="tuile tuile_seance">
+                <div class="tuile_body_left">
+                    <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
+                    <h3>{{ seance.lieu }}
+                        avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
+                    <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('H:i') }}</p>
+                    <p>Il reste : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
+                </div>
+                <div class="tuile_body_right">
+                    <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
 
-    {% for seance in seances %}
-        <div class="tuile tuile_seance">
-            <div class="tuile_body_left">
-                <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
-                <h3>{{ seance.lieu }}
-                    avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
-                <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('h:m') }}</p>
+                </div>
             </div>
-            <div class="tuile_body_right">
-                <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
-            </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+        <h2>Pas de Séances disponible pour le moment !</h2>
+    {% endif %}
 {% endblock %}

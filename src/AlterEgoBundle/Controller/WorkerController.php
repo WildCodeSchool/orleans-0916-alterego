@@ -169,8 +169,7 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\RatingType');
         $form->handleRequest($request);
-
-
+        
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();
@@ -182,6 +181,11 @@ class WorkerController extends Controller
                     $em->flush();
 
                 }
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('success', 'Votre vote a bien été pris en compte!')
+                ;
+                return $this->redirectToRoute('rating');
         }
 
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(

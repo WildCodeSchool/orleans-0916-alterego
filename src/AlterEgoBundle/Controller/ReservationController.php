@@ -41,13 +41,11 @@ class ReservationController extends Controller
      */
     public function newAction(Request $request)
     {
-        dump($request);
+
         $reservation = new Reservation();
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
-        dump($request);
-        dump($reservation);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);

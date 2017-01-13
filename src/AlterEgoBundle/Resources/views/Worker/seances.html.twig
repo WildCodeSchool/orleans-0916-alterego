@@ -5,6 +5,13 @@
 {% endblock %}
 
 {% block content %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <h1>Liste des activités disponibles</h1>
     {% if seances %}
         {% for seance in seances %}

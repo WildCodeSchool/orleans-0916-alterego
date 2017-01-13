@@ -174,7 +174,6 @@ class WorkerController extends Controller
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();
-                dump($data);
                 foreach ($reservations as $key => $reservation)
                 {
 

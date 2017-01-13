@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 
 /**
@@ -177,6 +178,11 @@ class CreneauController extends Controller
             $em->persist($reservation);
 
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre réservation a bien été prise en compte!')
+            ;
 
             return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }

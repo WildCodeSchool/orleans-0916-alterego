@@ -1,6 +1,13 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block body %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="container-fluid">
         <h1 class="title_activity">Récapitulatif de votre réservation :</h1>
 

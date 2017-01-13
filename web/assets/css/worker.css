@@ -300,7 +300,6 @@ span {
 /* ===================    Page Séances            ================================*/
 
 .tuile_seance {
-    height: 150px;
     border-radius: 0px;
     margin: 0;
     font-family: alterFont;

@@ -40,11 +40,13 @@
                     {% else %}
                         le {{ reservation.creneau.dateheure|date("d\/m\/y") }}
                     {% endif %}
-                    à<span>{{ reservation.creneau.dateheure|date("h:i") }}</span></p>
+                    à<span> {{ reservation.creneau.dateheure|date("H:i") }}</span></p>
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>
-            {% if reservation.isPresent == 1 %}
+            {% if reservation.isPresent == 1 and "now"|date('Ymd Hi') <= reservation.creneau.dateheure|date_modify('+'~ reservation.creneau.duree ~ ' i')|date('Ymd Hi')  %}
                <p>SEANCE EN COURS <span><img src="{{ asset('assets/images/30.gif') }}" alt="loader"></span></p>
+            {% elseif "now"|date('Ymd Hi') < reservation.creneau.dateheure|date('Ymd Hi') %}
+                <p>Pensez à prendre des forces !</p>
             {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}

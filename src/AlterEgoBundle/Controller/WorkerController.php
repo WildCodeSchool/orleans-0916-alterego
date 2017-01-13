@@ -37,18 +37,25 @@ class WorkerController extends Controller
         $form->handleRequest($request);
 
         if($reservations){
+
             $date = new \DateTime();
+            $date = $date->getTimestamp();
+
             foreach($reservations as $reservation) {
-                if (!isset($nextResa)) {
+
+                $resaStamp = $reservation->getCreneau()->getDateheure()->getTimestamp() + ($reservation->getCreneau()->getDuree() * 60);
+
+                if (!isset($nextResa) && ($resaStamp >= $date)) {
                     $nextResa = $reservation;
                 }
-                if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure() >= $date)) {
+
+                if (isset($nextResa) && $nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && $resaStamp >= $date) {
                     $nextResa = $reservation;
                 }
             }
         }
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && isset($nextResa)) {
             $em = $this->getDoctrine()->getManager();
             $nextResa->setIspresent(1);
             $em->persist($nextResa);
@@ -56,10 +63,17 @@ class WorkerController extends Controller
 
         }
 
-        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+        if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservation' => $nextResa,
             'form' => $form->createView(),
         ));
+        } else {
+            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+                'reservation' => [],
+                'form' => $form->createView(),
+            ));
+        }
+
 
     }
 

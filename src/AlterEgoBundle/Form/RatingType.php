@@ -13,11 +13,11 @@ class RatingType extends AbstractType
     {
         $builder->add('note', ChoiceType::class, array(
             'choices' => array(
-                '1' => 1,
-                '2' => 2,
-                '3' => 3,
-                '4' => 4,
-                '5' => 5,
+                '1' => '1★',
+                '2' => '2★',
+                '3' => '3★',
+                '4' => '4★',
+                '5' => '5★',
             ),
             'multiple' => false,
             'expanded' => true,

@@ -17,69 +17,24 @@
             </div>
         </div>
     </div>
-    <div class="title_profil">
-        <h3 class="name_coach">Bonjour Baptiste</h3>
-    </div>
-
+    <h1 class="name_worker">
+        Bonjour {% if app.user.firstname %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>
     <div class="tuile">
         <div class="tuile_header">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <h2 class="title_seance_coach">Mon prochain cours</h2>
+            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mon  prochain cours
+                <a href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
+
         </div>
         <div class="tuile_body">
-            <p class="body_first_child">Séance de Yoga, <br/>aujourd'hui à <span>9:30</span></p>
-            <p class="lieu_coach">Lieu : Atelier Peinture, Bat. A</p>
-            <div class="start_activity">
+            <div class="info">
+            </div>
+            <button class="start_activity" type="submit" value="Create">
                 <p>DEMARRER</p>
-                <img class="start_coach" src="{{ asset ('assets/images/start.png') }}" alt="">
-            </div>
+                <img class="start_coach" src="{{ asset ('assets/images/start.svg') }}" alt="">
+            </button>
 
         </div>
     </div>
 
-    <div class="tuile">
-        <div class="tuile_header eval">
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
-            <h2 class="title_seance_coach">Dernières évaluations</h2>
-        </div>
-        <div class="tuile_body">
-            <p class="body_first_child  activity_rating"><i class="fa fa-square" aria-hidden="true"></i>Renforcement
-                musculaire</p>
-            <div class="container-fluid">
-                <div class="row" id="qui">
-                    <div class="col-lg-12 text-center">
-                    </div>
-                    <div class="rating text-center col-lg-6">
-                        <span class="fake_rating">☆</span><span class="fake_rating">★</span><span
-                                class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
-                    </div>
-                    <!--
-                    <div class="col-lg-6 inline-block text-center">
-                        <span class="number_note">3.2/5</span>
-                    </div>
-                    -->
-                </div>
-                <p class="eval_time">il y a 3j.</p>
-            </div>
-            <p class="body_first_child activity_rating"><i class="fa fa-square" aria-hidden="true"></i>Yoga</p>
-            <div class="container-fluid">
-                <div class="row" id="qui">
-                    <div class="col-lg-12 text-center">
-                    </div>
-                    <div class="rating text-center col-lg-6">
-                        <span class="fake_rating">☆</span><span class="fake_rating">☆</span><span
-                                class="fake_rating">★</span><span class="fake_rating">★</span><span class="fake_rating">★</span>
-                    </div>
-                    <!--
-                    <div class="col-lg-6 inline-block text-center">
-                        <span class="number_note">3.2/5</span>
-                    </div>
-                    -->
-                </div>
-                <p class="eval_time">il y a 6j.</p>
-
-            </div>
-        </div>
-    </div>
 
 {% endblock %}

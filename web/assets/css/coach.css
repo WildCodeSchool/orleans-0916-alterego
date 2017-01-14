@@ -11,6 +11,28 @@ body{
 }
 /* Profil */
 
+body {
+    font-family: alterFont;
+    background-color: rgb(242,242,242);
+}
+.top_worker {
+    text-align: center;
+}
+.img_top_w {
+    margin-top: 10px;
+    width: 30vw;
+}
+.top_worker_by {
+    text-align: right;
+}
+.by {
+    color: grey;
+    font-size: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+
 #qui{
     font-family: 'Hammersmith One', sans-serif;
     color: white;
@@ -66,96 +88,64 @@ body{
     text-align: center;
     border-radius: 15px;
     width: 80vw;
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
 }
 
 .tuile_header {
-    background-color: #04cd16;
-    border-radius: 10px 10px 0 0;
+    background-color: #b0f000;
+    border-radius: 7px 7px 0 0;
     margin: 0;
-}
-
-.tuile_header i {
-    float: left;
-    padding: 25px 0 25px 30px;
-    width: 50px;
-    height: 50px;
-    font-size: 25px;
+    text-align: left;
 }
 
 .tuile_header h2 {
-    font-size: 3vmax;
-    padding: 25px;
-    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    font-family: alterFont;
+    padding: 5px;
 }
+
+.i_left {
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.i_right {
+    float: right;
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+}
+
 
 .tuile_body {
     margin: 0;
     background-color: white;
-    border-radius: 0 0 10px 10px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
     margin-top: -10px;
-}
-
-.eval {
-    background-color: rgb(255, 102, 0);
-}
-
-.lieu_coach {
+    padding-top: 15px;
     font-size: 15px;
-    font-weight: 600;
-}
-
-.top_coach {
-    text-align: center;
-}
-.img_top_w {
-    margin-top: 10px;
-    width: 50vw;
-}
-
-.name_coach {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 500;
-    font-weight: bold;
-}
-
-.body_first_child {
-    font-size: 15px;
-    padding-top: 8%;
-}
-
-.eval_time {
-    float: right;
-    margin-right: 30px;
-}
-
-.activity_rating {
-    text-align: left;
-    margin: 0 25px 10px 25px;
-}
-
-.start_activity {
-    background-color: rgb(28, 138, 219);
-    height: 50px;
-    width: 55vw;
-    margin-left: 15vw;
-    border-radius: 50px 50px 50px 50px  ;
-    margin-top: 30px;
 }
 
 .start_coach {
-    width: 75px;
+    width: 55vw;
     position: relative;
-    left: -25vw;
-    top: -12.5px;
+}
+
+.start_activity {
+    margin: 0;
+    background-color: white;
+    border: none;
 }
 
 .start_activity p {
     position: absolute;
-    margin-left: 20vw;
-    line-height: 50px;
-    font-size: 20px;
+    z-index: 5;
+    margin-left: 25vw;
+    line-height: 61px;
+    font-size: 15px;
     font-weight: 600;
+    color: black;
 }

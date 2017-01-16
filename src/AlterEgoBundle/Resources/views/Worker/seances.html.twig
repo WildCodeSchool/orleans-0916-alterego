@@ -12,23 +12,23 @@
             {% endfor %}
         </div>
     {% endif %}
-    <h1>Liste des activités disponibles</h1>
+    <h1 class="text-center">Liste des activités disponibles</h1>
     {% if seances %}
         {% for seance in seances %}
-            {% if seance.placerestantes > 0 %}
-            <div class="tuile tuile_seance">
-                <div class="tuile_body_left">
-                    <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
-                    <h3>{{ seance.lieu }}
-                        avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
-                    <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('H:i') }}</p>
-                    <p>Il reste : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
-                </div>
-                <div class="tuile_body_right">
-                    <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
+            {% if seance.placerestantes > 0 and "now"|date('Ymd Hi') <= seance.dateheure|date('Ymd Hi')  %}
+                <div class="tuile tuile_seance">
+                    <div class="tuile_body_left">
+                        <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
+                        <h3>{{ seance.lieu }}
+                            avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
+                        <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('H:i') }}</p>
+                        <p>Il reste : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
+                    </div>
+                    <div class="tuile_body_right">
+                        <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
 
+                    </div>
                 </div>
-            </div>
             {% endif %}
         {% endfor %}
     {% else %}

@@ -14,10 +14,27 @@
     {% endblock %}
 </head>
 <body>
-{% block body %}{% endblock %}
+
+
+{% block navbar %}
+    <section class="navbar">
+        <input type="checkbox" id="check_nav" data-target="#">
+        <label id="trans_nav" for="check_nav">
+            <ul id="navbar_mobile">
+                {% block nav_links %}
+
+                {% endblock %}
+            </ul>
+        </label>
+    </section>
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}
 <script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/menu.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

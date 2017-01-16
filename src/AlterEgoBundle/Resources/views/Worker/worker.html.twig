@@ -18,7 +18,8 @@
             </div>
         </div>
     </div>
-        <h1 class="name_worker">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>    <div class="tuile">
+        <h1 class="name_worker">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>
+    <div class="tuile">
         <div class="tuile_header">
             <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance
                 <a href="seances"><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
@@ -34,7 +35,7 @@
                 <p class="activity_info_worker">{{ reservation.creneau.activite.activite|upper }}
                     <br/>
                     {% if "now"|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
-                        Aujourd'huis
+                        Aujourd'hui
                     {% elseif "now"|date_modify('+1 day')|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
                         Demain
                     {% else %}

@@ -64,13 +64,13 @@ class WorkerController extends Controller
         }
 
         if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservation' => $nextResa,
+            'reservations' => $nextResa,
             'form' => $form->createView(),
             ));
 
         } else {
             return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservation' => [],
+                'reservations' => [],
                 'form' => $form->createView(),
             ));
         }

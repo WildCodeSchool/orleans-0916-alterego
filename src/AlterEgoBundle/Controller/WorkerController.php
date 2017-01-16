@@ -64,17 +64,32 @@ class WorkerController extends Controller
         }
 
         if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservations' => $nextResa,
+            'reservation' => $nextResa,
+            'enattente' => $reservations,
             'form' => $form->createView(),
             ));
 
         } else {
             return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservations' => [],
+                'reservation' => [],
                 'form' => $form->createView(),
+                'enattente' => $reservations,
             ));
         }
     }
+
+//    /**
+//     */
+//    public function noteCoachAction()
+//    {
+//        $user = $this->getUser();
+//        $em = $this->getDoctrine()->getManager();
+//        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
+//
+//        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+//            'noteattente' => $reservations,
+//        ));
+//    }
 
 
     /**

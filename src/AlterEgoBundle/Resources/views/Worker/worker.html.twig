@@ -23,7 +23,7 @@
             <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance
                 <a href="seances"><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
         </div>
-    {% if reservations is empty %}
+    {% if reservation is empty %}
         <div class="tuile_body">
             <p>vous n'avez pas de réservation</p>
             <a class="btn btn-primary" href="{{ path('seances') }}"> Réserver un séance ?</a>
@@ -31,21 +31,21 @@
     {% else %}
         <div class="tuile_body">
             <div class="info">
-                <p class="activity_info_worker">{{ reservations.creneau.activite.activite|upper }}
+                <p class="activity_info_worker">{{ reservation.creneau.activite.activite|upper }}
                     <br/>
-                    {% if "now"|date('Ymd') == reservations.creneau.dateheure|date('Ymd') %}
+                    {% if "now"|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
                         Aujourd'huis
-                    {% elseif "now"|date_modify('+1 day')|date('Ymd') == reservations.creneau.dateheure|date('Ymd') %}
+                    {% elseif "now"|date_modify('+1 day')|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
                         Demain
                     {% else %}
-                        le {{ reservations.creneau.dateheure|date("d\/m\/y") }}
+                        le {{ reservation.creneau.dateheure|date("d\/m\/y") }}
                     {% endif %}
-                    à<span> {{ reservations.creneau.dateheure|date("H:i") }}</span></p>
-                <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ reservations.creneau.lieu }}</p>
+                    à<span> {{ reservation.creneau.dateheure|date("H:i") }}</span></p>
+                <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>
-            {% if reservations.isPresent == 1 and "now"|date('U') <= (reservations.creneau.dateheure|date('U') + (reservations.creneau.duree * 60))  %}
+            {% if reservation.isPresent == 1 and "now"|date('U') <= (reservation.creneau.dateheure|date('U') + (reservation.creneau.duree * 60))  %}
                <p>SEANCE EN COURS <span><img src="{{ asset('assets/images/30.gif') }}" alt="loader"></span></p>
-            {% elseif "now"|date('Ymd Hi') < reservations.creneau.dateheure|date('Ymd Hi') %}
+            {% elseif "now"|date('Ymd Hi') < reservation.creneau.dateheure|date('Ymd Hi') %}
                 <p>Pensez à prendre des forces !</p>
             {% else %}
             {{ form_start(form) }}
@@ -69,24 +69,20 @@
     </div>
 
     {% set nombre = 0 %}
-    {% for reservation in reservations %}
-        {% if reservation.noteCoach is null %}
-            {%  set nombre = nombre + 1 %}
-        {%  endif %}
+    {% for reservation in enattente %}
         {% if reservation.noteCoach is null %}
             {%  set nombre = nombre + 1 %}
         {%  endif %}
     {% endfor %}
-    {{ dump(nombre) }}
         <div class="tuile">
             <div class="tuile_header note_coach">
-                <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ton coach </h2>
+                <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ta séance </h2>
             </div>
             <div class="tuile_body">
                 {% if nombre > 0 %}
-                <p class="rh_news">Vous avez {{ nombre }} coachs à noter</p>
+                <p class="rh_news">Vous avez {{ nombre }} séance(s) à noter</p>
                 {% else %}
-                <p class="rh_news">Vous n'avez aucun coach à noter !</p>
+                <p class="rh_news">Vous n'avez aucune séance à noter !</p>
                 {% endif %}
             </div>
         </div>

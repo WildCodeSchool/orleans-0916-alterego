@@ -121,3 +121,9 @@
     margin-left: 10vw;
     transform: translateX(6vw);
 }
+.badge-notify{
+    background: #d90017;
+    position:relative;
+    top: -60px;
+    left: 10px;
+}

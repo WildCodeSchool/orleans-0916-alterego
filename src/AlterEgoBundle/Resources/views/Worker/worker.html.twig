@@ -80,7 +80,7 @@
             </div>
             <div class="tuile_body">
                 {% if nombre > 0  %}
-                <p class="rh_news">Vous avez {{ nombre }} séance(s) à noter</p>
+                <a href="{{ path('rating') }}">Séances à noter <span class="badge">{{ nombre }}</span></a>
                 {% else %}
                 <p class="rh_news">Vous n'avez aucune séance à noter !</p>
                 {% endif %}

@@ -2,6 +2,7 @@
 
 namespace AlterEgoBundle\Controller;
 
+use AlterEgoBundle\AlterEgoBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -16,6 +17,7 @@ use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Validator\Constraints\DateTime;
 use AlterEgoBundle\Form\CheckType;
+use AlterEgoBundle\Form\StartType;
 
 /**
  * @Route("/coach", name="coach")
@@ -27,74 +29,82 @@ class CoachController extends Controller
      */
     public function coachAction(Request $request)
     {
-        $user = $this->getUser();
-
-        $form = $this->createForm('AlterEgoBundle\Form\CheckType');
+        $form = $this->createForm('AlterEgoBundle\Form\StartType');
         $form->handleRequest($request);
-
         $em = $this->getDoctrine()->getManager();
-        $seances = $em->getRepository('AlterEgoBundle:Activite')->findByUser($user);
+        $activites = $em->getRepository('AlterEgoBundle:Activite')->findByUser($this->getUser());
 
-        if ($seances) {
-            $date = new \DateTime();
-            foreach ($seances as $seance) {
-                if (!isset($nextSeance)) {
-                    $nextSeance = $seance;
-                }
+        if ($activites) {
 
-                if ($nextSeance->getActivite()->getDateheure() > $seance->getActivite()->getDateheure() && ($seance->getActivite()->getDateheure() >= $date)) {
-                    $nextSeance = $seance;
+            foreach ($activites as $activite) {
+                foreach ($activite->getCreneaux() as $seance) {
+                    $date = new \DateTime();
+                    if (!isset($nextSeance)) {
+                        $nextSeance = $seance;
+                    }
+
+                    if ($nextSeance->getDateheure() > $seance->getDateheure() && ($seance->getDateheure() >= $date)) {
+                        $nextSeance = $seance;
+                    }
                 }
             }
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+                $nextSeance->setStartseance(1);
                 $em->persist($nextSeance);
-                $em->flush($seances);
+                $em->flush($nextSeance);
+
+                return $this->redirectToRoute('checking', array('id_seance' => $nextSeance->getId() ));
+
             }
 
-            return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-                'seance' => $nextSeance,
-                'form' => $form->createView(),
-            ));
+                return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
+                    'seance' => $nextSeance,
+                    'form' => $form->createView(),
+
+                ));
 
         }
 
         else {
             return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-                'seance' => $seances,));
+                'seance' => $activites,));
+
+        }
+    }
+
+
+    /**
+     * @Route("/checking/{id_seance}", name="checking")
+     * @Method({"GET", "POST"})
+     */
+    public function checking($id_seance, Request $request)
+    {
+        $form = $this->createForm('AlterEgoBundle\Form\CheckType');
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $reservations =$em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($id_seance);
+        $seance = $em->getRepository('AlterEgoBundle:Creneau')->findOneById($id_seance);
+//        $reservation =
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $reservations->setIspresent(1);
+            $em->persist($reservations);
+            $em->flush($reservations);
+
         }
 
-
-//        if($seances){
-//            $date = new \DateTime();
-//            foreach($seances as $seance) {
-//                if (!isset($nextSeance)) {
-//                    $nextSeance = $seance;
-//                }
-//                if ($nextSeance->getCreneau()->getDateheure() > $seance->getCreneau()->getDateheure() && ($seance->getCreneau()->getDateheure() >= $date)) {
-//                    $nextSeance = $seance;
-//                }
-//            }
-//
-//            if ($form->isSubmitted() && $form->isValid()) {
-//                $em = $this->getDoctrine()->getManager();
-//                $em->persist($nextSeance);
-//                $em->flush($nextSeance);
-//
-//            }
-//
-//            return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-//                'seance' => $nextSeance,
-//                'form' => $form->createView(),
-//            ));
-//        } else {
-//
-//            return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-//                'seance' => $seances,));
-//
-//        }
+        return $this->render('AlterEgoBundle:Coach:checking.html.twig', array(
+            'reservations' => $reservations,
+            'seance' => $seance,
+            'form' => $form->createView(),
+        ));
     }
+
+
 
     /**
      * @Route("/activite")

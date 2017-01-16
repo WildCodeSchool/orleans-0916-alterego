@@ -64,9 +64,7 @@ body {
 .fake_rating{
     color: gold;
 }
-.fa{
-    margin-right: 5px;
-}
+
 .coach_i{
     margin-left: 5px;
 }
@@ -148,4 +146,51 @@ body {
     font-size: 15px;
     font-weight: 600;
     color: black;
+}
+
+.lieu_worker {
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: underline;
+}
+
+.info {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.pin_seance{
+    margin-right: 10px;
+}
+/*====================  CHECKING  ==============================*/
+
+.check_container {
+    width: 80vw;
+    height: 62px;
+    background-color: white;
+    border: 1px solid darkslategray;
+    border-radius: 90px;
+    position: absolute;
+    text-align: left;
+}
+
+.check_photo {
+    border-radius: 100%;
+    width: 60px;
+    float: left;
+}
+
+.check_name {
+    float: left;
+    line-height: 60px;
+}
+
+.check_btn {
+    float: right;
+    height: 60px;
+    width: 80px;
+    border-radius: 90px;
+    border: 1px solid white;
+    background-color: greenyellow;
+    position: relative;
 }

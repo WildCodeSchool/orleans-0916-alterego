@@ -36,13 +36,13 @@
                 <p class="activity_info_worker">{{ reservation.creneau.activite.activite|upper }}
                     <br/>
                     {% if "now"|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
-                        Aujourd'huis
+                        Aujourd'hui
                     {% elseif "now"|date_modify('+1 day')|date('Ymd') == reservation.creneau.dateheure|date('Ymd') %}
                         Demain
                     {% else %}
                         le {{ reservation.creneau.dateheure|date("d\/m\/y") }}
                     {% endif %}
-                    à<span>{{ reservation.creneau.dateheure|date("h:i") }}</span></p>
+                    à&nbsp;<span>{{ reservation.creneau.dateheure|date("h:i") }}</span></p>
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance"
                                           aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>

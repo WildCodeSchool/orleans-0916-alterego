@@ -65,6 +65,7 @@ class WorkerController extends Controller
 
         if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
             'reservation' => $nextResa,
+            'enattente' => $reservations,
             'form' => $form->createView(),
             ));
 
@@ -72,10 +73,10 @@ class WorkerController extends Controller
             return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
                 'reservation' => [],
                 'form' => $form->createView(),
+                'enattente' => $reservations,
             ));
         }
     }
-
 
     /**
      * @Route("/badges", name="badges")
@@ -169,7 +170,7 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\RatingType');
         $form->handleRequest($request);
-        
+
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();

@@ -160,7 +160,7 @@ class WorkerController extends Controller
         // worker actuellement connecté
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'noteCoach' => null, 'isPresent' => 0]);
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'noteCoach' => null, 'ispresent' => 0]);
 
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,
@@ -168,5 +168,5 @@ class WorkerController extends Controller
 
     }
 
-    
+
 }

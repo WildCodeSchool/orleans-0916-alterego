@@ -78,20 +78,6 @@ class WorkerController extends Controller
         }
     }
 
-//    /**
-//     */
-//    public function noteCoachAction()
-//    {
-//        $user = $this->getUser();
-//        $em = $this->getDoctrine()->getManager();
-//        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
-//
-//        return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-//            'noteattente' => $reservations,
-//        ));
-//    }
-
-
     /**
      * @Route("/badges", name="badges")
      */

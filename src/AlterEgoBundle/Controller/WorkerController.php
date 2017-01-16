@@ -169,7 +169,7 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\RatingType');
         $form->handleRequest($request);
-        
+
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();

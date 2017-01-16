@@ -122,6 +122,10 @@ span {
     background-color: #00b0f0;
 }
 
+.note_coach {
+    background-color: #FF6600;
+}
+
 .lieu_worker {
     font-size: 20px;
     line-height: 30px;

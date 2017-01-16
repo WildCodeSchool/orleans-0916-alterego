@@ -68,12 +68,26 @@
         </div>
     </div>
 
-    <div class="tuile">
-        <div class="tuile_header actu_rh">
-            <h2 class="title_seance_worker"><i class="fa fa-bullhorn i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mes infos RH</h2>
+    {% set nombre = 0 %}
+    {% for reservations in reservation %}
+        {% if reservations.noteCoach is null %}
+            {%  set nombre = nombre + 1 %}
+        {%  endif %}
+        {% if reservations.noteCoach is null %}
+            {%  set nombre = nombre + 1 %}
+        {%  endif %}
+    {% endfor %}
+    {{ dump(nombre) }}
+        <div class="tuile">
+            <div class="tuile_header note_coach">
+                <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ton coach </h2>
+            </div>
+            <div class="tuile_body">
+                {% if nombre > 0 %}
+                <p class="rh_news">Vous avez {{ nombre }} coachs à noter</p>
+                {% else %}
+                <p class="rh_news">Vous n'avez aucun coach à noter !</p>
+                {% endif %}
+            </div>
         </div>
-        <div class="tuile_body">
-            <p class="rh_news">Safran vous souhaite une excellente journée !</p>
-        </div>
-    </div>
 {% endblock %}

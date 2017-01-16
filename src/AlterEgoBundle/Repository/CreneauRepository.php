@@ -10,4 +10,14 @@ namespace AlterEgoBundle\Repository;
  */
 class CreneauRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findDispo() {
+        $now = new \DateTime();
+        return $this->createQueryBuilder('c')
+            ->where('c.dateheure > :now')
+                ->setParameter('now', $now->format('Y-m-d H:i:s'))
+            ->andWhere('c.placerestantes > :placeRestante')
+                ->setParameter('placeRestante', 0)
+            ->getQuery()->getResult();
+
+    }
 }

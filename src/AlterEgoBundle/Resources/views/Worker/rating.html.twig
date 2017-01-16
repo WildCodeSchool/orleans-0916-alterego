@@ -9,17 +9,14 @@
         </div>
     {% endif %}
     {% if reservations %}
-        {{ form_start(form) }}
-            {% for reservation in reservations %}
-                {% if reservation.ispresent == 1 %}
-                <p class="text-center">Notez votre séance de {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} :</p>
-                    {{ form_widget(form) }}
-                    <input class="center-block" type="submit" value="Create" />
-                {% else %}
-                    <p>Pas d'activité à noter</p>
-                {% endif %}
-            {% endfor %}
-        {{ form_end(form) }}
+        {% for reservation in reservations %}
+            <p class="text-center">Notez votre séance de {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} :</p>
+            <div class="text-center">
+                {% for i in 1..5 %}
+                    <a class="star" href="{{ path('vote', {'id':reservation.id, 'note':i}) }}">★</a>
+                {% endfor %}
+            </div>
+        {% endfor %}
     {% else %}
         <p>Vous n'avez pas de réservation à noter.</p>
         <a href="{{ path('seances') }}">Voulez vous reserver une activite ?</a>

@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Activite;
-use AlterEgoBundle\entity\Reservation;
+use AlterEgoBundle\Entity\Reservation;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -152,9 +152,19 @@ class WorkerController extends Controller
     public function seancesAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
+//        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
+        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findDispo();
+        $user = $this->getUser();
+        $res = [];
+        foreach ($seances as $seance) {
+            $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user'=>$user, 'creneau'=>$seance]);
+            if (!$reservation) {
+                $res[]=$seance;
+            }
+        }
+
         return $this->render('AlterEgoBundle:Worker:seances.html.twig', array(
-            'seances' => $seances,
+            'res'=>$res,
         ));
     }
 
@@ -168,33 +178,25 @@ class WorkerController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user, 'noteCoach' => null, 'ispresent' => 1));
 
-        $form = $this->createForm('AlterEgoBundle\Form\RatingType');
-        $form->handleRequest($request);
-
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $data = $form->getData();
-                foreach ($reservations as $key => $reservation)
-                {
-
-                    $reservation->setNoteCoach($data['note']);
-                    $em->persist($reservation);
-                    $em->flush();
-
-                }
-                $request->getSession()
-                    ->getFlashBag()
-                    ->add('success', 'Votre vote a bien été pris en compte!')
-                ;
-                return $this->redirectToRoute('rating');
-        }
-
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,
-            'form' => $form->createView(),
         ));
-
     }
 
+    /**
+     * @Route("/vote/{id}/{note}", name="vote")
+     * @Method({"GET", "POST"})
+     */
+    public function voterAction (Reservation $reservation, $note) {
+
+        $em = $this->getDoctrine()->getManager();
+        $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findOneById($reservation);
+
+        $reservation->setNoteCoach($note);
+        $em->persist($reservation);
+        $em->flush($reservation);
+
+        return $this->redirectToRoute('rating');
+    }
 
 }

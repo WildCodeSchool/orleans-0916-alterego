@@ -12,10 +12,9 @@
             {% endfor %}
         </div>
     {% endif %}
-    <h1>Liste des activités disponibles</h1>
-    {% if seances %}
-        {% for seance in seances %}
-            {% if seance.placerestantes > 0 %}
+    <h1 class="text-center">Liste des activités disponibles</h1>
+        {% for seance in res %}
+
             <div class="tuile tuile_seance">
                 <div class="tuile_body_left">
                     <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
@@ -26,12 +25,10 @@
                 </div>
                 <div class="tuile_body_right">
                     <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
-
                 </div>
             </div>
-            {% endif %}
+        {% else %}
+            <h2>Pas de Séances disponible pour le moment !</h2>
         {% endfor %}
-    {% else %}
-        <h2>Pas de Séances disponible pour le moment !</h2>
-    {% endif %}
+
 {% endblock %}

@@ -68,23 +68,22 @@
             <p class="rh_news">Safran vous souhaite une excellente journée !</p>
         </div>
     </div>
-
     {% set nombre = 0 %}
     {% for reservation in enattente %}
-        {% if reservation.noteCoach is null and "now"|date('U') >= (reservation.creneau.dateheure|date('U') + (reservation.creneau.duree * 60)) %}
-            {%  set nombre = nombre + 1 %}
-        {%  endif %}
+        {% if reservation.noteCoach is null and ("now"|date('U') >= (reservation.creneau.dateheure|date('U') + (reservation.creneau.duree * 60))) and reservation.ispresent == 1 %}
+            {% set nombre = nombre + 1 %}
+        {% endif %}
     {% endfor %}
-        <div class="tuile">
-            <div class="tuile_header note_coach">
-                <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ta séance </h2>
-            </div>
-            <div class="tuile_body">
-                {% if nombre > 0  %}
-                <a href="{{ path('rating') }}">Séances à noter <span class="badge">{{ nombre }}</span></a>
-                {% else %}
-                <p class="rh_news">Vous n'avez aucune séance à noter !</p>
-                {% endif %}
-            </div>
+    <div class="tuile">
+        <div class="tuile_header note_coach">
+            <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ta séance </h2>
         </div>
+        <div class="tuile_body">
+            {% if nombre > 0  %}
+            <a href="{{ path('rating') }}">Séances à noter <span class="badge">{{ nombre }}</span></a>
+            {% else %}
+            <p class="rh_news">Vous n'avez aucune séance à noter !</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

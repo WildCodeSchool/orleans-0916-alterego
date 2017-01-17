@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Activite;
-use AlterEgoBundle\entity\Reservation;
+use AlterEgoBundle\Entity\Reservation;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -25,7 +25,7 @@ use AlterEgoBundle\Form\StartType;
 class CoachController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="coach_index")
      */
     public function coachAction(Request $request)
     {
@@ -38,73 +38,79 @@ class CoachController extends Controller
 
             foreach ($activites as $activite) {
                 foreach ($activite->getCreneaux() as $seance) {
+
                     $date = new \DateTime();
-                    if (!isset($nextSeance)) {
+                    $date = $date->getTimestamp();
+                    $seanceStamp = $seance->getDateheure()->getTimestamp() + ($seance->getDuree() * 60);
+
+
+                    if (!isset($nextSeance) && ($seanceStamp >= $date)) {
                         $nextSeance = $seance;
                     }
 
-                    if ($nextSeance->getDateheure() > $seance->getDateheure() && ($seance->getDateheure() >= $date)) {
+                    if (isset($nextSeance) && $nextSeance->getDateheure() > $seance->getDateheure() && $seanceStamp >= $date) {
                         $nextSeance = $seance;
                     }
                 }
             }
+        }
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $nextSeance->setStartseance(1);
-                $em->persist($nextSeance);
-                $em->flush($nextSeance);
 
-                return $this->redirectToRoute('checking', array('id_seance' => $nextSeance->getId() ));
+        if ($form->isSubmitted() && $form->isValid() && isset($nextSeance)) {
+            $em = $this->getDoctrine()->getManager();
+            $nextSeance->setStartseance(1);
+            $em->persist($nextSeance);
+            $em->flush($nextSeance);
 
-            }
+            return $this->redirectToRoute('checking', array('id' => $nextSeance->getId()));
+        }
 
-                return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-                    'seance' => $nextSeance,
-                    'form' => $form->createView(),
-
-                ));
+        if (isset($nextSeance)){return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
+            'seance' => $nextSeance,
+                'form' => $form->createView(),
+        ));
 
         }
+
 
         else {
             return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-                'seance' => $activites,));
-
+                'seance' => [],
+                'form' => $form->createView(),
+            ));
         }
+
     }
 
 
     /**
-     * @Route("/checking/{id_seance}", name="checking")
-     * @Method({"GET", "POST"})
+     * @Route("/checking/{id}", name="checking")
+     * @Method({"GET"})
      */
-    public function checking($id_seance, Request $request)
+    public function checking(Creneau $seance)
     {
-        $form = $this->createForm('AlterEgoBundle\Form\CheckType');
-        $form->handleRequest($request);
-
-        $em = $this->getDoctrine()->getManager();
-        $reservations =$em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($id_seance);
-        $seance = $em->getRepository('AlterEgoBundle:Creneau')->findOneById($id_seance);
-//        $reservation =
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $reservations->setIspresent(1);
-            $em->persist($reservations);
-            $em->flush($reservations);
-
-        }
 
         return $this->render('AlterEgoBundle:Coach:checking.html.twig', array(
-            'reservations' => $reservations,
             'seance' => $seance,
-            'form' => $form->createView(),
         ));
     }
 
+    /**
+     * @Route("/checking/valid/{id}", name="checking_worker")
+     * @Method({"GET"})
+     */
+    public function checkingWorker(Reservation $reservation)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $reservation->setIspresent(2);
+        $em->persist($reservation);
+        $em->flush();
+
+        return $this->redirectToRoute('checking', [
+            'id' => $reservation->getCreneau()->getId()
+        ]);
+    }
 
     /**
      * @Route("/activite")

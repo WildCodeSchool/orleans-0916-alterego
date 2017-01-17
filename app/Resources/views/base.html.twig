@@ -18,14 +18,11 @@
 
 {% block navbar %}
     <section class="navbar">
-        <input type="checkbox" id="check_nav" data-target="#">
-        <label id="trans_nav" for="check_nav">
-            <ul id="navbar_mobile">
+            <div id="navbar_mobile">
                 {% block nav_links %}
 
                 {% endblock %}
-            </ul>
-        </label>
+            </div>
     </section>
 {% endblock %}
 

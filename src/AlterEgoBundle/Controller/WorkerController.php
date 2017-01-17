@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 use AlterEgoBundle\Entity\Creneau;
 use AlterEgoBundle\Entity\Activite;
-use AlterEgoBundle\entity\Reservation;
+use AlterEgoBundle\Entity\Reservation;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;

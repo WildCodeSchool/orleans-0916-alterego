@@ -12,23 +12,26 @@
             {% endfor %}
         </div>
     {% endif %}
-    <h1 class="text-center">Liste des activités disponibles</h1>
+    <h1 class="text-center titre_seance">Liste des activités disponibles</h1>
         {% for seance in res %}
-
             <div class="tuile tuile_seance">
                 <div class="tuile_body_left">
-                    <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
+                    <h2 class="nom_seance"> |{{ seance.activite.activite | upper }}</h2>
                     <h3>{{ seance.lieu }}
                         avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
-                    <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('H:i') }}</p>
-                    <p>Il reste : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
+                    <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Date : Le {{ seance.dateheure | date('d M Y') }} à {{ seance.dateheure | date('H:i') }}</p>
+                    <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Place(s) : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
                 </div>
                 <div class="tuile_body_right">
-                    <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
+                    <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">RESERVER</a>
                 </div>
             </div>
         {% else %}
-            <h2>Pas de Séances disponible pour le moment !</h2>
+            <div class="tuile_header">
+                <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+            </div>
+            <div class="tuile_body text-center">
+                <p>Aucune séance n'est disponible pour le moment. Un coach proposera trés bientôt une nouvelle activité !</p>
+            </div>
         {% endfor %}
-
 {% endblock %}

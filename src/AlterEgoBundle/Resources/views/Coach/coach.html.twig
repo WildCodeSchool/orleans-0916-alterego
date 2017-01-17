@@ -62,8 +62,10 @@
             {% for activite in activites %}
                 {% for creneau in activite.creneaux %}
                     {% for reservation in creneau.reservations %}
-                        {% set total = total +reservation.noteCoach %}
-                        {% set nombrenote = nombrenote + 1 %}
+                        {% if reservation.noteCoach %}
+                            {% set total = total +reservation.noteCoach %}
+                            {% set nombrenote = nombrenote + 1 %}
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
             {% endfor %}
@@ -73,13 +75,13 @@
                         {% if moyenne > i %}
                             <span class="fa fa-star fa-2x ratingstar" ></span>
                         {% elseif moyenne > (i- 0.5) %}
-                            <span class="fa fa-star-half-empty fa-2x ratingstar" ></span>
+                            <span class="fa fa-star fa-2x ratingstar" ></span>
                         {% elseif moyenne < i %}
                             <span class="fa fa-star-o fa-2x ratingstar"></span>
                         {% endif %}
                 {% endfor %}
                 {% if moyenne %}
-                    <span class="badges badge_coach">{{ moyenne~' /5' }}</span>
+                    <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
                 {% endif %}
             </div>
             <div class="info">

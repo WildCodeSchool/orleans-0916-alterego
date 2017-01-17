@@ -189,6 +189,7 @@ class Creneau
     {
         $this->testsPerf = new \Doctrine\Common\Collections\ArrayCollection();
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateheure = new \DateTime('now');
     }
 
     /**

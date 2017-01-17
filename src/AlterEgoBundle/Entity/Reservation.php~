@@ -149,19 +149,18 @@ class Reservation
     }
 
     /**
-     * @return mixed
-     */
-    public function getInfoEmploye()
-    {
-        return $this->infoEmploye;
-    }
-
-    /**
      * @param mixed $infoEmploye
      */
     public function setInfoEmploye($infoEmploye)
     {
         $this->infoEmploye = $infoEmploye;
+    }
+    /**
+     * @return mixed
+     */
+    public function getInfoEmploye()
+    {
+        return $this->infoEmploye;
     }
 
 

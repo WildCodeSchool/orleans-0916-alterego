@@ -72,12 +72,26 @@ span {
 }
 
 
-/*========================  QUENTIN   ==================================*/
+/*========================  Bernardo   ==================================*/
 .tuile {
     text-align: center;
     border-radius: 15px;
     width: 80vw;
     margin: 0 0 40px 0;
+}
+
+.tuile_rating {
+    text-align: center;
+    width: 80vw;
+    margin: 0 0 40px 0;
+}
+
+.ratingstar {
+    color: gold;
+}
+.ratingstar:hover{
+    color: #FF6600;
+    font-size:2.1em;
 }
 
 .tuile_header {
@@ -307,17 +321,30 @@ span {
 }
 
 /* ===================    Page Séances            ================================*/
-
+.titre_seance{
+    margin: 0 auto 0 auto;
+    color: #00b0f0;
+}
 .tuile_seance {
     border-radius: 0px;
     margin: 0;
     font-family: alterFont;
     display: flex;
-    -moz-box-shadow: 0px 10px 15px -10px #656565;
-    -webkit-box-shadow: 0px 10px 15px -10px #656565;
-    -o-box-shadow: 0px 10px 15px -10px #656565;
-    box-shadow: 0px 10px 15px -10px #656565;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=180, Strength=15);
+    -moz-box-shadow: 0px 10px 15px -10px #686868;
+    -webkit-box-shadow: 0px 10px 15px -10px #686868;
+    -o-box-shadow: 0px 10px 15px -10px #686868;
+    box-shadow: 0px 10px 15px -10px #686868;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#686868, Direction=180, Strength=15);
+}
+.tuile_seance {
+    border-radius: 0px;
+    margin: 0;
+    font-family: alterFont;
+    -moz-box-shadow: 0px 10px 15px -10px #686868;
+    -webkit-box-shadow: 0px 10px 15px -10px #686868;
+    -o-box-shadow: 0px 10px 15px -10px #686868;
+    box-shadow: 0px 10px 15px -10px #686868;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#686868, Direction=180, Strength=15);
 }
 
 .tuile_body_left {
@@ -356,13 +383,14 @@ input[type=radio] + label {
 
 
 }
-
-input[type=radio]:checked + label {
-    background-image: none;
-    outline: 0;
-    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    background-color:#e0e0e0;
+.reservation_access{
+    color: white;
+}
+.reservation_access:visited, .reservation_access:hover{
+    color: white;
+    font-size: 1.1em;
 }
 
+.btn_resa{
+    margin-bottom: 4px;
+}

@@ -172,8 +172,6 @@ class CreneauController extends Controller
         }
 
         return $this->redirectToRoute('worker_index');
-
-
     }
 
 

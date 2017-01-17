@@ -209,3 +209,15 @@ body {
     background-color: greenyellow;
     position: relative;
 }
+
+.ratingstar {
+    color: gold;
+}
+
+.badge_coach{
+    background-color: #FF6600;
+    color: white;
+    border-radius: 2px;
+    font-weight: 900;
+    padding: 3px 3px 3px 3px;
+}

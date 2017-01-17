@@ -1,42 +1,46 @@
-{% extends 'base.html.twig' %}
+{% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="text-center">Liste des Activités</h1>
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">Liste des Activités</h1>
 
-        <ul class="list-unstyled text-center">
-            <li>
-                <a class="btn btn-success" href="{{ path('activite_new') }}">Proposer une nouvelle activité</a>
-            </li>
-        </ul>
+            <ul class="list-unstyled text-center">
+                <li>
+                    <a class="btn btn-success" href="{{ path('activite_new') }}">Proposer une nouvelle activité</a>
+                </li>
+            </ul>
 
-        <table class="table-condensed table-striped table-hover table-responsive">
-            <thead>
+            <table class="table-condensed table-striped table-hover table-responsive">
+                <thead>
                 <tr>
                     <th>N°</th>
                     <th>Activite</th>
                 </tr>
-            </thead>
-            <tbody>
-            {% for activite in activites %}
-                <tr>
-                    <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
-                    <td>{{ activite.activite }}</td>
-                    <td>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="{{ path('activite_show', { 'id': activite.id }) }}"><i class="fa fa-arrow-circle-right"></i></a>
-                            </li>
-                            <li>
-                                <a href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-pencil-square"></i></a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for activite in activites %}
+                    <tr>
+                        <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
+                        <td>{{ activite.activite }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="{{ path('activite_show', { 'id': activite.id }) }}"><i
+                                                class="fa fa-arrow-circle-right"></i></a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('activite_edit', { 'id': activite.id }) }}"><i
+                                                class="fa fa-pencil-square"></i></a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
 
+        </div>
     </div>
 {% endblock %}

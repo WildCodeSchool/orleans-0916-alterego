@@ -18,6 +18,12 @@
             <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mon prochain cours
                 <a href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
         </div>
+    {% if seance is empty %}
+        <div class="tuile_body">
+            <p>vous n'avez pas programmer de séances</p>
+            <a class="btn btn-primary" href="{{ path('activite_index') }}">Programmer une séance</a>
+        </div>
+    {% else %}
         <div class="tuile_body">
             <div class="info">
                 <p class="activity_info">{{ seance.activite.activite|upper }}
@@ -41,6 +47,7 @@
             </button>
             {{ form_end(form) }}
         </div>
+        {% endif %}
     </div>
     <div class="tuile">
         <div class="tuile_header_note">

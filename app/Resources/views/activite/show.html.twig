@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="title_activity">Activite</h1>
+    <div class="content">
+        <h1 class="title_activity">Activite</h1>
 
-    <table>
-        <tbody>
+        <table>
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ activite.id }}</td>
@@ -24,21 +25,22 @@
                 <th>Info</th>
                 <td>{{ activite.info }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('activite_index') }}">Retour Accueil</a>
-        </li>
-        <li>
-            <a class="btn" href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>
-        </li>
-        <a class="btn" href="{{ path('creneau_new', { 'id': activite.id }) }}">Ajouter un créneau</a>
-        <li>
-            {{ form_start(delete_form) }}
+        <ul>
+            <li>
+                <a href="{{ path('activite_index') }}">Retour Accueil</a>
+            </li>
+            <li>
+                <a class="btn" href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>
+            </li>
+            <a class="btn" href="{{ path('creneau_new', { 'id': activite.id }) }}">Ajouter un créneau</a>
+            <li>
+                {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </div>
 {% endblock %}

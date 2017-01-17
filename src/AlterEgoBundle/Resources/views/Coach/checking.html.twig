@@ -9,24 +9,30 @@
 {% block content %}
 
     <h1>{{ seance.activite.activite }}</h1>
-    <p>{{ seance.dateheure|date('m/d') }}&nbsp;{{ seance.dateheure|date('h:i') }}&nbsp;{{ seance.dateheure|date_modify('+'~seance.duree ~'minutes')|date('h:i') }}</p>
+    <p>{{ seance.dateheure|date('m/d') }}&nbsp;{{ seance.dateheure|date('h:i') }}
+        &nbsp;{{ seance.dateheure|date_modify('+'~seance.duree ~'minutes')|date('h:i') }}</p>
     <p>{{ seance.lieu }}</p>
 
-    {% for reservation in reservations %}
+    {% for reservation in seance.reservations %}
 
         <div class="check_container">
-            <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}" alt="photo de profile {{ reservation.user.username }}">
-            <p class="check_name">{{ reservation.user.firstname }}&nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+            <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+                 alt="photo de profile {{ reservation.user.username }}">
+            <p class="check_name">{{ reservation.user.firstname }}
+                &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+            {% if reservation.isPresent == 1 %}
+                <a class="check_link fa fa-check" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+                <i class="fa fa-exclamation-triangle check_alert" aria-hidden="true"></i>
 
+            {% elseif reservation.isPresent == 2 %}
+                <a class="check_link fa fa-check" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+            {% else %}
+                <a class="check_link" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+            {% endif %}
 
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button class="check_btn" type="submit" value="Create">
-                <p>Présent</p>
-            </button>
-            {{ form_end(form) }}
         </div>
 
     {% endfor %}
+
 
 {% endblock %}

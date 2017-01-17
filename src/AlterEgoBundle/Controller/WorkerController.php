@@ -35,7 +35,6 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\CheckType');
         $form->handleRequest($request);
-
         if($reservations){
 
             $date = new \DateTime();
@@ -187,7 +186,7 @@ class WorkerController extends Controller
      * @Route("/vote/{id}/{note}", name="vote")
      * @Method({"GET", "POST"})
      */
-    public function voterAction (Reservation $reservation, $note) {
+    public function voterAction(Reservation $reservation, $note) {
 
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findOneById($reservation);

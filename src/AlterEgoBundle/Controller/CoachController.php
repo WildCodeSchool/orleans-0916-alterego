@@ -29,13 +29,14 @@ class CoachController extends Controller
      */
     public function coachAction(Request $request)
     {
+        $user = $this->getUser();
         $form = $this->createForm('AlterEgoBundle\Form\StartType');
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository('AlterEgoBundle:Activite')->findByUser($this->getUser());
+        $activites = $em->getRepository('AlterEgoBundle:Activite')->findByUser($user);      
+
 
         if ($activites) {
-
             foreach ($activites as $activite) {
                 foreach ($activite->getCreneaux() as $seance) {
                     $date = new \DateTime();
@@ -48,29 +49,23 @@ class CoachController extends Controller
                     }
                 }
             }
-
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $nextSeance->setStartseance(1);
                 $em->persist($nextSeance);
                 $em->flush($nextSeance);
-
                 return $this->redirectToRoute('checking', array('id_seance' => $nextSeance->getId() ));
-
             }
-
                 return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
                     'seance' => $nextSeance,
                     'form' => $form->createView(),
-
+                    'activites' => $activites,
                 ));
-
         }
-
         else {
             return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
-                'seance' => $activites,));
-
+                'seance' => $activites,
+                ));
         }
     }
 

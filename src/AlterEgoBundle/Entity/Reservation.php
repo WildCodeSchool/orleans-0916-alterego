@@ -4,6 +4,7 @@ namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AlterEgoBundle\Entity\Creneau;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * Reservation

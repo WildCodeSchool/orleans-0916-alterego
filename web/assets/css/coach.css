@@ -177,6 +177,7 @@ body {
 .pin_seance{
     margin-right: 10px;
 }
+
 /*====================  CHECKING  ==============================*/
 
 .check_container {
@@ -213,6 +214,10 @@ body {
 .ratingstar {
     color: gold;
 }
+.ratingstar:hover{
+    color: #FF6600;
+    font-size:2.1em;
+}
 
 .badge_coach{
     background-color: #FF6600;
@@ -220,4 +225,9 @@ body {
     border-radius: 2px;
     font-weight: 900;
     padding: 3px 3px 3px 3px;
+}
+
+.badge_coach:hover{
+    background-color: white;
+    color: #FF6600;
 }

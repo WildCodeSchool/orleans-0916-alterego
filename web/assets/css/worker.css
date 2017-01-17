@@ -307,7 +307,11 @@ span {
 }
 
 /* ===================    Page Séances            ================================*/
-
+.titre_seance{
+    margin: 0 auto 0 auto;
+    background-color: white;
+    color: #00b0f0;
+}
 .tuile_seance {
     border-radius: 0px;
     margin: 0;

@@ -12,9 +12,8 @@
             {% endfor %}
         </div>
     {% endif %}
-    <h1 class="text-center">Liste des activités disponibles</h1>
+    <h1 class="text-center titre_seance">Liste des activités disponibles</h1>
         {% for seance in res %}
-
             <div class="tuile tuile_seance">
                 <div class="tuile_body_left">
                     <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>

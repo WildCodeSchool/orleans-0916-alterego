@@ -35,7 +35,9 @@
         </div>
         <div class="text-center">
             <a class="btn btn-success" href="{{ path('seances') }}">Revenir à la liste des Activité</a>
+            <a class="btn btn-warning" href="{{ path('creneau_archive', {'id': seance.0.id}) }}">Annuler</a>
         </div>
+
 
     </div>
 {% endblock %}

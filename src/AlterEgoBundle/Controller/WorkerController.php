@@ -187,7 +187,7 @@ class WorkerController extends Controller
      * @Route("/vote/{id}/{note}", name="vote")
      * @Method({"GET", "POST"})
      */
-    public function voterAction (Reservation $reservation, $note) {
+    public function voterAction(Reservation $reservation, $note) {
 
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findOneById($reservation);

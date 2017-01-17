@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * Creneau

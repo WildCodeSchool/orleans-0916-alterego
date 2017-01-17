@@ -96,7 +96,22 @@ body {
     text-align: left;
 }
 
+.tuile_header_note {
+    background-color: #FF6600;
+    border-radius: 7px 7px 0 0;
+    margin: 0;
+    text-align: left;
+}
+
 .tuile_header h2 {
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    font-family: alterFont;
+    padding: 5px;
+}
+
+.tuile_header_note h2 {
     font-size: 18px;
     line-height: 20px;
     color: white;

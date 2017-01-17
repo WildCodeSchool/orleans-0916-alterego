@@ -27,6 +27,11 @@
                 </div>
             </div>
         {% else %}
-            <h2>Pas de Séances disponible pour le moment !</h2>
+            <div class="tuile_header">
+                <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+            </div>
+            <div class="tuile_body text-center">
+                <p>Aucune séance n'est disponible pour le moment. Un coach proposera trés bientôt une nouvelle activité !</p>
+            </div>
         {% endfor %}
 {% endblock %}

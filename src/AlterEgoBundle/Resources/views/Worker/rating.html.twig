@@ -8,8 +8,8 @@
             {% endfor %}
         </div>
     {% endif %}
-    <div class="text-center">
-        <i class="fa fa-pencil-p"></i><h1>Evaluez vos séances !</h1>
+    <div class="text-center inline">
+        <i class="fa fa-pencil-p"></i><h1 class="titre_seance">Evaluez vos séances!</h1>
     </div>
 
     {% if reservations %}
@@ -37,7 +37,12 @@
             </div>
         {% endfor %}
     {% else %}
-        <p>Vous n'avez pas de réservation à noter.</p>
-        <a href="{{ path('seances') }}">Voulez vous reserver une activite ?</a>
+        <div class="tuile_header">
+            <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+        </div>
+        <div class="tuile_body text-center">
+            <p>Vous n'avez pas de réservation à noter.</p>
+            <a href="{{ path('seances') }}"><i class="fa fa-arrow-circle-right"></i> Voulez-vous réserver une activité ? <i class="fa fa-arrow-circle-left"></i></a>
+        </div>
     {% endif %}
 {% endblock %}

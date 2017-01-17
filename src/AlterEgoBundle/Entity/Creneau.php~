@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * Creneau
@@ -75,6 +76,12 @@ class Creneau
      * @ORM\Column(name="startseance", type="integer", nullable=true)
      */
     private $startseance;
+
+    /**
+     * @var int
+     * @ORM\Column(name="archive", type="integer", nullable=true)
+     */
+    private $archive;
 
     /**
      * @return mixed

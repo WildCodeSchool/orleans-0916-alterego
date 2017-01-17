@@ -78,6 +78,12 @@ class Creneau
     private $startseance;
 
     /**
+     * @var int
+     * @ORM\Column(name="archive", type="integer", nullable=true)
+     */
+    private $archive;
+
+    /**
      * @return mixed
      */
     public function getPlacerestantes()
@@ -337,5 +343,29 @@ class Creneau
     public function getStartseance()
     {
         return $this->startseance;
+    }
+
+    /**
+     * Set archive
+     *
+     * @param integer $archive
+     *
+     * @return Creneau
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * Get archive
+     *
+     * @return integer
+     */
+    public function getArchive()
+    {
+        return $this->archive;
     }
 }

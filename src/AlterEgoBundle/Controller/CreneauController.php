@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
+use AlterEgoBundle\Form\ArchiveType;
 
 
 /**
@@ -144,6 +145,37 @@ class CreneauController extends Controller
             ->getForm()
         ;
     }
+
+
+    /**
+     * Archive a creneau entity.
+     *
+     * @Route("/{id}", name="creneau_archive")
+     * @Method({"GET", "POST"})
+     */
+    public function archiveAction(Request $request, Creneau $creneau)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $archive = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
+        $form = $this->createForm('AlterEgoBundle\Form\ArchiveType');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $creneau->setArchive(1);
+            $em->persist($creneau);
+            $em->flush($creneau);
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('warning', 'Votre réservation a bien été annulée!');
+        }
+
+        return $this->redirectToRoute('worker_index');
+
+
+    }
+
 
     /**
      * Finds and displays a activite entity.

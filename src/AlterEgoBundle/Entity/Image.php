@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\File\File;
 /**
  * Class Image
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AlterEgoBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Image
@@ -56,7 +56,7 @@ class Image
     protected $file;
 
     /**
-     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="photoprofil")
      */
     private $user;
 

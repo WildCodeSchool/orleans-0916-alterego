@@ -21,7 +21,15 @@
     </div>
     <p>{{ seance.lieu }}</p>
 
-    <p>{{ nbPresents }}/{{ nbInscrits }} présents</p>
+
+    <p>
+        {{ nbPresents }}/{{ nbInscrits }}
+        {% if nbInscrits == 1 %}
+            present
+        {% else %}
+            présents
+        {% endif %}
+    </p>
 
     {% for reservation in seance.reservations %}
 
@@ -66,9 +74,9 @@
 
         {% elseif reservation.isPresent == 2 %}
 
-            <div class="check_container green_container" id="participant{{ loop.index }}">
-                <div class="check_left">
-                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+            <div class="check_container green_container" id="participant">
+                <div class="check_left">+{{ dump(reservation.user) }}
+                    {#<img class="check_photo" src="{{ asset('assets/uploads/images/'~reservation.user.photoprofil.path ) }}"#}
                          alt="photo de profile {{ reservation.user.username }}">
                 </div>
                 <div class="chaeck_center">

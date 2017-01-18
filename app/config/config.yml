@@ -113,6 +113,13 @@ fos_user:
         group_class:   Application\Sonata\UserBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
 
+    profile:  # Profile Form (firstname, lastname, etc ...)
+            form:
+                type:               sonata_user_profile
+                handler:            sonata.user.profile.form.handler.default
+                name:               sonata_user_profile_form
+                validation_groups:  [Profile]
+
     service:
         user_manager: sonata.user.orm.user_manager # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
         mailer: fos_user.mailer.twig_swift

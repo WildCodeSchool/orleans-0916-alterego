@@ -186,11 +186,11 @@ body {
     background-color: white;
     border: 1px solid darkslategray;
     border-radius: 90px;
-    position: absolute;
     text-align: left;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .check_photo {
@@ -265,10 +265,10 @@ body {
 }
 
 #link_1 {
-    color: green;
+    color: #b0f000;
 }
 #link_2 {
-    color: red;
+    color: #FF6600;
 }
 
 .seance_date {

@@ -41,7 +41,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
         // sinon il s'agit d'un coach
         elseif (in_array('ROLE_COACH', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('alterego_coach_coach'));
+            $redirection = new RedirectResponse($this->router->generate('coach_index'));
         // sinon il s'agit d'un worker
         elseif (in_array('ROLE_WORKER', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('worker_index'));

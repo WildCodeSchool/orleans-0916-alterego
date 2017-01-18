@@ -34,7 +34,7 @@ class ImageController extends Controller
             $image->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($image);
-            $em->flush($image);
+            $em->flush();
 
             return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }

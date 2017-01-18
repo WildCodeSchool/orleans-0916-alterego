@@ -30,7 +30,7 @@ $(document).ready(function () {
                 title: '{{ reservation.creneau.activite.activite }}',
                 start: '{{ reservation.creneau.dateheure|date('Y-m-d\\TH:i:sP') }}',
                 end: '{{ reservation.creneau.dateheure|date_modify('+'~reservation.creneau.duree ~'minutes')|date('Y-m-d\\TH:i:sP') }}',
-                url: '{{ path('seance_show',{'id': reservation.creneau.id}) }}',
+                url: '{{ path('reservation_show',{'id': reservation.id}) }}',
                 allDay: false
             },
             {% endfor %}

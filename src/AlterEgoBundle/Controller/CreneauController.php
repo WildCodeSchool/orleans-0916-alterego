@@ -113,21 +113,26 @@ class CreneauController extends Controller
     /**
      * Deletes a creneau entity.
      *
-     * @Route("/{id}", name="creneau_delete")
-     * @Method("DELETE")
+     * @Route("/{id}", name="creneau_archive")
+     * @Method({"GET", "POST", "DELETE"})
      */
-    public function deleteAction(Request $request, Creneau $creneau)
+    public function archiveAction(Request $request, Creneau $creneau)
     {
         $form = $this->createDeleteForm($creneau);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($creneau);
+            $creneau = $em->getRepository('AlterEgoBundle:Creneau')->findById(array(
+                'archive'=>$creneau->getArchive()
+            ));
+            $em->setArchive(1);
+            $em->persist($creneau);
             $em->flush($creneau);
+            return $this->redirectToRoute('reservation_show');
         }
 
-        return $this->redirectToRoute('creneau_index');
+        return $this->redirectToRoute('reservation_show');
     }
 
     /**
@@ -140,39 +145,41 @@ class CreneauController extends Controller
     private function createDeleteForm(Creneau $creneau)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('creneau_delete', array('id' => $creneau->getId())))
+            ->setAction($this->generateUrl('creneau_archive', array('id' => $creneau->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
     }
 
 
-    /**
-     * Archive a creneau entity.
-     *
-     * @Route("/{id}", name="creneau_archive")
-     * @Method({"GET", "POST"})
-     */
-    public function archiveAction(Request $request, Creneau $creneau)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $archive = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
-        $form = $this->createForm('AlterEgoBundle\Form\ArchiveType');
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $creneau->setArchive(1);
-            $em->persist($creneau);
-            $em->flush($creneau);
-
-            $request->getSession()
-                ->getFlashBag()
-                ->add('warning', 'Votre réservation a bien été annulée!');
-        }
-
-        return $this->redirectToRoute('worker_index');
-    }
+//    /**
+//     * Archive a creneau entity.
+//     *
+//     * @Route("/{id}", name="creneau_archive")
+//     * @Method({"GET", "POST"})
+//     */
+//    public function archiveAction(Request $request, Creneau $creneau)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $creneau = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
+//        $form = $this->createForm('AlterEgoBundle\Form\ArchiveType');
+//        $form->handleRequest($request);
+//
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//            $creneau->setArchive(1);
+//            $em->persist($creneau);
+//            $em->flush($creneau);
+//
+//            $request->getSession()
+//                ->getFlashBag()
+//                ->add('warning', 'Votre réservation a bien été annulée!');
+//            return $this->redirectToRoute('creneau_archive');
+//        }
+//        return $this->redirectToRoute('checking_worker');
+//
+//    }
 
 
     /**

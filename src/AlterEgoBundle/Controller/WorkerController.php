@@ -35,6 +35,7 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\CheckType');
         $form->handleRequest($request);
+
         if($reservations){
 
             $date = new \DateTime();
@@ -197,5 +198,4 @@ class WorkerController extends Controller
 
         return $this->redirectToRoute('rating');
     }
-
 }

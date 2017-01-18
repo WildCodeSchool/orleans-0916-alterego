@@ -7,6 +7,7 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\Request;
+use AlterEgoBundle\Entity\Image;
 
 
 /**
@@ -38,7 +39,7 @@ class User extends BaseUser
     private $reservations;
 
     /**
-     * @ORM\OneToOne(targetEntity="AlterEgoBundle\Entity\Image")
+     * @ORM\OneToOne(targetEntity="AlterEgoBundle\Entity\Image", mappedBy="user")
      */
     private $photoprofil;
 

@@ -17,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Validator\Constraints\DateTime;
 use AlterEgoBundle\Form\CheckType;
 use AlterEgoBundle\Form\RatingType;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * @Route("/worker", name="worker")
@@ -35,12 +36,12 @@ class WorkerController extends Controller
 
         $form = $this->createForm('AlterEgoBundle\Form\CheckType');
         $form->handleRequest($request);
-        if($reservations){
+        if ($reservations) {
 
             $date = new \DateTime();
             $date = $date->getTimestamp();
 
-            foreach($reservations as $reservation) {
+            foreach ($reservations as $reservation) {
 
                 $resaStamp = $reservation->getCreneau()->getDateheure()->getTimestamp() + ($reservation->getCreneau()->getDuree() * 60);
 
@@ -62,10 +63,11 @@ class WorkerController extends Controller
 
         }
 
-        if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-            'reservation' => $nextResa,
-            'enattente' => $reservations,
-            'form' => $form->createView(),
+        if (isset($nextResa)) {
+            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+                'reservation' => $nextResa,
+                'enattente' => $reservations,
+                'form' => $form->createView(),
             ));
 
         } else {
@@ -96,7 +98,29 @@ class WorkerController extends Controller
     /**
      * @Route("/settings", name="settings")
      */
-    public function settingsAction()
+    public function settingsShow()
+    {
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+
+//        $em = $this->getDoctrine()->getManager();
+//        $photo = $em->getRepository('AlterEgoBundle:Image')->findOneByUser($user);
+
+        return $this->render('AlterEgoBundle:Worker:settings.html.twig', [
+            'user' => $user,
+//            'photo' => $photo,
+        ]);
+
+
+    }
+
+    /**
+     * @Route("/settings/edit", name="settings_edit")
+     */
+    public function settingsEdit()
     {
 
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -114,10 +138,11 @@ class WorkerController extends Controller
             return new RedirectResponse($this->getRedirectionUrl($user));
         }
 
+
         return $this->container->get('templating')->renderResponse(
-            'AlterEgoBundle:Worker:settings.html.'.$this->container->getParameter('fos_user.template.engine'),
-            array('form' => $form->createView())
-        );
+            'AlterEgoBundle:Worker:settings_edit.html.' . $this->container->getParameter('fos_user.template.engine'), array(
+                'form' => $form->createView(),
+            ));
     }
 
     /**
@@ -137,7 +162,7 @@ class WorkerController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $reservations =$em->getRepository('AlterEgoBundle:Reservation')->findByUser($this->getUser());
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($this->getUser());
 
 
         return $this->render('AlterEgoBundle:Worker:reservation.html.twig', array(
@@ -156,14 +181,14 @@ class WorkerController extends Controller
         $user = $this->getUser();
         $res = [];
         foreach ($seances as $seance) {
-            $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user'=>$user, 'creneau'=>$seance]);
+            $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'creneau' => $seance]);
             if (!$reservation) {
-                $res[]=$seance;
+                $res[] = $seance;
             }
         }
 
         return $this->render('AlterEgoBundle:Worker:seances.html.twig', array(
-            'res'=>$res,
+            'res' => $res,
         ));
     }
 
@@ -186,7 +211,8 @@ class WorkerController extends Controller
      * @Route("/vote/{id}/{note}", name="vote")
      * @Method({"GET", "POST"})
      */
-    public function voterAction(Reservation $reservation, $note) {
+    public function voterAction(Reservation $reservation, $note)
+    {
 
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findOneById($reservation);

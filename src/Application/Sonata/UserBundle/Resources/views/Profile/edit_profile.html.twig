@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block sonata_profile_content %}
+
     {{ form_errors(form) }}
 
     {% form_theme form _self %}
@@ -19,4 +20,5 @@
     </div>
 
     {% render url("sonata_user_profile_edit_authentication") %}
+
 {% endblock %}

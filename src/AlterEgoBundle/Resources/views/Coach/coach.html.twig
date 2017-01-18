@@ -35,10 +35,21 @@
                     {% else %}
                         le {{ seance.dateheure|date("d\/m\/y") }}
                     {% endif %}
-                    à&nbsp;<span>{{ seance.dateheure|date("h:i") }}</span></p>
+                    à&nbsp;<span>{{ seance.dateheure|date("H:i") }}</span></p>
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ seance.lieu }}
                 </p>
             </div>
+
+
+            {% if seance.startseance == 1 and "now"|date_modify("+5 minutes")|date('U') <= (seance.dateheure|date('U') + (seance.duree * 60)) %}
+                <a href="{{ path('checking', {'id': seance.id}) }}">Lien quand séance start</a>
+
+
+            {% elseif "now"|date('Ymd Hi') < seance.dateheure|date_modify("-5 minutes")|date('Ymd Hi') %}
+                <p>Préparer vous pour votre prochaine séance</p>
+
+
+            {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <button class="start_activity" type="submit" value="Create">
@@ -48,6 +59,8 @@
             {{ form_end(form) }}
         </div>
         {% endif %}
+
+        {% endif %}
     </div>
     <div class="tuile">
         <div class="tuile_header_note">
@@ -56,37 +69,37 @@
                 &nbsp;&nbsp;&nbsp;Ma Note Globale :
             </h2>
         </div>
-        <div class="tuile_body">
-            {% set total = 0 %}
-            {% set nombrenote = 0 %}
-            {% for activite in activites %}
-                {% for creneau in activite.creneaux %}
-                    {% for reservation in creneau.reservations %}
-                        {% if reservation.noteCoach %}
-                            {% set total = total +reservation.noteCoach %}
-                            {% set nombrenote = nombrenote + 1 %}
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            {% endfor %}
-            {% set moyenne = (total / nombrenote)|round(1) %}
-            <div class="stars text-center">
-                {% for i in 1..5 %}
-                        {% if moyenne > i %}
-                            <span class="fa fa-star fa-2x ratingstar" ></span>
-                        {% elseif moyenne > (i- 0.5) %}
-                            <span class="fa fa-star fa-2x ratingstar" ></span>
-                        {% elseif moyenne < i %}
-                            <span class="fa fa-star-o fa-2x ratingstar"></span>
-                        {% endif %}
-                {% endfor %}
-                {% if moyenne %}
-                    <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
-                {% endif %}
-            </div>
-            <div class="info">
+        {#<div class="tuile_body">#}
+            {#{% set total = 0 %}#}
+            {#{% set nombrenote = 0 %}#}
+            {#{% for activite in activites %}#}
+                {#{% for creneau in activite.creneaux %}#}
+                    {#{% for reservation in creneau.reservations %}#}
+                        {#{% if reservation.noteCoach %}#}
+                            {#{% set total = total +reservation.noteCoach %}#}
+                            {#{% set nombrenote = nombrenote + 1 %}#}
+                        {#{% endif %}#}
+                    {#{% endfor %}#}
+                {#{% endfor %}#}
+            {#{% endfor %}#}
+            {#{% set moyenne = (total / nombrenote)|round(1) %}#}
+            {#<div class="stars text-center">#}
+                {#{% for i in 1..5 %}#}
+                        {#{% if moyenne > i %}#}
+                            {#<span class="fa fa-star fa-2x ratingstar" ></span>#}
+                        {#{% elseif moyenne > (i- 0.5) %}#}
+                            {#<span class="fa fa-star fa-2x ratingstar" ></span>#}
+                        {#{% elseif moyenne < i %}#}
+                            {#<span class="fa fa-star-o fa-2x ratingstar"></span>#}
+                        {#{% endif %}#}
+                {#{% endfor %}#}
+                {#{% if moyenne %}#}
+                    {#<span class="badges badge_coach">{{ moyenne~' / 5' }}</span>#}
+                {#{% endif %}#}
+            {#</div>#}
+            {#<div class="info">#}
 
-            </div>
-        </div>
+            {#</div>#}
+        {#</div>#}
     </div>
 {% endblock %}

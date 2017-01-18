@@ -1,4 +1,4 @@
-//# sourceMappingURL=menu.js.js.map
+//# sourceMappingURL=menu.js.map
 
 $('#remember_me').click(function(){
     if( $('#remember_me').is(':checked') ){

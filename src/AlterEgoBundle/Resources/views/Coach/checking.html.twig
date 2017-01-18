@@ -6,33 +6,103 @@
 
 
 
+
 {% block content %}
 
+
     <h1>{{ seance.activite.activite }}</h1>
-    <p>{{ seance.dateheure|date('m/d') }}&nbsp;{{ seance.dateheure|date('h:i') }}
-        &nbsp;{{ seance.dateheure|date_modify('+'~seance.duree ~'minutes')|date('h:i') }}</p>
+    <div class="seance_date">
+        <div>{{ seance.dateheure|date('m/d') }}</div>
+        <div><i class="fa fa-clock-o" aria-hidden="true">{{ seance.dateheure|date('h:i') }}</i>&nbsp;&nbsp;<i
+                    class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            &nbsp;&nbsp;<i class="fa fa-clock-o fa-clock-reverse"
+                           aria-hidden="true"></i>&nbsp;{{ seance.dateheure|date_modify('+'~seance.duree ~'minutes')|date('h:i') }}
+        </div>
+    </div>
     <p>{{ seance.lieu }}</p>
+
+    <p>{{ nbPresents }}/{{ nbInscrits }} présents</p>
 
     {% for reservation in seance.reservations %}
 
-        <div class="check_container">
-            <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
-                 alt="photo de profile {{ reservation.user.username }}">
-            <p class="check_name">{{ reservation.user.firstname }}
-                &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
-            {% if reservation.isPresent == 1 %}
-                <a class="check_link fa fa-check" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
-                <i class="fa fa-exclamation-triangle check_alert" aria-hidden="true"></i>
 
-            {% elseif reservation.isPresent == 2 %}
-                <a class="check_link fa fa-check" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
-            {% else %}
-                <a class="check_link" href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
-            {% endif %}
+        {% if reservation.isPresent == null %}
 
-        </div>
+            <div class="check_container grey_container">
+                <div class="check_left">
+                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+                         alt="photo de profile {{ reservation.user.username }}">
+                </div>
+                <div class="chaeck_center">
+                    <p class="check_name">{{ reservation.user.firstname }}
+                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+                </div>
+                <div class="check_right">
+                    <a class="check_link fa fa-check" id="link_1"
+                       href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+                    <a class="check_link fa fa-times" id="link_2"
+                       href="{{ path('afk_worker', {'id':reservation.id}) }}"></a>
+                </div>
+            </div>
+
+        {% elseif reservation.isPresent == 1 %}
+
+            <div class="check_container green_container">
+                <div class="check_left">
+                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+                         alt="photo de profile {{ reservation.user.username }}">
+                </div>
+                <div class="check_center">
+                    <p class="check_name">{{ reservation.user.firstname }}
+                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+                </div>
+                <div class="check_right">
+                    <a class="check_link fa fa-check" id="link_1"
+                       href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+                    <a class="check_link fa fa-times" id="link_2"
+                       href="{{ path('afk_worker', {'id':reservation.id}) }}"></a>
+                </div>
+            </div>
+
+        {% elseif reservation.isPresent == 2 %}
+
+            <div class="check_container green_container" id="participant{{ loop.index }}">
+                <div class="check_left">
+                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+                         alt="photo de profile {{ reservation.user.username }}">
+                </div>
+                <div class="chaeck_center">
+                    <p class="check_name">{{ reservation.user.firstname }}
+                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+                </div>
+                <div class="check_right">
+                    <a class="check_link fa fa-times" id="link_2"
+                       href="{{ path('afk_worker', {'id':reservation.id}) }}"></a>
+                </div>
+            </div>
+
+
+        {% elseif reservation.isPresent == 3 %}
+            <div class="check_container red_container">
+                <div class="check_left">
+                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+                         alt="photo de profile {{ reservation.user.username }}">
+                </div>
+                <div class="chaeck_center">
+                    <p class="check_name">{{ reservation.user.firstname }}
+                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
+                </div>
+                <div class="check_right">
+                    <a class="check_link fa fa-check" id="link_1"
+                       href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
+                </div>
+
+            </div>
+
+
+        {% endif %}
+
 
     {% endfor %}
-
 
 {% endblock %}

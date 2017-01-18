@@ -198,5 +198,4 @@ class WorkerController extends Controller
 
         return $this->redirectToRoute('rating');
     }
-
 }

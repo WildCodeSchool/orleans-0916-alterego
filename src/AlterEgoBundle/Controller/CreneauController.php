@@ -194,6 +194,7 @@ class CreneauController extends Controller
         $form->handleRequest($request);
 
         $user = $this->getUser();
+
         if ($form->isSubmitted() && $form->isValid() && $creneau->getPlacerestantes() > 0) {
 
             $testPerf = new TestPerf();

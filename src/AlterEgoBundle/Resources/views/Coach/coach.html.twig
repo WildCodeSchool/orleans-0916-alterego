@@ -12,11 +12,20 @@
         </div>
     </div>
     <h1 class="name_worker">
-        Bonjour {% if app.user.firstname %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>
+        Bonjour
+        {% if app.user.firstname %}
+            {{ app.user.firstname|title }}
+        {% else %}
+            {{ app.user.username|title }}
+        {% endif %}
+    </h1>
     <div class="tuile">
         <div class="tuile_header">
             <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Mon prochain cours
-                <a href=""><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
+                <a href="">
+                    <i class="fa fa-plus i_right" aria-hidden="true"></i>
+                </a>
+            </h2>
         </div>
     {% if seance is empty %}
         <div class="tuile_body">
@@ -69,9 +78,10 @@
                     {% endfor %}
                 {% endfor %}
             {% endfor %}
-            {% set moyenne = (total / nombrenote)|round(1) %}
-            <div class="stars text-center">
-                {% for i in 1..5 %}
+            {% if nombrenote > 0 %}
+                {% set moyenne = (total / nombrenote)|round(1) %}
+                <div class="stars text-center">
+                    {% for i in 1..5 %}
                         {% if moyenne > i %}
                             <span class="fa fa-star fa-2x ratingstar" ></span>
                         {% elseif moyenne >= (i- 0.5) %}
@@ -79,14 +89,12 @@
                         {% elseif moyenne < i %}
                             <span class="fa fa-star-o fa-2x ratingstar"></span>
                         {% endif %}
-                {% endfor %}
-                {% if moyenne %}
-                    <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
-                {% endif %}
-            </div>
-            <div class="info">
-
-            </div>
+                    {% endfor %}
+                    {% if moyenne %}
+                        <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

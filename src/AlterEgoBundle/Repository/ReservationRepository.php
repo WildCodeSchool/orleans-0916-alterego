@@ -1,6 +1,7 @@
 <?php
 
 namespace AlterEgoBundle\Repository;
+use Application\Sonata\UserBundle\Entity\User;
 
 /**
  * ReservationRepository
@@ -10,7 +11,4 @@ namespace AlterEgoBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findByRegistration()
-    {
-    }
 }

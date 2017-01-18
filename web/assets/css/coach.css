@@ -188,17 +188,30 @@ body {
     border-radius: 90px;
     position: absolute;
     text-align: left;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
 }
 
 .check_photo {
     border-radius: 100%;
     width: 60px;
-    float: left;
+
 }
 
 .check_name {
-    float: left;
     line-height: 60px;
+    margin: 0;
+}
+
+.btn_check {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    border-radius: 90px;
+    background-color: #00a7d0;
 }
 
 .check_link {
@@ -208,12 +221,14 @@ body {
     line-height: 60px;
     text-align: center;
     font-size: 40px;
+    background-color: black;
+    border-radius: 90px;
 }
 
 .check_alert {
     font-size: 20px;
-    float: right;
     line-height: 60px;
+    transform: translateY(-7px);
 }
 
 .ratingstar {
@@ -235,4 +250,33 @@ body {
 .badge_coach:hover{
     background-color: white;
     color: #FF6600;
+}
+
+.red_container {
+    background-color: #FF6600;
+}
+
+.green_container {
+    background-color: #b0f000;
+}
+
+.grey_container {
+    background-color: lightgrey;
+}
+
+#link_1 {
+    color: green;
+}
+#link_2 {
+    color: red;
+}
+
+.seance_date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.fa-clock-reverse {
+    transform: rotate(180deg);
 }

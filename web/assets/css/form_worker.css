@@ -76,3 +76,7 @@ tr {
     width: 50%;
     height: 50%;
 }
+
+.span3{
+    box-shadow: 2px 2px 1px #696969;
+}

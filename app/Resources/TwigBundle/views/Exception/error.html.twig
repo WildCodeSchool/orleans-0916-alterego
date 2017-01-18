@@ -8,19 +8,20 @@
 {% endblock %}
 
 {% block body %}
-<div class="error">
-    <div class="error-code m-b-10 m-t-20">{{ status_code }}<i class="fa fa-warning"></i></div>
-    <h3 class="font-bold">Nous n'avons pas pu trouver la page</h3>
+    <div class="error">
+        <div class="error-code m-b-10 m-t-20">{{ status_code }}<i class="fa fa-warning"></i></div>
+        <h3 class="font-bold">Nous n'avons pas pu trouver la page</h3>
 
-    <div class="error-desc">
-        Désole, la page que vous recherchez n'as pas été trouvée ou n'existe pas.<br/>
-        Essayez de rafraichir la page ou de cliquer sur le lien ci-dessous pour retourner à l'accueil.
-        <div>
-            <a class=" login-detail-panel-button btn" href="{{path('login')}}">
-                <i class="fa fa-arrow-right"></i>
-                Retourner à la page principale
-            </a>
+        <div class="error-desc">
+            Désole, la page que vous recherchez n'as pas été trouvée ou n'existe pas.<br/>
+            Essayez de rafraichir la page ou de cliquer sur le lien ci-dessous pour retourner à l'accueil.
+            <div>
+                <a class=" login-detail-panel-button btn" href="{{path('login')}}">
+                    <i class="fa fa-arrow-right"></i>
+                    Retourner au Login
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

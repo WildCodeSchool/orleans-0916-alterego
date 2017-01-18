@@ -33,7 +33,6 @@
         <div class="row text-center">
             {% render controller('AlterEgoBundle:Reservation:new', {'id': seance.0.id}) %}
             <a class="btn btn-success" href="{{ path('seances') }}">Revenir à la liste des Activité</a>
-            <a class="btn btn-warning" href="{{ path('creneau_archive', {'id': seance.id}) }}">Annuler ma reservation</a>
         </div>
     </div>
 {% endblock %}

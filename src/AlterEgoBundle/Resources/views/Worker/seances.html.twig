@@ -13,6 +13,7 @@
         </div>
     {% endif %}
     <h1 class="text-center titre_seance">Liste des activités disponibles</h1>
+    {% if res %}
         {% for seance in res %}
             <div class="tuile tuile_seance">
                 <div class="tuile_body_left">
@@ -26,12 +27,14 @@
                     <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">RESERVER</a>
                 </div>
             </div>
-        {% else %}
-            <div class="tuile_header">
-                <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
-            </div>
-            <div class="tuile_body text-center">
-                <p>Aucune séance n'est disponible pour le moment. Un coach proposera trés bientôt une nouvelle activité !</p>
-            </div>
+
         {% endfor %}
+    {% else %}
+        <div class="tuile_header">
+            <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+        </div>
+        <div class="tuile_body text-center">
+            <p>Aucune séance n'est disponible pour le moment. Un coach proposera trés bientôt une nouvelle activité !</p>
+        </div>
+    {% endif %}
 {% endblock %}

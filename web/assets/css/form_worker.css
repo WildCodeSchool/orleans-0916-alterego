@@ -71,3 +71,8 @@ tr {
 .content_size{
     font-size: 1.4em;
 }
+
+.size_image{
+    width: 50%;
+    height: 50%;
+}

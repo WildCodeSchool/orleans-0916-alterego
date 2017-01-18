@@ -66,7 +66,8 @@ class CoachController extends Controller
         if (isset($nextSeance)){return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
             'seance' => $nextSeance,
             'form' => $form->createView(),
-            'activites' => $activites
+            'activites' => $activites,
+
         ));
 
         }
@@ -76,40 +77,10 @@ class CoachController extends Controller
             return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
                 'seance' => [],
                 'form' => $form->createView(),
-                'activites' => $activites
+                'activites' => $activites,
             ));
         }
 
-    }
-
-
-    /**
-     * @Route("/checking/{id}", name="checking")
-     * @Method({"GET"})
-     */
-    public function checking(Creneau $seance)
-    {
-
-        return $this->render('AlterEgoBundle:Coach:checking.html.twig', array(
-            'seance' => $seance,
-        ));
-    }
-
-    /**
-     * @Route("/checking/valid/{id}", name="checking_worker")
-     * @Method({"GET"})
-     */
-    public function checkingWorker(Reservation $reservation)
-    {
-
-        $em = $this->getDoctrine()->getManager();
-        $reservation->setIspresent(2);
-        $em->persist($reservation);
-        $em->flush();
-
-        return $this->redirectToRoute('checking', [
-            'id' => $reservation->getCreneau()->getId()
-        ]);
     }
 
     /**

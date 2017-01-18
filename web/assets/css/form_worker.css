@@ -5,8 +5,9 @@ tr {
     text-align: center;
     color: #00a7d0;
     font-weight: bold;
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .title_type_activity {
     text-align: left;
@@ -61,4 +62,12 @@ tr {
 .activite_style{
     border-top: 2px solid lightsteelblue;
     border-bottom: 2px solid lightsteelblue;
+}
+
+.placement{
+    margin-top: 0;
+}
+
+.content_size{
+    font-size: 1.4em;
 }

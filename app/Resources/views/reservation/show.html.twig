@@ -45,24 +45,23 @@
 
         <div class="span3">
             <div class="well">
-                <h2 class="text-info text-center">{{ reservation.creneau.activite.activite }}</h2>
+                <h2 class="text-info text-center activite_style">{{ reservation.creneau.activite.activite|upper }}</h2>
                 <p><span class="label label-info">{{ reservation.creneau.activite.type }}</span></p>
                 <ul>
                     <li>Le {{ reservation.creneau.dateheure | date(" m-d-Y à H:i") | trans }}</li>
                     <li>Où : {{ reservation.creneau.lieu }}</li>
                 </ul>
-                <h3 class="right-sidet back_coach"><i class="fa fa-futbol-o"></i> Le Coach </h3>
-                <p>{{ reservation.creneau.activite.user.firstname }} {{ reservation.creneau.activite.user.lastname }}</p>
+                <h3 class="right-sidet back_coach"><i class="fa fa-user-circle-o "></i> COACH</h3>
+                <p class="text-center">{{ reservation.creneau.activite.user.firstname }} {{ reservation.creneau.activite.user.lastname }}</p>
                 <hr>
-                <h3 class=" back_coach"><i class="fa fa-info-circle"></i> Info</h3>
-                <p>{{ reservation.creneau.activite.info }}</p>
+                <h3 class=" back_coach"><i class="fa fa-info-circle"></i> INFO</h3>
+                <p class="text-center">{{ reservation.creneau.activite.info }}</p>
                 {#<h3 class="pull-right">Prix : 9.99 euros <i class="fa fa-euro"></i></h3>#}
+                <hr>
                 <div class="text-center center-block">
-                    <a class="btn btn-info btn-reservation" href="{{ path('seances') }}"><i class="fa fa-list"></i> Liste des séances</a>
-                    <a class="btn btn-primary btn-reservation" href="{{ path('worker_index') }}"><i class="fa fa-home"></i> Mon profil</a>
                     {#<a class="btn btn-primary" href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>#}
                     {{ form_start(delete_form) }}
-                    <a class="btn btn-warning btn-reservation" href="{{ path('reservation_archive', {'id' : reservation.creneau.id}) }}"><i class="fa fa-ban"></i> Annuler réservation</a>
+                    <a class="btn btn-danger btn-reservation" href="{{ path('reservation_archive', {'id' : reservation.creneau.id}) }}"><i class="fa fa-ban"></i> Annuler réservation</a>
                     {{ form_end(delete_form) }}
                 </div>
             </div>

@@ -43,7 +43,6 @@
             {#</tbody>#}
         {#</table>#}
 
-
         <div class="span3">
             <div class="well">
                 <h2 class="text-info text-center">{{ reservation.creneau.activite.activite }}</h2>
@@ -57,20 +56,17 @@
                 <hr>
                 <h3 class=" back_coach"><i class="fa fa-info-circle"></i> Info</h3>
                 <p>{{ reservation.creneau.activite.info }}</p>
-                <h3 class="pull-right">Prix : 9.99 euros <i class="fa fa-euro"></i></h3>
+                {#<h3 class="pull-right">Prix : 9.99 euros <i class="fa fa-euro"></i></h3>#}
                 <div class="text-center center-block">
                     <a class="btn btn-info btn-reservation" href="{{ path('seances') }}"><i class="fa fa-list"></i> Liste des séances</a>
                     <a class="btn btn-primary btn-reservation" href="{{ path('worker_index') }}"><i class="fa fa-home"></i> Mon profil</a>
                     {#<a class="btn btn-primary" href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>#}
                     {{ form_start(delete_form) }}
-                    <button class="btn btn-warning btn-reservation" type="submit"><i class="fa fa-ban"></i> Annuler réservation</button>
+                    <a class="btn btn-warning btn-reservation" href="{{ path('reservation_archive', {'id' : reservation.creneau.id}) }}"><i class="fa fa-ban"></i> Annuler réservation</a>
                     {{ form_end(delete_form) }}
                 </div>
             </div>
         </div>
-
-
-
     </div>
 {% endblock %}
 

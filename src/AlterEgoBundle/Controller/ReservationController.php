@@ -61,6 +61,25 @@ class ReservationController extends Controller
     }
 
     /**
+     * Creates a new reservation entity.
+     *
+     * @Route("/archive/{id}", name="reservation_archive")
+     * @Method({"GET", "POST"})
+     */
+    public function archiveAction(Request $request, Creneau $creneau)
+    {
+            $creneau->setArchive(1);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($creneau);
+            $em->flush($creneau);
+        
+            $request->getSession()
+                ->getFlashBag()
+                ->add('warning', 'Votre réservation a bien été annulée!');
+            return $this->redirectToRoute('seances');
+    }
+
+    /**
      * Finds and displays a reservation entity.
      *
      * @Route("/{id}", name="reservation_show")
@@ -117,7 +136,7 @@ class ReservationController extends Controller
             $em->remove($reservation);
             $em->flush($reservation);
         }
-
+        
         return $this->redirectToRoute('reservation_index');
     }
 

@@ -11,6 +11,12 @@
                 {{ msg }}
             {% endfor %}
         </div>
+        {% else %}
+            <div class="alert alert-warning">
+                {% for msg in app.session.flashBag.get('warning') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
     {% endif %}
     <h1 class="text-center titre_seance">Liste des activités disponibles</h1>
     {% if res %}

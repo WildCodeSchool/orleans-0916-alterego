@@ -151,37 +151,6 @@ class CreneauController extends Controller
         ;
     }
 
-
-//    /**
-//     * Archive a creneau entity.
-//     *
-//     * @Route("/{id}", name="creneau_archive")
-//     * @Method({"GET", "POST"})
-//     */
-//    public function archiveAction(Request $request, Creneau $creneau)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $creneau = $em->getRepository('AlterEgoBundle:Creneau')->findById($creneau);
-//        $form = $this->createForm('AlterEgoBundle\Form\ArchiveType');
-//        $form->handleRequest($request);
-//
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $creneau->setArchive(1);
-//            $em->persist($creneau);
-//            $em->flush($creneau);
-//
-//            $request->getSession()
-//                ->getFlashBag()
-//                ->add('warning', 'Votre réservation a bien été annulée!');
-//            return $this->redirectToRoute('creneau_archive');
-//        }
-//        return $this->redirectToRoute('checking_worker');
-//
-//    }
-
-
     /**
      * Finds and displays a activite entity.
      *

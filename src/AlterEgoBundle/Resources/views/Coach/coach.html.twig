@@ -74,7 +74,7 @@
                 {% for i in 1..5 %}
                         {% if moyenne > i %}
                             <span class="fa fa-star fa-2x ratingstar" ></span>
-                        {% elseif moyenne > (i- 0.5) %}
+                        {% elseif moyenne >= (i- 0.5) %}
                             <span class="fa fa-star fa-2x ratingstar" ></span>
                         {% elseif moyenne < i %}
                             <span class="fa fa-star-o fa-2x ratingstar"></span>

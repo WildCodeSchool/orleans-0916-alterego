@@ -65,7 +65,8 @@ class CoachController extends Controller
 
         if (isset($nextSeance)){return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
             'seance' => $nextSeance,
-                'form' => $form->createView(),
+            'form' => $form->createView(),
+            'activites' => $activites
         ));
 
         }
@@ -75,6 +76,7 @@ class CoachController extends Controller
             return $this->render('AlterEgoBundle:Coach:coach.html.twig', array(
                 'seance' => [],
                 'form' => $form->createView(),
+                'activites' => $activites
             ));
         }
 

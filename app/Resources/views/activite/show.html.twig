@@ -3,44 +3,22 @@
     {{ parent() }}
 {% endblock %}
 
-{% block body %}
-    <div class="content">
-        <h1 class="title_activity">Activite</h1>
-
-        <table>
-            <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ activite.id }}</td>
-            </tr>
-            <tr>
-                <th>Activite</th>
-                <td>{{ activite.activite }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ activite.type }}</td>
-            </tr>
-            <tr>
-                <th>Info</th>
-                <td>{{ activite.info }}</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('activite_index') }}">Retour Accueil</a>
-            </li>
-            <li>
-                <a class="btn" href="{{ path('activite_edit', { 'id': activite.id }) }}">Edit</a>
-            </li>
-            <a class="btn" href="{{ path('creneau_new', { 'id': activite.id }) }}">Ajouter un créneau</a>
-            <li>
-                {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
+{% block content %}
+    <h1 class="title_activity">Votre Activite</h1>
+    <div class="span3">
+        <div class="well">
+            <h2 class="text-info text-center activite_style placement">{{ activite.activite|upper }}</h2>
+            <p class="text-center content_size"><span class="label label-info">Type : {{ activite.type }}</span></p>
+            <hr>
+            <a class="btn" href="{{ path('creneau_new', { 'id': activite.id }) }}"><i class="fa fa-plus-circle fa-3x"></i><p>Ajouter un créneau</p></a>
+            <hr>
+            <h3 class=" back_coach"><i class="fa fa-info-circle"></i> INFO</h3>
+            <p class="text-center content_size">{{ activite.info }}</p>
+            <hr>
+            <div class="text-center">
+                <a class="btn btn-info" href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-pencil"></i> Edit</a>
+                <a class="btn btn-danger" href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-ban"></i> Annuler</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -308,3 +308,7 @@ body {
     padding-top: 15px;
     font-size: 15px;
 }
+
+.btn-info{
+    margin-top: 0;
+}

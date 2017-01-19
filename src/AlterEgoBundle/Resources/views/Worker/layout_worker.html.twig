@@ -24,10 +24,14 @@
 
        <div class="content">
            {% block content %}
+
            {% endblock %}
        </div>
 
        {% block footer %}
+           <div class="cgu_worker">
+            <a class="cgu_worker" href="{{ path('cgu_worker') }}">Copyright @ AlterEgo Digital 2017</a>
+           </div>
        {% endblock %}
 
 

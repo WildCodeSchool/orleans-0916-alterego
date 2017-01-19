@@ -4,12 +4,14 @@
     <link rel="stylesheet" href="{{ asset('assets/datetimepicker-master/build/jquery.datetimepicker.min.css') }}">
 {% endblock %}
 {% block content %}
+    <div class="well">
     <h1 class="title_activity">Création d'un Créneau</h1>
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
         <button class="btn btn-primary text-center center-block" type="submit"><i class="fa fa-calendar-check-o"></i> Créer</button>
     {{ form_end(form) }}
+    </div>
 {% endblock %}
 {% block javascripts %}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/datetimepicker-master/jquery.datetimepicker.css') }}"/>

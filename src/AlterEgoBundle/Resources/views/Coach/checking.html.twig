@@ -33,18 +33,10 @@
 
     {% for reservation in seance.reservations %}
 
-
         {% if reservation.isPresent == null %}
 
             <div class="check_container grey_container">
-                <div class="check_left">
-                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
-                         alt="photo de profile {{ reservation.user.username }}">
-                </div>
-                <div class="chaeck_center">
-                    <p class="check_name">{{ reservation.user.firstname }}
-                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
-                </div>
+                {{ render(controller('AlterEgoBundle:Checking:userInfoChecking', {'id':reservation.user.id})) }}
                 <div class="check_right">
                     <a class="check_link fa fa-check" id="link_1"
                        href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
@@ -56,14 +48,7 @@
         {% elseif reservation.isPresent == 1 %}
 
             <div class="check_container green_container">
-                <div class="check_left">
-                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
-                         alt="photo de profile {{ reservation.user.username }}">
-                </div>
-                <div class="check_center">
-                    <p class="check_name">{{ reservation.user.firstname }}
-                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
-                </div>
+                {{ render(controller('AlterEgoBundle:Checking:userInfoChecking', {'id':reservation.user.id})) }}
                 <div class="check_right">
                     <a class="check_link fa fa-check" id="link_1"
                        href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>
@@ -75,14 +60,7 @@
         {% elseif reservation.isPresent == 2 %}
 
             <div class="check_container green_container" id="participant">
-                <div class="check_left">
-                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg' ) }}"
-                         alt="photo de profile {{ reservation.user.username }}">
-                </div>
-                <div class="chaeck_center">
-                    <p class="check_name">{{ reservation.user.firstname }}
-                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
-                </div>
+                {{ render(controller('AlterEgoBundle:Checking:userInfoChecking', {'id':reservation.user.id})) }}
                 <div class="check_right">
                     <a class="check_link fa fa-times" id="link_2"
                        href="{{ path('afk_worker', {'id':reservation.id}) }}"></a>
@@ -92,14 +70,7 @@
 
         {% elseif reservation.isPresent == 3 %}
             <div class="check_container red_container">
-                <div class="check_left">
-                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
-                         alt="photo de profile {{ reservation.user.username }}">
-                </div>
-                <div class="chaeck_center">
-                    <p class="check_name">{{ reservation.user.firstname }}
-                        &nbsp;{{ reservation.user.lastname }}  {{ reservation.user.username }}</p>
-                </div>
+                {{ render(controller('AlterEgoBundle:Checking:userInfoChecking', {'id':reservation.user.id})) }}
                 <div class="check_right">
                     <a class="check_link fa fa-check" id="link_1"
                        href="{{ path('checking_worker', {'id':reservation.id}) }}"></a>

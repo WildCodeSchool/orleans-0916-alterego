@@ -394,3 +394,15 @@ input[type=radio] + label {
 .btn_resa{
     margin-bottom: 4px;
 }
+.cgu_worker{
+    text-align: center;
+    bottom: 1px;
+    position: fixed;
+    margin-left: 11%;
+}
+.worker_cgu_title{
+    font-size: 25px;
+    font-family: alterFont;
+    color: #00b0f0;
+    text-align: center;
+}

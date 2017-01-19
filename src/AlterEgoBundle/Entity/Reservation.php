@@ -22,12 +22,12 @@ class Reservation
     /**
      * @ORM\ManyToOne(targetEntity="Creneau", inversedBy="reservations")
      */
-    private $creneau;
+    protected $creneau;
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="reservations")
      */
-    private $user;
+    protected $user;
 
     /**
      * @var int

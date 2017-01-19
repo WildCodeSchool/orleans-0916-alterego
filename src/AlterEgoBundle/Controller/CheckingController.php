@@ -3,6 +3,7 @@
 namespace AlterEgoBundle\Controller;
 
 use AlterEgoBundle\AlterEgoBundle;
+use Application\Sonata\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -26,10 +27,10 @@ class CheckingController extends Controller
      * @Route("/coach/checking/{id}", name="checking")
      * @Method({"GET"})
      */
-    public function checking(Creneau $seance)
+    public function checking(Creneau $creneau)
     {
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($seance);
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($creneau);
         $nbPresents = 0;
         $nbInscrits =0;
             foreach ($reservations as $reservation){
@@ -40,9 +41,22 @@ class CheckingController extends Controller
             }
 
         return $this->render('AlterEgoBundle:Coach:checking.html.twig', array(
-            'seance' => $seance,
+            'seance' => $creneau,
             'nbPresents' => $nbPresents,
             'nbInscrits' => $nbInscrits,
+        ));
+    }
+
+    /**
+     * @Route("/coach/checking/user-info/{id}", name="user_checking")
+     * @Method({"GET"})
+     */
+    public function userInfoCheckingAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('ApplicationSonataUserBundle:User')->find($user->getId());
+        return $this->render('AlterEgoBundle:Coach:userInfoChecking.html.twig', array(
+            'user' => $user,
         ));
     }
 

@@ -227,4 +227,11 @@ class WorkerController extends Controller
             ->add('success', 'Votre vote a bien été pris en compte!');
         return $this->redirectToRoute('rating');
     }
+    /**
+     * @Route("/cgu_worker", name="cgu_worker")
+     */
+    public function cguAction()
+    {
+        return $this->render('AlterEgoBundle:Worker:cgu_worker.html.twig');
+    }
 }

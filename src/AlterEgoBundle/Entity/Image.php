@@ -58,7 +58,7 @@ class Image
     /**
      * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="photoprofil")
      */
-    private $user;
+    protected $user;
 
     /**
      * @return mixed

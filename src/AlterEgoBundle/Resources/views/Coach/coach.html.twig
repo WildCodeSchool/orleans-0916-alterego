@@ -51,7 +51,9 @@
             {% if seance.startseance == 1 and "now"|date_modify("+5 minutes")|date('U') <= (seance.dateheure|date('U') + (seance.duree * 60)) %}
                 <a href="{{ path('checking', {'id': seance.id}) }}">Lien quand séance start</a>
             {% elseif "now"|date('Ymd Hi') < seance.dateheure|date_modify("-5 minutes")|date('Ymd Hi') %}
-                <p>Préparer vous pour votre prochaine séance</p>
+                <p>Préparez vous pour votre prochaine séance</p>
+
+
             {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}

@@ -226,7 +226,7 @@ body {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     background-color: black;
     border-radius: 90px;
 }
@@ -237,26 +237,7 @@ body {
     transform: translateY(-7px);
 }
 
-.ratingstar {
-    color: gold;
-}
-.ratingstar:hover{
-    color: #FF6600;
-    font-size:2.1em;
-}
 
-.badge_coach{
-    background-color: #FF6600;
-    color: white;
-    border-radius: 2px;
-    font-weight: 900;
-    padding: 3px 3px 3px 3px;
-}
-
-.badge_coach:hover{
-    background-color: white;
-    color: #FF6600;
-}
 
 .red_container {
     background-color: #FF6600;
@@ -285,6 +266,29 @@ body {
 
 .fa-clock-reverse {
     transform: rotate(180deg);
+}
+
+/*======================     COACH_BADGE/RATING     ============================*/
+
+.ratingstar {
+    color: gold;
+}
+.ratingstar:hover{
+    color: #FF6600;
+    font-size:2.1em;
+}
+
+.badge_coach{
+    background-color: #FF6600;
+    color: white;
+    border-radius: 2px;
+    font-weight: 900;
+    padding: 3px 3px 3px 3px;
+}
+
+.badge_coach:hover{
+    background-color: white;
+    color: #FF6600;
 }
 
 .btn-vertego{

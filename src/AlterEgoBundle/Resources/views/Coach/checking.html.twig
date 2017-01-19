@@ -75,8 +75,8 @@
         {% elseif reservation.isPresent == 2 %}
 
             <div class="check_container green_container" id="participant">
-                <div class="check_left">+{{ dump(reservation.user) }}
-                    {#<img class="check_photo" src="{{ asset('assets/uploads/images/'~reservation.user.photoprofil.path ) }}"#}
+                <div class="check_left">
+                    <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg' ) }}"
                          alt="photo de profile {{ reservation.user.username }}">
                 </div>
                 <div class="chaeck_center">

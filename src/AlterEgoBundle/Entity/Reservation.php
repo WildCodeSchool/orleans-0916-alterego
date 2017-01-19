@@ -28,7 +28,7 @@ class Reservation
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="reservations")
      */
     private $user;
-    
+
     /**
      * @var int
      *
@@ -54,7 +54,7 @@ class Reservation
 
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="is_present", type="integer", nullable=true)
      */
     private $ispresent;
@@ -156,6 +156,7 @@ class Reservation
     {
         $this->infoEmploye = $infoEmploye;
     }
+
     /**
      * @return mixed
      */

@@ -18,10 +18,10 @@ class Creneau
      */
     private $activite;
 
-    /**
-     * @ORM\OneToMany(targetEntity="TestPerf", mappedBy="creneau")
-     */
-    private $testsPerf;
+//    /**
+//     * @ORM\OneToMany(targetEntity="TestPerf", mappedBy="creneau")
+//     */
+//    private $testsPerfs;
 
     /**
      * @ORM\OneToMany(targetEntity="Reservation", mappedBy="creneau")

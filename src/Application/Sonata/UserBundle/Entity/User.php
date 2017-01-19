@@ -28,6 +28,7 @@ class User extends BaseUser
      */
     private $activites;
 
+
     /**
      * @ORM\OneToOne(targetEntity="AlterEgoBundle\Entity\Entreprise", mappedBy="user")
      */

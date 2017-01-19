@@ -29,11 +29,11 @@ class CheckingController extends Controller
     public function checking(Creneau $seance)
     {
         $em = $this->getDoctrine()->getManager();
-        $inscrits = $em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($seance);
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByCreneau($seance);
         $nbPresents = 0;
         $nbInscrits =0;
-            foreach ($inscrits as $presents){
-                if ($presents->getIspresent() == 1 or $presents->getIspresent() == 2){
+            foreach ($reservations as $reservation){
+                if ($reservation->getIspresent() == 1 or $reservation->getIspresent() == 2){
                     $nbPresents++;
                 }
                 $nbInscrits++;

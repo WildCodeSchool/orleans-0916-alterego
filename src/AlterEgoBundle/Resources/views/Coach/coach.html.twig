@@ -48,16 +48,10 @@
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ seance.lieu }}
                 </p>
             </div>
-
-
             {% if seance.startseance == 1 and "now"|date_modify("+5 minutes")|date('U') <= (seance.dateheure|date('U') + (seance.duree * 60)) %}
                 <a href="{{ path('checking', {'id': seance.id}) }}">Lien quand séance start</a>
-
-
             {% elseif "now"|date('Ymd Hi') < seance.dateheure|date_modify("-5 minutes")|date('Ymd Hi') %}
                 <p>Préparer vous pour votre prochaine séance</p>
-
-
             {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}
@@ -68,14 +62,13 @@
             {{ form_end(form) }}
         </div>
         {% endif %}
-
-        {% endif %}
+    {% endif %}
     </div>
     <div class="tuile">
         <div class="tuile_header_note">
             <h2>
                 <i class="fa fa-star i_left" aria-hidden="true"></i>
-                &nbsp;&nbsp;&nbsp;Ma Note Globale :
+                &nbsp;&nbsp;&nbsp;Votre Note Globale :
             </h2>
         </div>
         <div class="tuile_body">

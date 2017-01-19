@@ -26,9 +26,7 @@ class ActiviteController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository('AlterEgoBundle:Activite')->findBy(array(
-            'user' => $this->getUser(),
-        ));
+        $activites = $em->getRepository('AlterEgoBundle:Activite')->findBy(array('user' => $this->getUser()),array('activite' => 'ASC'));
 
         return $this->render('activite/index.html.twig', array(
             'activites' => $activites,

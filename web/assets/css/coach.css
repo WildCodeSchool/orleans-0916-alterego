@@ -316,3 +316,17 @@ body {
 .btn-info{
     margin-top: 0;
 }
+
+.cgu_coach{
+    text-align: center;
+    bottom: 1px;
+    position: fixed;
+    margin-left: 11%;
+}
+
+.coach_cgu_title{
+    font-size: 25px;
+    font-family: alterFont;
+    color: #00b0f0;
+    text-align: center;
+}

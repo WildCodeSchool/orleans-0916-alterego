@@ -104,4 +104,12 @@ class CoachController extends Controller
             'activites' => $activites
         ));
     }
+
+    /**
+     * @Route("/cgu_coach", name="cgu_coach")
+     */
+    public function cguAction()
+    {
+        return $this->render('AlterEgoBundle:Coach:cgu_coach.html.twig');
+    }
 }

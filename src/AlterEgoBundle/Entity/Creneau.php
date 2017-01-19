@@ -26,7 +26,7 @@ class Creneau
     /**
      * @ORM\OneToMany(targetEntity="Reservation", mappedBy="creneau")
      */
-    private $reservations;
+    protected $reservations;
 
     /**
      * @var int

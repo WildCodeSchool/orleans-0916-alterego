@@ -51,8 +51,7 @@ class Activite
     private $creneaux;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
-     *
+     * @ORM\ManyToOne(targetEntity="\Application\Sonata\UserBundle\Entity\User", inversedBy="activites")
      */
     private $user;
 

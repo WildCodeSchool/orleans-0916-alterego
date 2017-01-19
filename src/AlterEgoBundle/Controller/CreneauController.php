@@ -134,7 +134,6 @@ class CreneauController extends Controller
 
         return $this->redirectToRoute('reservation_show');
     }
-
     /**
      * Creates a form to delete a creneau entity.
      *

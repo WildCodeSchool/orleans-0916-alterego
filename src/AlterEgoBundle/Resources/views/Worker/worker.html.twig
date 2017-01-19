@@ -21,13 +21,13 @@
         <h1 class="name_worker">Bonjour {% if app.user.firstname  %}{{ app.user.firstname|title }}{% else %} {{ app.user.username|title }}{% endif %}</h1>
     <div class="tuile">
         <div class="tuile_header">
-            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ma prochaine séance
+            <h2><i class="fa fa-clock-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Votre prochaine séance
                 <a href="seances"><i class="fa fa-plus i_right" aria-hidden="true"></i></a></h2>
         </div>
     {% if reservation is empty %}
         <div class="tuile_body">
             <p>vous n'avez pas de réservation</p>
-            <a class="btn btn-primary" href="{{ path('seances') }}"> Réserver un séance ?</a>
+            <a class="btn btn-primary" href="{{ path('seances') }}"> Réserver une séance ?</a>
         </div>
     {% else %}
         <div class="tuile_body">
@@ -76,7 +76,7 @@
     {% endfor %}
     <div class="tuile">
         <div class="tuile_header note_coach">
-            <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Note ta séance </h2>
+            <h2 class="title_seance_worker"><i class="fa fa-star-half-o i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Notez vos séances </h2>
         </div>
         <div class="tuile_body">
             {% if nombre > 0  %}

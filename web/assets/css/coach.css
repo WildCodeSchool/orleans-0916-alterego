@@ -178,6 +178,12 @@ body {
     margin-right: 10px;
 }
 
+.titre_seance{
+    margin: 20px auto 20px auto;
+    color: #00b0f0;
+    font-size: 2em;
+}
+
 /*====================  CHECKING  ==============================*/
 
 .check_container {
@@ -279,4 +285,25 @@ body {
 
 .fa-clock-reverse {
     transform: rotate(180deg);
+}
+
+.btn-vertego{
+    background-color : #FF6600;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.titre_activite{
+    border-top: 1px solid lightsteelblue;
+    border-bottom: 1px solid lightsteelblue;
+    color: #00a7d0;
+}
+
+.tuile_body_acti {
+    margin: 0;
+    background-color: white;
+    padding-bottom: 15px;
+    margin-top: -10px;
+    font-size: 15px;
 }

@@ -1,46 +1,33 @@
 {% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 
-{% block body %}
-    <div class="content">
-        <div class="container">
-            <h1 class="text-center">Liste des Activités</h1>
+{% block content %}
+        <h1 class="text-center titre_seance">Liste de vos Activités</h1>
 
-            <ul class="list-unstyled text-center">
-                <li>
-                    <a class="btn btn-success" href="{{ path('activite_new') }}">Proposer une nouvelle activité</a>
-                </li>
-            </ul>
-
-            <table class="table-condensed table-striped table-hover table-responsive">
-                <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>Activite</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for activite in activites %}
-                    <tr>
-                        <td><a href="{{ path('activite_show', { 'id': activite.id }) }}">{{ activite.id }}</a></td>
-                        <td>{{ activite.activite }}</td>
-                        <td>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="{{ path('activite_show', { 'id': activite.id }) }}"><i
-                                                class="fa fa-arrow-circle-right"></i></a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('activite_edit', { 'id': activite.id }) }}"><i
-                                                class="fa fa-pencil-square"></i></a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <ul class="list-unstyled text-center">
+            <li>
+                <a class="btn btn-vertego" href="{{ path('activite_new') }}">Proposer une nouvelle activité</a>
+            </li>
+        </ul>
 
 
+
+        <div class="tuile">
+            <div class="tuile_header">
+                <h2><i class="fa fa-bullseye i_left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Vos activités</h2>
+            </div>
+            {% for activite in activites %}
+                <div class="tuile_body_acti">
+                    <h2 class="titre_activite">{{ activite.activite }}</h2>
+                    <a href="{{ path('activite_show', { 'id': activite.id }) }}">
+                        <i class="fa fa-arrow-circle-right fa-3x"></i>
+                        <p>Ajouter un créneau</p>
+                    </a><br>
+                    <a href="{{ path('activite_edit', { 'id': activite.id }) }}">
+                        <i class="fa fa-pencil-square fa-3x"></i>
+                        <p>Editer</p>
+                    </a>
+                    <hr>
+                </div>
+            {% endfor %}
         </div>
-    </div>
 {% endblock %}

@@ -7,3 +7,20 @@ services:
   redirect.after.logout:
     class: AlterEgoBundle\Redirection\AfterLogoutRedirection
     arguments: [@router, @security.context]
+
+  AlterEgoBundle.admin.Activite:
+          class: AlterEgoBundle\Admin\ActiviteAdmin
+          tags:
+              - { name: sonata.admin, manager_type: orm, group: "Coach", label: "Activite" }
+          arguments:
+              - ~
+              - AlterEgoBundle\Entity\Activite
+              - ~
+  AlterEgoBundle.admin.Creneau:
+            class: AlterEgoBundle\Admin\CreneauAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Coach", label: "Creneau" }
+            arguments:
+                - ~
+                - AlterEgoBundle\Entity\Creneau
+                - ~

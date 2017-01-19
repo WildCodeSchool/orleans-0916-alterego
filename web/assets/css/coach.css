@@ -284,6 +284,8 @@ body {
     border-radius: 2px;
     font-weight: 900;
     padding: 3px 3px 3px 3px;
+    margin-top: 5px;
+    font-size: 1.8em;
 }
 
 .badge_coach:hover{

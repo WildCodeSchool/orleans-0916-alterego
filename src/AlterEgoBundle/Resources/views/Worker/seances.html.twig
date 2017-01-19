@@ -3,7 +3,6 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
-
 {% block content %}
     {% if app.session.flashBag.has('success') %}
         <div class="alert alert-success">
@@ -37,7 +36,7 @@
         {% endfor %}
     {% else %}
         <div class="tuile_header">
-            <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+            <h2 class="text-center"><span><i class="fa fa-warning"></i> Pas de séance disponible !</span></h2>
         </div>
         <div class="tuile_body text-center">
             <p>Aucune séance n'est disponible pour le moment. Un coach proposera trés bientôt une nouvelle activité !</p>

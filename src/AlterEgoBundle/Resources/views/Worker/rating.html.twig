@@ -11,17 +11,16 @@
     <div class="text-center inline">
         <i class="fa fa-pencil-p"></i><h1 class="titre_seance">Evaluez vos séances!</h1>
     </div>
-
     {% if reservations %}
         {% for reservation in reservations %}
             <div class="tuile_header">
                 <h2>
                     <i class="fa fa-hourglass"></i> Notez
-                        {% if reservation.creneau.activite.user.firstname or reservation.creneau.activite.user.lastname %}
-                            {{ reservation.creneau.activite.user.firstname }} {{ reservation.creneau.activite.user.lastname }}
-                         {% else %}
-                             {{ reservation.creneau.activite.user.username }}
-                        {% endif %}
+                    {% if reservation.creneau.activite.user.firstname or reservation.creneau.activite.user.lastname %}
+                        {{ reservation.creneau.activite.user.firstname }} {{ reservation.creneau.activite.user.lastname }}
+                     {% else %}
+                         {{ reservation.creneau.activite.user.username }}
+                    {% endif %}
                 </h2>
             </div>
             <div class="tuile_rating tuile_body text-center">
@@ -30,7 +29,7 @@
                     <p class="text-center"><i class="fa fa-clock-o"></i> Date de l'activité : {{ reservation.creneau.dateheure|date('d/m/Y à H:i') }}</p>
                     <div class="text-center">
                         {% for i in 1..5 %}
-                            <a class="star" href="{{ path('vote', {'id':reservation.id, 'note':i}) }}"><i class="fa fa-star fa-2x ratingstar"></i></a>
+                            <a class="star" href="{{ path('vote', {'id':reservation.id, 'note':i}) }}"><i class="fa fa-star-o fa-2x ratingstar"></i></a>
                         {% endfor %}
                     </div>
                 </div>
@@ -38,10 +37,10 @@
         {% endfor %}
     {% else %}
         <div class="tuile_header">
-            <h2 class="text-center"><span><i class="fa fa-warning"></i> OUPS</span></h2>
+            <h2 class="text-center"><span><i class="fa fa-warning"></i> Pas de réservation à noter </span></h2>
         </div>
         <div class="tuile_body text-center">
-            <p>Vous n'avez pas de réservation à noter.</p>
+            <p>Vous n'avez pas de réservation à noter actuellement.</p>
             <a href="{{ path('seances') }}"><i class="fa fa-arrow-circle-right"></i> Voulez-vous réserver une activité ? <i class="fa fa-arrow-circle-left"></i></a>
         </div>
     {% endif %}

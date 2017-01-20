@@ -92,7 +92,7 @@ class CoachController extends Controller
     }
 
     /**
-     * @Route("/planning")
+     * @Route("/planning", name="planning")
      */
     public function coachPlanningAction()
     {

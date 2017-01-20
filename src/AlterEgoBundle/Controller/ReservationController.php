@@ -73,7 +73,6 @@ class ReservationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($creneau);
             $em->flush($creneau);
-        
             $request->getSession()
                 ->getFlashBag()
                 ->add('warning', 'Votre réservation a bien été annulée!');

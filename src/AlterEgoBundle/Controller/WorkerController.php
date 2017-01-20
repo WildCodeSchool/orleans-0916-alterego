@@ -101,7 +101,6 @@ class WorkerController extends Controller
      */
     public function settingsShow()
     {
-
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -114,8 +113,6 @@ class WorkerController extends Controller
             'user' => $user,
 //            'photo' => $photo,
         ]);
-
-
     }
 
     /**
@@ -123,22 +120,18 @@ class WorkerController extends Controller
      */
     public function settingsEdit()
     {
-
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
-
         $form = $this->container->get('fos_user.profile.form');
         $formHandler = $this->container->get('fos_user.profile.form.handler');
 
         $process = $formHandler->process($user);
         if ($process) {
             $this->setFlash('fos_user_success', 'profile.flash.updated');
-
             return new RedirectResponse($this->getRedirectionUrl($user));
         }
-
 
         return $this->container->get('templating')->renderResponse(
             'AlterEgoBundle:Worker:settings_edit.html.' . $this->container->getParameter('fos_user.template.engine'), array(
@@ -156,15 +149,11 @@ class WorkerController extends Controller
 
     /**
      * @Route("/reservation", name="reservation")
-     *
-     *
      */
     public function reservationAction()
     {
-
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($this->getUser());
-
 
         return $this->render('AlterEgoBundle:Worker:reservation.html.twig', array(
             'reservations' => $reservations
@@ -177,7 +166,6 @@ class WorkerController extends Controller
     public function seancesAction()
     {
         $em = $this->getDoctrine()->getManager();
-//        $seances = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
         $seances = $em->getRepository('AlterEgoBundle:Creneau')->findDispo();
         $user = $this->getUser();
         $res = [];
@@ -187,7 +175,6 @@ class WorkerController extends Controller
                 $res[] = $seance;
             }
         }
-
         return $this->render('AlterEgoBundle:Worker:seances.html.twig', array(
             'res' => $res,
         ));
@@ -214,7 +201,6 @@ class WorkerController extends Controller
      */
     public function voterAction(Reservation $reservation, $note, Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('AlterEgoBundle:Reservation')->findOneById($reservation);
 

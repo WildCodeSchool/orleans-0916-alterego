@@ -91,8 +91,9 @@ class CoachController extends Controller
         return $this->render('AlterEgoBundle:Coach:coach_activite.html.twig');
     }
 
+
     /**
-     * @Route("/planning")
+     * @Route("/planning", name="planning")
      */
     public function coachPlanningAction()
     {

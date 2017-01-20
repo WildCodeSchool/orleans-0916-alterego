@@ -59,6 +59,33 @@ class Reservation
      */
     private $ispresent;
 
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="check_mail", type="integer", nullable=true)
+     */
+    private $checkmail;
+
+    /**
+     * @return int
+     */
+    public function getCheckmail()
+    {
+        return $this->checkmail;
+    }
+
+    /**
+     * @param int $checkmail
+     */
+    public function setCheckmail($checkmail)
+    {
+        $this->checkmail = $checkmail;
+    }
+
+
+
     /**
      * @return mixed
      */

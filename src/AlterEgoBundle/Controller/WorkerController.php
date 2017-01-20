@@ -224,7 +224,7 @@ class WorkerController extends Controller
 
         $request->getSession()
             ->getFlashBag()
-            ->add('success', 'Votre vote a bien été pris en compte!');
+            ->add('success', 'Votre vote, '.$note.'/5 , a bien été pris en compte!');
         return $this->redirectToRoute('rating');
     }
     /**

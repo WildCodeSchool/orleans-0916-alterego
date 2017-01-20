@@ -68,6 +68,7 @@ class ReservationController extends Controller
      */
     public function archiveAction(Request $request, Creneau $creneau)
     {
+
             $creneau->setArchive(1);
             $em = $this->getDoctrine()->getManager();
             $em->persist($creneau);

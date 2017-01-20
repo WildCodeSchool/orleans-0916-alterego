@@ -1,35 +1,66 @@
 $(document).ready(function () {
 
+
+
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
 
-    $('#calendar').fullCalendar({
+
+        $('#calendar').fullCalendar({
 
         locale: 'fr',
         timeFormat: 'H:mm',
         firstDay: 1,
-        defaultView: 'agendaWeek',
+        defaultView: 'agendaThreeDay',
         eventColor: '#378006',
+        height: 650,
+        contentHeight: 380,
+        slotDuration: '01:00:00',
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        buttonText:{
+            today:'Aujourd\'hui',
+            day:'Jour',
+            week:'Semaine',
+            month:'Mois',
+        },
+
+        columnFormat:'ddd D/MM',
+
+
 
         header: {
-            center: 'agendaWeek,month' // buttons for switching between views
+            left: 'prev,next,today',
+            center: 'title',
+            right: 'agendaThreeDay,month'
         },
 
         views: {
-            basicWeek: {
 
+            agendaThreeDay: {
+                type: 'basic',
+                duration: {days: 3},
+                buttonText: '3 jours',
+                titleFormat: 'DD MMM YYYY'
+            },
+
+            month: {
+                titleFormat: 'MMMM YYYY'
             }
+
         },
 
         events: [
             {% for activite in activites %}
             {% for creneau in activite.creneaux %}
             {
-                title: '{{ creneau.activite.activite }}',
                 start: '{{ creneau.dateheure|date('Y-m-d\\TH:i:sP') }}',
                 end: '{{ creneau.dateheure|date_modify('+'~creneau.duree ~'minutes')|date('Y-m-d\\TH:i:sP') }}',
+                title: '{{ creneau.activite.activite }} {{ creneau.lieu }}',
                 url: '{{ path('creneau_show',{'id': creneau.id}) }}',
                 allDay: false
             },

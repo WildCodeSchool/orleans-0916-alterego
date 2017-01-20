@@ -100,8 +100,10 @@
                     {% endfor %}
                 </div>
                 {% if moyenne %}
-                <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
-            {% endif %}
+                    <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
+                {% endif %}
+            {% else %}
+                <p>Vous n'avez pas encore reçus de note !</p>
             {% endif %}
         </div>
     </div>

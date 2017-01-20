@@ -71,14 +71,12 @@ class ImageController extends Controller
         $deleteForm = $this->createDeleteForm($image);
         $editForm = $this->createForm('AlterEgoBundle\Form\ImageType', $image);
         $original_images = $image->getPath();
-        $editForm->handleRequest($image);
+        $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
-
             $em->persist($image);
-            $em->flush();
+            $em->flush($image);
 
             return $this->redirectToRoute('image_edit', array('id' => $image->getId()));
         }

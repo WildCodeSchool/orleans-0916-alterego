@@ -60,7 +60,10 @@ class CreneauController extends Controller
             $creneau->setActivite($activite);
             $em->flush($creneau);
 
-            return $this->redirectToRoute('creneau_show', array('id' => $creneau->getId()));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre créneau a bien créé!');
+            return $this->redirectToRoute('creneau_edit', array('id' => $creneau->getId()));
         }
 
         return $this->render('creneau/new.html.twig', array(
@@ -75,10 +78,9 @@ class CreneauController extends Controller
      * @Route("/{id}", name="creneau_show")
      * @Method("GET")
      */
-    public function showAction(Creneau $creneau)
+    public function showAction(Request $request, Creneau $creneau)
     {
         $deleteForm = $this->createDeleteForm($creneau);
-
 
         return $this->render('creneau/show.html.twig', array(
             'creneau' => $creneau,
@@ -98,8 +100,14 @@ class CreneauController extends Controller
         $editForm = $this->createForm('AlterEgoBundle\Form\CreneauType', $creneau);
         $editForm->handleRequest($request);
 
+
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre créneau a bien édité!');
 
             return $this->redirectToRoute('creneau_edit', array('id' => $creneau->getId()));
         }

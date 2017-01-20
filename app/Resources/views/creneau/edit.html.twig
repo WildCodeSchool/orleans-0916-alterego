@@ -5,25 +5,31 @@
     {{ parent() }}
 {% endblock %}
 {% block content %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="well">
-            <h1 class="title_activity">Edition de votre Créneau</h1>
-
+            <h1 class="title_activity">Votre Créneau</h1>
             {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
                 <button class="btn btn-primary text-center center-block btn_edit_act" type="submit"><i class="fa fa-pencil"></i> Editer</button>
             {{ form_end(edit_form) }}
-
             <a class="btn btn-danger center-block btn_edit_act" href="#"><i class="fa fa-ban"></i>Annuler la séance</a>
-
     </div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('assets/datetimepicker-master/build/jquery.datetimepicker.full.min.js') }}"></script>
     <script>
+        $.datetimepicker.setLocale('fr');
         jQuery('.js-datepicker').datetimepicker({
             format:'Y-m-d H:i',
             inline:true,
             lang:'fr',
+            minDate:0,
             allowTimes:[
                 '00:00','00:15','00:30','00:45',
                 '01:00','01:15','01:30','01:45',

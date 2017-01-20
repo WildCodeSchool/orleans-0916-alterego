@@ -5,18 +5,33 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="block_seances_list">
-                <ul>
-                    {% for seance in seances %}
-                        <li class="list_title">{{ seance.activite.activite | upper }} </li>
-                        <li>Lieu : {{ seance.lieu }} </li>
-                        <li>Coach : {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }} </li>
-                        <li> <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a></li>
-                     {% endfor %}
-                </ul>
-            </div>
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
         </div>
-    </div>
+    {% endif %}
+    <h1>Liste des activités disponibles</h1>
+    {% if seances %}
+        {% for seance in seances %}
+            {% if seance.placerestantes > 0 %}
+            <div class="tuile tuile_seance">
+                <div class="tuile_body_left">
+                    <h2 class="nom_seance">{{ seance.activite.activite | upper }}</h2>
+                    <h3>{{ seance.lieu }}
+                        avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
+                    <p>{{ seance.dateheure | date('d/m/y') }} à {{ seance.dateheure | date('H:i') }}</p>
+                    <p>Il reste : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
+                </div>
+                <div class="tuile_body_right">
+                    <a class="reservation_access" href="{{ path('seance_show', { 'id': seance.id }) }}">Réserver</a>
+
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h2>Pas de Séances disponible pour le moment !</h2>
+    {% endif %}
 {% endblock %}

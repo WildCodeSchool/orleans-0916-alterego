@@ -1,9 +1,27 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block content %}
-    {% for reservation in reservations %}
-        {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} - * * * * *
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if reservations %}
+        {{ form_start(form) }}
+            {% for reservation in reservations %}
+                {% if reservation.ispresent == 1 %}
+                <p class="text-center">Notez votre séance de {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} :</p>
+                    {{ form_widget(form) }}
+                    <input class="center-block" type="submit" value="Create" />
+                {% else %}
+                    <p>Pas d'activité à noter</p>
+                {% endif %}
+            {% endfor %}
+        {{ form_end(form) }}
     {% else %}
-        Pas d'activité à noter
-    {% endfor %}
+        <p>Vous n'avez pas de réservation à noter.</p>
+        <a href="{{ path('seances') }}">Voulez vous reserver une activite ?</a>
+    {% endif %}
 {% endblock %}

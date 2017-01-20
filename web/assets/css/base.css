@@ -26,34 +26,6 @@
     display: none;
 }
 
-.grip_nav {
-    padding: 0;
-    z-index: 10;
-    height:80px;
-    width: 25px;
-    background-color: black;
-    position: absolute;
-    top: calc(50vh - 40px);
-    left: -1px;
-    border-radius: 0 10px 10px 0;
-}
-
-.line_grip {
-    margin: 20px 0 0 5px;
-    height: 40px;
-    width: 1px;
-    background-color: white;
-}
-
-.grip_2 {
-    margin-left: 10px;
-    margin-top: -40px;
-}
-
-.grip_3 {
-    margin-left: 15px;
-    margin-top: -40px;
-}
 
 #check_nav:checked + #trans_nav{
     transform: translateX(0vw);
@@ -118,6 +90,11 @@
 \* ===============================================================*/
 .content {
     width: 80vw;
-    margin-left: 10vw;
-    transform: translateX(6vw);
+    margin-left: 16vw;
+}
+.badge-notify{
+    background: #d90017;
+    position:relative;
+    top: -60px;
+    left: 10px;
 }

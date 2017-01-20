@@ -1,17 +1,39 @@
-{% block subject %}Veuillez noter votre séance{% endblock %}
 {% block body_text %}
-    {% autoescape false %}
-        Bonjour {{ user.username }} !
-        Vous pouvez désormais noter votre séance de sport. {{ confirmationUrl }}
-        Bonne journée
-        L'équipe.
-    {% endautoescape %}
+    {#{% autoescape false %}#}
+        {#{% if reservations %}#}
+            {#{% for reservations in reservation %}#}
+
+
+
+                Bonjour {{ user.username }} !
+
+
+
+    {% if reservations %}
+
+        {% for reservation in reservations %}
+            {% if reservation.ispresent == 1 %}
+                <p class="text-center">Vous pouvez désormais noter votre séance de {{ reservation.creneau.activite.activite }} animée par {{ reservation.creneau.activite.user.username }} :</p>
+
+                <a href="{{ path('rating') }}">En cliquant içi</a>
+
+            {% endif %}
+        {% endfor %}
+
+
+    {% endif %}
+
+
+
+{#(phrase type : son slogan : genre " Parce que le corps mérite du sport " ) #}
+    <br>
+    <br>
+                Bonne journée
+    <br>
+    <br>
+                L'équipe.
+                {#{% endif %}#}
+            {#{% endfor %}#}
+    {#{% endautoescape %}#}
 {% endblock %}
-{% block body_html %}
-    {#
-        You can of course render the html directly here.
-        Including a template as done here allows keeping things DRY by using
-        the template inheritance in it
-    #}
-    {% include 'email/password_resetting.html.twig' %}
-{% endblock %}
+         

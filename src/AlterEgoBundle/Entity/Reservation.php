@@ -45,9 +45,9 @@ class Reservation
     private $statusPayment;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="note_coach", type="string", length=45, nullable=true)
+     * @ORM\Column(name="note_coach", type="integer", nullable=true)
      */
     private $noteCoach;
 
@@ -57,6 +57,33 @@ class Reservation
      * @ORM\Column(name="is_present", type="integer", nullable=true)
      */
     private $ispresent;
+
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="check_mail", type="integer", nullable=true)
+     */
+    private $checkmail;
+
+    /**
+     * @return int
+     */
+    public function getCheckmail()
+    {
+        return $this->checkmail;
+    }
+
+    /**
+     * @param int $checkmail
+     */
+    public function setCheckmail($checkmail)
+    {
+        $this->checkmail = $checkmail;
+    }
+
+
 
     /**
      * @return mixed
@@ -111,7 +138,7 @@ class Reservation
     /**
      * Set noteCoach
      *
-     * @param string $noteCoach
+     * @param int $noteCoach
      *
      * @return Reservation
      */
@@ -125,7 +152,7 @@ class Reservation
     /**
      * Get noteCoach
      *
-     * @return string
+     * @return int
      */
     public function getNoteCoach()
     {

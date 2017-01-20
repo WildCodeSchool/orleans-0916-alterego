@@ -1,36 +1,22 @@
 {% extends '::base.html.twig' %}
 
+       {% block nav_links %} {#définie les liens de la navbar#}
+           <li><a class="fa fa-home" href="{{ path('worker_index') }}"></a></li>
+           <li><a class="fa fa-trophy" href="{{ path('badges') }}"></a></li>
+           <li><a class="fa fa-users" href="{{ path('friends') }}"></a></li>
+           <li><a class="fa fa-play-circle-o" href="{{ path('seances') }}"></a></li>
+           <li><a class="fa fa-calendar" href="{{ path('reservation') }}"></a></li>
+           <li><a class="fa fa-line-chart" href="{{ path('performances') }}"></a></li>
+           <li><a class="fa fa-cogs" href="{{ path('settings') }}"></a></li>
+           <li><a class="fa fa-sign-out last_child" href="{{ path('fos_user_security_logout') }}"></a></li>
+       {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/worker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/worker.css') }}">
 {% endblock %}
    {% block body %}
 
-       {% block navbar %}
-           <section class="navbar">
-               <input type="checkbox" id="check_nav" data-target="#">
-               <label id="trans_nav" for="check_nav">
-                   <div class="grip_nav container">
-                       <div id="open">
-                           <div class="line_grip grip_1"></div>
-                           <div class="line_grip grip_2"></div>
-                           <div class="line_grip grip_3"></div>
-                       </div>
-                   </div>
-                   <ul id="navbar_mobile">
-                       <li><a class="fa fa-home" href="{{ path('worker_index') }}"></a></li>
-                       <li><a class="fa fa-trophy" href="{{ path('badges') }}"></a></li>
-                       <li><a class="fa fa-users" href="{{ path('friends') }}"></a></li>
-                       <li><a class="fa fa-play-circle-o" href="{{ path('seances') }}"></a></li>
-                       <li><a class="fa fa-calendar" href="{{ path('reservation') }}"></a></li>
-                       <li><a class="fa fa-line-chart" href="{{ path('performances') }}"></a></li>
-                       <li><a class="fa fa-cogs" href="{{ path('settings') }}"></a></li>
-                       <li><a class="fa fa-sign-out" href="{{ path('fos_user_security_logout') }}"></a></li>
-                       <li><i class="fa fa-times last_child"></i></li>
-                   </ul>
-               </label>
-           </section>
-       {% endblock %}
+
 
        {% block header %}
 

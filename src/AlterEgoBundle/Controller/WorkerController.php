@@ -16,6 +16,7 @@ use AlterEgoBundle\Calendar\CalendarEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Validator\Constraints\DateTime;
 use AlterEgoBundle\Form\CheckType;
+use AlterEgoBundle\Form\RatingType;
 
 /**
  * @Route("/worker", name="worker")
@@ -29,45 +30,52 @@ class WorkerController extends Controller
     public function workerAction(Request $request)
     {
         $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
 
         $form = $this->createForm('AlterEgoBundle\Form\CheckType');
         $form->handleRequest($request);
 
-        $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);
-
         if($reservations){
+
             $date = new \DateTime();
+            $date = $date->getTimestamp();
+
             foreach($reservations as $reservation) {
-                if (!isset($nextResa)) {
+
+                $resaStamp = $reservation->getCreneau()->getDateheure()->getTimestamp() + ($reservation->getCreneau()->getDuree() * 60);
+
+                if (!isset($nextResa) && ($resaStamp >= $date)) {
                     $nextResa = $reservation;
                 }
-                //$resaDate = $reservation->getCreneau()->getDateheure();
-                if ($nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && ($reservation->getCreneau()->getDateheure() >= $date)) {
+
+                if (isset($nextResa) && $nextResa->getCreneau()->getDateheure() > $reservation->getCreneau()->getDateheure() && $resaStamp >= $date) {
                     $nextResa = $reservation;
                 }
             }
+        }
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $ispresent = $request;
-                $reservation->setIspresent(1);
-                $em->persist($reservation);
-                $em->flush($reservation);
-
-            }
-
-            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservation' => $nextResa,
-                'form' => $form->createView(),
-            ));
-        } else {
-
-            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
-                'reservation' => $reservations,));
+        if ($form->isSubmitted() && $form->isValid() && isset($nextResa)) {
+            $em = $this->getDoctrine()->getManager();
+            $nextResa->setIspresent(1);
+            $em->persist($nextResa);
+            $em->flush($nextResa);
 
         }
 
+        if (isset($nextResa)){return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+            'reservation' => $nextResa,
+            'enattente' => $reservations,
+            'form' => $form->createView(),
+            ));
+
+        } else {
+            return $this->render('AlterEgoBundle:Worker:worker.html.twig', array(
+                'reservation' => [],
+                'form' => $form->createView(),
+                'enattente' => $reservations,
+            ));
+        }
     }
 
     /**
@@ -91,7 +99,7 @@ class WorkerController extends Controller
      */
     public function settingsAction()
     {
-        
+
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -150,23 +158,44 @@ class WorkerController extends Controller
         ));
     }
 
-
-
     /**
      * @Route("/rating", name="rating")
+     * @Method({"GET", "POST"})
      */
-    public function ratingAction()
+    public function ratingAction(Request $request)
     {
-        // worker actuellement connecté
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(['user' => $user, 'noteCoach' => null, 'ispresent' => 0]);
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user, 'noteCoach' => null, 'ispresent' => 1));
+
+        $form = $this->createForm('AlterEgoBundle\Form\RatingType');
+        $form->handleRequest($request);
+
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                foreach ($reservations as $key => $reservation)
+                {
+
+                    $reservation->setNoteCoach($data['note']);
+                    $em->persist($reservation);
+                    $em->flush();
+
+                }
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('success', 'Votre vote a bien été pris en compte!')
+                ;
+                return $this->redirectToRoute('rating');
+        }
 
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,
+            'form' => $form->createView(),
         ));
 
     }
+
 
 
 }

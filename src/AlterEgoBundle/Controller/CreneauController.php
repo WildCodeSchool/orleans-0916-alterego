@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 
 /**
@@ -52,7 +53,9 @@ class CreneauController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($creneau);            
+            $em->persist($creneau);
+            $capacite = $creneau->getCapacite();
+            $creneau->setPlacerestantes($capacite);
             $creneau->setActivite($activite);
             $em->flush($creneau);
 
@@ -158,15 +161,15 @@ class CreneauController extends Controller
         $form = $this->createForm('AlterEgoBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
 
+        $user = $this->getUser();
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $creneau->getPlacerestantes() > 0) {
+
             $testPerf = new TestPerf();
             $em->persist($testPerf);
-
             $testPerf->setReservation($reservation);
-
-            $user = $this->getUser();
-
+            $placerestantes = $creneau->getPlacerestantes();
+            $creneau->setPlacerestantes($placerestantes - 1);
             $reservation->setTestsPerf($testPerf);
             $reservation->setCreneau($creneau);
             $reservation->setUser($user);
@@ -175,6 +178,11 @@ class CreneauController extends Controller
             $em->persist($reservation);
 
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre réservation a bien été prise en compte!')
+            ;
 
             return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }

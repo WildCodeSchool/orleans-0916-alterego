@@ -1,6 +1,13 @@
 {% extends 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
 
 {% block body %}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="container-fluid">
         <h1 class="title_activity">Récapitulatif de votre réservation :</h1>
 
@@ -23,7 +30,7 @@
                 <td>{{ reservation.creneau.duree }} min</td>
             </tr>
             <tr>
-                <th>Durée</th>
+                <th>Lieu</th>
                 <td>{{ reservation.creneau.lieu }}</td>
             </tr>
             <tr>
@@ -39,7 +46,8 @@
 
         <ul class="text-center center-block">
             <li>
-                <a class="btn btn-success" href="{{ path('reservation_index') }}">Back to the list</a>
+                <a class="btn btn-success" href="{{ path('seances') }}">Retourner à la liste des séances ?</a>
+                <a class="btn btn-success" href="{{ path('worker_index') }}">Retourner sur mon profil</a>
             </li>
             <li>
                 <a class="btn btn-primary" href="{{ path('reservation_edit', { 'id': reservation.id }) }}">Edit</a>

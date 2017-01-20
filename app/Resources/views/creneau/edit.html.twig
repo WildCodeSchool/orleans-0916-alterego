@@ -1,8 +1,8 @@
 {% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 {#{% form_theme form 'bootstrap_3_layout.html.twig' %}#}
 {% block stylesheets %}
-    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('assets/datetimepicker-master/build/jquery.datetimepicker.min.css') }}">
+    {{ parent() }}
 {% endblock %}
 {% block content %}
     <div class="well">
@@ -18,7 +18,6 @@
     </div>
 {% endblock %}
 {% block javascripts %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/datetimepicker-master/jquery.datetimepicker.css') }}"/>
     <script src="{{ asset('assets/datetimepicker-master/build/jquery.datetimepicker.full.min.js') }}"></script>
     <script>
         jQuery('.js-datepicker').datetimepicker({

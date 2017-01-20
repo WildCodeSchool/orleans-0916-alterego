@@ -17,11 +17,13 @@
 {% block javascripts %}
     <script src="{{ asset('assets/datetimepicker-master/build/jquery.datetimepicker.full.min.js') }}"></script>
     <script>
-            jQuery('.js-datepicker').datetimepicker({
-                format:'Y-m-d H:i',
-                inline:true,
-                lang:'fr',
-                allowTimes:[
+        $.datetimepicker.setLocale('fr');
+        jQuery('.js-datepicker').datetimepicker({
+            format:'Y-m-d H:i',
+            inline:true,
+            lang:'fr',
+            minDate:0,
+            allowTimes:[
                 '00:00','00:15','00:30','00:45',
                 '01:00','01:15','01:30','01:45',
                 '02:00','02:15','02:30','02:45',
@@ -46,7 +48,7 @@
                 '21:00','21:15','21:30','21:45',
                 '22:00','22:15','22:30','22:45',
                 '23:00','23:15','23:30','23:45',
-                ]
-            });
+            ]
+        });
     </script>
 {% endblock %}

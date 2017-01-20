@@ -60,6 +60,9 @@ class CreneauController extends Controller
             $creneau->setActivite($activite);
             $em->flush($creneau);
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre créneau a bien créé!');
             return $this->redirectToRoute('creneau_edit', array('id' => $creneau->getId()));
         }
 
@@ -97,12 +100,14 @@ class CreneauController extends Controller
         $editForm = $this->createForm('AlterEgoBundle\Form\CreneauType', $creneau);
         $editForm->handleRequest($request);
 
-        $request->getSession()
-            ->getFlashBag()
-            ->add('success', 'Votre créneau a bien été créé !');
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Votre créneau a bien édité!');
 
             return $this->redirectToRoute('creneau_edit', array('id' => $creneau->getId()));
         }

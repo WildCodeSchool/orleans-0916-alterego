@@ -1,23 +1,14 @@
 {% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 
-{% block body %}
-    <div class="content">
-        <h1>Activite edit</h1>
+{% block content %}
+        <h1 class="title_activity">Editer votre Activité</h1>
 
         {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit"/>
+        <button class="btn btn-primary btn_edit_act" type="submit" value="Edit"><i class="fa fa-pencil"></i> Editer</button>
         {{ form_end(edit_form) }}
 
-        <ul>
-            <li>
-                <a href="{{ path('activite_index') }}">Back to the list</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            </li>
-        </ul>
-    </div>
+        {{ form_start(delete_form) }}
+        <button class="btn btn-danger btn_edit_act" type="submit" value="Delete"><i class="fa fa-ban"></i> Annuler</button>
+        {{ form_end(delete_form) }}
 {% endblock %}

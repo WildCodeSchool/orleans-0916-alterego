@@ -1,32 +1,27 @@
 {% extends 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
 
 {% block content %}
-    <h1>Liste des Créneaux</h1>
+    <h1 class="title_activity">Liste des Créneaux</h1>
 
-    <table>
+    <table class="table-responsive table-bordered">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Dateheure</th>
-                <th>Duree</th>
-                <th>Actions</th>
+                <th class="text-center">Activite</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Voir/Editer</th>
             </tr>
         </thead>
         <tbody>
         {% for creneau in creneaus %}
-            <tr>
-                <td><a href="{{ path('creneau_show', { 'id': creneau.id }) }}">{{ creneau.id }}</a></td>
-                <td>{% if creneau.dateheure %}{{ creneau.dateheure|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ creneau.duree }}</td>
+            <tr class="text-center">
+                <td>{{ creneau.activite.activite|upper }}</td>
+                <td>{% if creneau.dateheure %}<p>Le</p>{{ creneau.dateheure|date('d-m-Y') }}<p>à</p> {{ creneau.dateheure|date('H:i') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('creneau_show', { 'id': creneau.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('creneau_edit', { 'id': creneau.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <div>
+                        <a href="{{ path('creneau_show', { 'id': creneau.id }) }}"><p><i class="fa fa-eye"></i></p></a>
+                        <a href="{{ path('creneau_edit', { 'id': creneau.id }) }}"><p><i class="fa fa-pencil"></i></p></a>
+                    </div>
+
                 </td>
             </tr>
         {% endfor %}

@@ -33,7 +33,8 @@ class CreneauController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $creneaus = $em->getRepository('AlterEgoBundle:Creneau')->findAll();
+        $user = $this->getUser();
+        $creneaus = $em->getRepository('AlterEgoBundle:Creneau')->findCreneauUser($user);
 
         return $this->render('creneau/index.html.twig', array(
             'creneaus' => $creneaus,

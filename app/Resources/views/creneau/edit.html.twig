@@ -14,13 +14,15 @@
     {% endif %}
     <div class="well">
             <h1 class="title_activity">Votre Créneau : </h1>
+            <p class="text-center background_info_creneau"> {{ creneau.activite.activite }}</p>
+            <a class="btn btn-success btn_edit_act" href="{{ path('activite_index') }}"><i class="fa fa-list"></i> Retour à la liste</a>
+            <a class="btn btn-info btn_edit_act" href="{{ path('creneau_new', {'id': creneau.activite.id}) }}"><i class="fa fa-plus-circle"></i> Nouveau créneau</a>
             {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
                 <button class="btn btn-primary text-center center-block btn_edit_act" type="submit"><i class="fa fa-pencil"></i> Editer</button>
             {{ form_end(edit_form) }}
             <a class="btn btn-danger btn_edit_act" href="#"><i class="fa fa-ban"></i> Annuler la séance</a>
-            <a class="btn btn-success btn_edit_act" href="{{ path('activite_index') }}"><i class="fa fa-list"></i> Retour a la liste</a>
-            <a class="btn btn-info btn_edit_act" href="{{ path('creneau_new', {'id': creneau.activite.id}) }}"><i class="fa fa-plus-circle"></i> Nouveau créneau</a>
+
     </div>
 {% endblock %}
 {% block javascripts %}

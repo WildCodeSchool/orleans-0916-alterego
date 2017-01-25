@@ -131,4 +131,52 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * Add activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     *
+     * @return User
+     */
+    public function addActivite(\AlterEgoBundle\Entity\Activite $activite)
+    {
+        $this->activites[] = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Remove activite
+     *
+     * @param \AlterEgoBundle\Entity\Activite $activite
+     */
+    public function removeActivite(\AlterEgoBundle\Entity\Activite $activite)
+    {
+        $this->activites->removeElement($activite);
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     *
+     * @return User
+     */
+    public function addReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AlterEgoBundle\Entity\Reservation $reservation
+     */
+    public function removeReservation(\AlterEgoBundle\Entity\Reservation $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
 }

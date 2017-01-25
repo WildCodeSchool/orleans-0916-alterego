@@ -3,7 +3,6 @@
 {% block head %}
     {{ parent() }}
 {% endblock %}
-
 {% block content %}
     <div class="container-fluid">
         <div class="row">
@@ -44,9 +43,9 @@
                     à<span> {{ reservation.creneau.dateheure|date("H:i") }}</span></p>
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ reservation.creneau.lieu }}</p>
             </div>
-            {% if reservation.isPresent == 1 and "now"|date('U') <= (reservation.creneau.dateheure|date('U') + (reservation.creneau.duree * 60))  %}
-               <p>SEANCE EN COURS <span><img src="{{ asset('assets/images/30.gif') }}" alt="loader"></span></p>
-            {% elseif "now"|date('Ymd Hi') < reservation.creneau.dateheure|date('Ymd Hi') %}
+            {% if (reservation.isPresent == 1 or reservation.isPresent == 2 ) and "now"|date('U') <= (reservation.creneau.dateheure|date('U') + (reservation.creneau.duree * 60))  %}
+               <p>SEANCE EN COURS</p>
+            {% elseif "now"|date_modify("+15 minutes")|date('Ymd Hi') < reservation.creneau.dateheure|date('Ymd Hi') %}
                 <p>Pensez à prendre des forces !</p>
             {% else %}
             {{ form_start(form) }}

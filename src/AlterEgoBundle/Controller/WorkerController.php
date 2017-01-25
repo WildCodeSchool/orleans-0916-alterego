@@ -30,6 +30,7 @@ class WorkerController extends Controller
      */
     public function workerAction(Request $request)
     {
+        $myvar = 123;
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findByUser($user);

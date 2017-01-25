@@ -7,7 +7,7 @@
 {% block content %}
     <div class="well">
     <h1 class="title_activity">Création d'un Créneau</h1>
-
+    <p class="text-center background_info_creneau">veuillez choisir un créneau pour votre séance de {{ creneau.activite.activite }}</p>
     {{ form_start(form) }}
     {{ form_widget(form) }}
         <button class="btn btn-primary text-center center-block" type="submit"><i class="fa fa-calendar-check-o"></i> Créer</button>

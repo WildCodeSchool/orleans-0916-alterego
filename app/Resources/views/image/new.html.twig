@@ -1,7 +1,23 @@
-<h1>Ajouter une photo de profil :</h1>
+{% if is_granted('ROLE_WORKER') %}
+    {% set route = 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+{% endif %}
+{% if is_granted('ROLE_COACH') %}
+    {% set route = 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
+{% endif %}
 
-{{ form_start(form) }}
+    {% extends route %}
+
+{% block content %}
+    <h1>Ajouter ma photo de profil :</h1>
+
+    {{ form_start(form) }}
 
     {{ form_row(form.file) }}
-<input type="submit" value="Create" />
-{{ form_end(form) }}
+    <input type="submit" value="Create">
+    {{ form_end(form) }}
+
+    <script>
+
+    </script>
+
+{% endblock %}

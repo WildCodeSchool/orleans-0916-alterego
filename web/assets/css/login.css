@@ -1,41 +1,46 @@
 @font-face {
     font-family: 'alterFont';
-    src:    url('../font/Cera-Pro.otf') format('truetype'),
+    src: url('../font/Cera-Pro.otf') format('truetype'),
     url('../font/Cera-ProBold.otf') format('bold'),
     url('../font/Cera-ProItalic.otf') format('italic');
     font-weight: normal;
     font-style: normal;
 }
 
-    body {
-        background: url("../images/fond2.jpg") no-repeat center fixed;
-        -webkit-background-size: cover;
-        background-size: cover;
-        font-family: 'alterFont';
-        margin: 0;
+body {
+    background: url("../images/fond2.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: 'alterFont';
+    margin: 0;
 
-    }
+}
 
-    input[type=text], input[type=password] {
-        margin: 3px 15px 3px 15px;
-        height: 40px;
-        border: none;
-        background-color: rgba(244, 244, 244, 0);
-        border-bottom: 1px solid rgb(172,172,172);
-        font-size: 15px;
-    }
+input[type=text], input[type=password] {
+    margin: 3px 15px 3px 15px;
+    height: 40px;
+    border: none;
+    background-color: rgba(244, 244, 244, 0);
+    border-bottom: 1px solid rgb(172, 172, 172);
+    font-size: 15px;
+    text-decoration:none;
 
-input:hover
-{
+}
+
+input[type=submit]{
+    width: auto;
+    font-size: 15px;
+    font-family: alterFont;
+}
+
+input:hover {
     border: none;
 }
 
-    .entry {
-        background-color: rgba(244, 244, 244, 0.7);
+.entry {
+    background-color: rgba(244, 244, 244, 0.7);
 
-    }
-
-
+}
 
 body input:-webkit-autofill {
     background: rgba(244, 244, 244, 0.6);
@@ -44,7 +49,7 @@ body input:-webkit-autofill {
 i {
     text-align: center;
     background-color: rgba(244, 244, 244, 0);
-    border-radius: 3px 0 0 3px ;
+    border-radius: 3px 0 0 3px;
     font-size: 20px;
     padding: 7px 15px 7px 15px;
     width: 15px;
@@ -52,8 +57,8 @@ i {
 }
 
 .logo_group {
-     max-height: 15vh;
- }
+    max-height: 15vh;
+}
 
 .logo_layout {
     width: 100vw;
@@ -68,8 +73,10 @@ i {
     text-align: center;
     position: absolute;
     width: 100vw;
-    height: 70vh;
-    padding-top: 30vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
@@ -83,7 +90,6 @@ table {
 .remember_label {
 
 }
-
 
 .btn {
     border: 0;
@@ -103,6 +109,7 @@ table {
     height: 40px;
     display: flex;
     justify-content: center;
+    left: 0;
 }
 
 .option_btn {
@@ -110,10 +117,49 @@ table {
     background-color: rgba(244, 244, 244, 0.6);
     line-height: 38px;
 }
+
 td {
     margin-bottom: 20px;
 }
 
-#remember_me {
+.form-horizontal {
+    margin-bottom: 30vh;
+}
 
+/*===================== RESET PASSWORD ======================*/
+
+.content_reset {
+    background-color: rgba(255,255,255,0.5);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+}
+
+.entry_reset {
+    background-color: rgba(255,255,255,1);
+}
+
+.panel-heading {
+    position: absolute;
+    top:50px;
+    left: 0;
+    text-align: center;
+    width: 100vw;
+
+}
+
+.back {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    font-family: alterFont;
+    text-decoration: none;
+    font-weight: 600;
 }

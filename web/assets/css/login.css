@@ -27,6 +27,12 @@ input[type=text], input[type=password] {
 
 }
 
+input[type=submit]{
+    width: auto;
+    font-size: 20px;
+    font-family: alterFont;
+}
+
 input:hover {
     border: none;
 }
@@ -118,4 +124,42 @@ td {
 
 .form-horizontal {
     margin-bottom: 30vh;
+}
+
+/*===================== RESET PASSWORD ======================*/
+
+.content_reset {
+    background-color: rgba(255,255,255,0.5);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+}
+
+.entry_reset {
+    background-color: rgba(255,255,255,1);
+}
+
+.panel-heading {
+    position: absolute;
+    top:50px;
+    left: 0;
+    text-align: center;
+    width: 100vw;
+
+}
+
+.back {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    font-family: alterFont;
+    text-decoration: none;
+    font-weight: 600;
 }

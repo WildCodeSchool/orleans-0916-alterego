@@ -409,3 +409,8 @@ input[type=radio] + label {
     color: #00b0f0;
     text-align: center;
 }
+
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
+}

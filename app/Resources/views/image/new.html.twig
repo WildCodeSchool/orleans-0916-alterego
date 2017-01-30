@@ -8,15 +8,65 @@
     {% extends route %}
 
 {% block content %}
+    <link href="{{ asset('assets/cropper-master/src/css/cropper.css') }}" rel="stylesheet">
+
+
+      
+
+
+
+
     <h1>Ajouter ma photo de profil :</h1>
 
     {{ form_start(form) }}
 
-    {{ form_row(form.file) }}
-    <input type="submit" value="Create">
+    {{ form_row(form.file, {'id':'imgInp'}) }}
+    <input type="submit" value="Create" id="">
+    <img id="blah" src="http://i.imgur.com/zAyt4lX.jpg" alt="your image" height="100"/>
     {{ form_end(form) }}
 
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/cropper-master/src/js/cropper.js') }}"></script>
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.js"></script>#}
     <script>
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+
+        var image = document.getElementById('blah');
+        var cropper = new Cropper(image, {
+            aspectRatio: 1 / 1,
+            crop: function(e) {
+                console.log(e.detail.x);
+                console.log(e.detail.y);
+                console.log(e.detail.width);
+                console.log(e.detail.height);
+                console.log(e.detail.rotate);
+                console.log(e.detail.scaleX);
+                console.log(e.detail.scaleY);
+            }
+        });
+
+
+
 
     </script>
 

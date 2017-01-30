@@ -9,6 +9,7 @@
 
 {% block content %}
 
+    {% if seance.dateheure|date_modify('+'~seance.duree~'minutes') < date('-30 min') %}
 
     <h1>{{ seance.activite.activite }}</h1>
     <div class="seance_date">
@@ -83,5 +84,12 @@
 
 
     {% endfor %}
+
+        {% else %}
+
+        <p>Vous n'avez plus la possibilité de pointer cette séance.</p>
+
+    {% endif %}
+
 
 {% endblock %}

@@ -33,10 +33,6 @@ class MailCommand extends ContainerAwareCommand
             $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user'=>$user, 'ispresent' => 1, 'noteCoach' => null, 'checkmail' => null));
 
 
-
-
-
-
             if ($reservations) {
 
                 // envoie de mail

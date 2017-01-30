@@ -401,7 +401,8 @@ input[type=radio] + label {
     text-align: center;
     bottom: 1px;
     position: fixed;
-    margin-left: 11%;
+    width: 88vw;
+    left: 12vw;
 }
 .worker_cgu_title{
     font-size: 25px;

@@ -65,3 +65,7 @@
     top: -60px;
     left: 10px;
 }
+
+.container-fluid {
+    padding: 0;
+}

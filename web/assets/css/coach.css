@@ -303,6 +303,7 @@ body {
 .titre_activite{
     border-top: 1px solid lightsteelblue;
     border-bottom: 1px solid lightsteelblue;
+    background-color : white;
     color: #00a7d0;
 }
 

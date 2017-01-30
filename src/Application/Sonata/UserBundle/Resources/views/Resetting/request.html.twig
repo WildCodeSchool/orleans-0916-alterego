@@ -1,14 +1,21 @@
 {% extends "SonataUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <div class="content">
+    <div class="content_reset">
+        <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{ "title_user_resetting" | trans({}, 'SonataUserBundle') }}</h3>
+
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Réinitialiser le mot de passe</h3>
+            </div>
+            <div class="panel-body">
+                {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+            </div>
         </div>
-        <div class="panel-body">
-            {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
-        </div>
+    </div>
     </div>
 {% endblock fos_user_content %}

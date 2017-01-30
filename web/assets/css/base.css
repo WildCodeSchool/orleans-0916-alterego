@@ -47,7 +47,7 @@
     font-size: 2em;
     width: 1.3em;
     color: rgb(242,242,242);
-    position: absolute;
+    position: fixed;
     bottom: 5px;
     transform: translateX(-50%);
 }

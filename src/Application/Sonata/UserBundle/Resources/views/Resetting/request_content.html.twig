@@ -4,13 +4,29 @@
     {% endif %}
 
     <div class="form-group">
-        <label for="username" class="control-label required">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }} * </label>
-        <input type="text" id="username" name="username" required="required" />
+        <label for="username"
+               class="control-label required">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }} * </label>
+        <table>
+            <tr class="entry entry_reset">
+                <td>
+                    <label for="username">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                        <input type="text" id="username" name="username" required="required"/>
+                </td>
+            </tr>
+        </table>
+
     </div>
 
     <div class="form-actions form-group">
         <div class="col-sm-offset-3 col-sm-9">
-            <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary" />
+            <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}"
+                   class="btn btn-primary"/>
         </div>
     </div>
+
+    <a class="back" href="{{ path('login') }}">Retour</a>
 </form>

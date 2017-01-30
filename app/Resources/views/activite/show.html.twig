@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="title_activity">Votre Activite</h1>
+    <h1 class="title_activity">Votre Activité</h1>
     <div class="span3">
         <div class="well">
             <h2 class="text-info text-center activite_style placement">{{ activite.activite|upper }}</h2>
@@ -16,8 +16,7 @@
             <p class="text-center content_size">{{ activite.info }}</p>
             <hr>
             <div class="text-center">
-                <a class="btn btn-info" href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-pencil"></i> Edit</a>
-                <a class="btn btn-danger" href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-ban"></i> Annuler</a>
+                <a class="btn btn-danger" href="{{ path('activite_edit', { 'id': activite.id }) }}"><i class="fa fa-ban"></i> Supprimer</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,29 @@
+{% if is_granted('ROLE_WORKER') %}
+    {% set route = 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+{% endif %}
+{% if is_granted('ROLE_COACH') %}
+    {% set route = 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
+{% endif %}
+
+    {% extends route %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('assets/css/setting.css') }}">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    <button class="btn btn-default" type="submit" value="create">send</button>
+    {% if user.photoprofil %}
+
+        <a class="btn btn-success" href="{{ path('image_edit', {'id':user.photoprofil.id}) }}">Changer ma photo de
+            profil</a>
+
+    {% else %}
+        <a class="btn btn-success" href="{{ path('image_new') }}">Ajouter ma photo de profil</a>
+
+    {% endif %}
+    {{ form_end(form) }}
+
+    <a href="{{ path('settings') }}">Retour</a>
+
+{% endblock %}

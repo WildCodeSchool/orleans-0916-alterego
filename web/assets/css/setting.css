@@ -1,0 +1,28 @@
+.content{
+    text-align: center;
+}
+
+.setting_head {
+    background-color: darkslategray;
+    position: absolute;
+    width: 88vw;
+    left: 12vw;
+    padding: 30px;
+}
+
+.photoprofile {
+    width: 40vw;
+    border-radius: 100%;
+}
+
+.edit_profile {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    font-size: 30px;
+    color: rgb(242,242,242);
+}
+
+.profile_name {
+    color: rgb(242,242,242);
+}

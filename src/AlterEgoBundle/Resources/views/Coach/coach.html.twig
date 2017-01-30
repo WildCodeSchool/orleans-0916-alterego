@@ -48,12 +48,10 @@
                 <p class="lieu_worker"><i class="fa fa-map-marker pin_seance" aria-hidden="true"></i>{{ seance.lieu }}
                 </p>
             </div>
-            {% if seance.startseance == 1 and "now"|date_modify("+5 minutes")|date('U') <= (seance.dateheure|date('U') + (seance.duree * 60)) %}
+            {% if seance.startseance == 1 and "now"|date('U') <= (seance.dateheure|date_modify('+30')|date('U') + (seance.duree * 60)) %}
                 <a href="{{ path('checking', {'id': seance.id}) }}">Lien quand séance start</a>
-            {% elseif "now"|date('Ymd Hi') < seance.dateheure|date_modify("-5 minutes")|date('Ymd Hi') %}
+            {% elseif "now"|date('Ymd Hi') < seance.dateheure|date_modify("-30 minutes")|date('Ymd Hi') %}
                 <p>Préparez vous pour votre prochaine séance</p>
-
-
             {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}
@@ -100,8 +98,10 @@
                     {% endfor %}
                 </div>
                 {% if moyenne %}
-                <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
-            {% endif %}
+                    <span class="badges badge_coach">{{ moyenne~' / 5' }}</span>
+                {% endif %}
+            {% else %}
+                <p>Vous n'avez pas encore reçus de note !</p>
             {% endif %}
         </div>
     </div>

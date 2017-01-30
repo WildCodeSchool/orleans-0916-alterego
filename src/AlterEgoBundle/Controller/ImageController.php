@@ -34,7 +34,7 @@ class ImageController extends Controller
             $image->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($image);
-            $em->flush();
+            $em->flush($image);
 
             return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }
@@ -71,22 +71,22 @@ class ImageController extends Controller
         $deleteForm = $this->createDeleteForm($image);
         $editForm = $this->createForm('AlterEgoBundle\Form\ImageType', $image);
         $original_images = $image->getPath();
-        $editForm->handleRequest($image);
+        $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $image->setPath($image);
             $em = $this->getDoctrine()->getManager();
-
-
             $em->persist($image);
             $em->flush();
 
-            return $this->redirectToRoute('image_edit', array('id' => $image->getId()));
+            return $this->redirectToRoute('image_show', array('id' => $image->getId()));
         }
 
         return $this->render('image/edit.html.twig', array(
             'image' => $image,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'original' => $original_images,
         ));
     }
 

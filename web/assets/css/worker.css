@@ -257,10 +257,13 @@ span {
 /*====================== Calendar=============================*/
 
 .fc-content {
-    height: 50px;
+    height: 75px;
     display: flex;
-    flex-wrap: wrap;
     text-align: center;
+    flex-direction: column;
+}
+.fc-time, .fc-title {
+    line-height: 25px;
 }
 
 .fc-first.fc-last {
@@ -405,4 +408,9 @@ input[type=radio] + label {
     font-family: alterFont;
     color: #00b0f0;
     text-align: center;
+}
+
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
 }

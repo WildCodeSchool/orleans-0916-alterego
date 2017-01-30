@@ -18,6 +18,13 @@ class CreneauRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('c.placerestantes > :placeRestante')
                 ->setParameter('placeRestante', 0)
             ->getQuery()->getResult();
+    }
 
+    public function findCreneauUser($user) {
+        return $this->createQueryBuilder('c')
+            ->join('c.activite','a')
+            ->where('a.user = :user')
+                ->setParameter('user', $user)
+            ->getQuery()->getResult();
     }
 }

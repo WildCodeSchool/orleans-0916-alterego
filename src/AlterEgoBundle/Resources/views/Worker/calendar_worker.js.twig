@@ -7,36 +7,62 @@ $(document).ready(function () {
 
     $('#calendar').fullCalendar({
 
+        locale: 'fr',
         timeFormat: 'H:mm',
         firstDay: 1,
-        defaultView: 'basicWeek',
+        defaultView: 'agendaThreeDay',
         eventColor: '#378006',
-        contentHeight:400,     //specific height instead of auto
-        slotDuration: '00:30:00',
+        height: 650,
+        contentHeight: 380,
+        slotDuration: '01:00:00',
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        buttonText:{
+            today:'Aujourd\'hui',
+            day:'Jour',
+            week:'Semaine',
+            month:'Mois'
+        },
+
+        columnFormat:'ddd D/MM',
+
+
 
         header: {
-            center: 'agendaWeek,month' // buttons for switching between views
+            left: 'prev,next,today',
+            center: 'title',
+            right: 'agendaThreeDay,month',
         },
 
         views: {
-            basicWeek: {
 
+            agendaThreeDay: {
+                type: 'basic',
+                duration: {days: 3},
+                buttonText: '3 jours',
+                titleFormat: 'DD MMM YYYY'
+            },
+
+            month: {
+                titleFormat: 'MMMM YYYY'
             }
+
         },
 
         events: [
             {% for reservation in reservations %}
             {
-                title: '{{ reservation.creneau.activite.activite }}',
+                title: '{{ reservation.creneau.activite.activite }}{{ reservation.creneau.activite.info }}',
                 start: '{{ reservation.creneau.dateheure|date('Y-m-d\\TH:i:sP') }}',
                 end: '{{ reservation.creneau.dateheure|date_modify('+'~reservation.creneau.duree ~'minutes')|date('Y-m-d\\TH:i:sP') }}',
                 url: '{{ path('reservation_show',{'id': reservation.id}) }}',
-                allDay: false
             },
             {% endfor %}
         ],
 
-        eventClick: function(event) {
+        eventClick: function (event) {
             if (event.url) {
                 window.location(event.url);
                 return false;

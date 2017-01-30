@@ -1,0 +1,59 @@
+
+{% if is_granted('ROLE_WORKER') %}
+    {% set route = 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+    {% endif %}
+{% if is_granted('ROLE_COACH') %}
+    {% set route = 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
+{% endif %}
+
+    {% extends route %}
+
+
+    {% block content %}
+        <link rel="stylesheet" href="{{ asset('assets/css/setting.css') }}">
+        <div class="content">
+
+
+            <div class="setting_head">
+
+                <a class="fa fa-cog edit_profile" href="{{ path('settings_edit') }}"></a>
+                {% if user.photoprofil %}
+                    <img class="photoprofile" src="{{ asset('uploads/images/' ~ user.photoprofil.path) }}" alt="">
+                {% else %}
+                    <img class="photoprofile" src="{{ asset('assets/images/profil_picture/logo.jpg') }}" alt="">
+                {% endif %}
+                <h1 class="profile_name">{{ user.firstname }} {{ user.lastname }}</h1>
+            </div>
+
+
+            <ul>
+                <li>
+                    Prénom{{ user.firstname }}
+                </li>
+                <li>
+                    Nom{{ user.lastname }}
+                </li>
+                <li>
+                    {{ user.dateOfBirth|date("d/m/Y") }}
+                </li>
+                <li>
+                    E-mail{{ user.email }}
+                </li>
+                <li>
+                    Sexe {{ user.gender }}
+                </li>
+                <li>
+                    Téléphone {{ user.phone|default('pas de numéro renseigné') }}
+                </li>
+            </ul>
+
+
+        </div>
+
+
+
+
+
+
+
+    {% endblock %}

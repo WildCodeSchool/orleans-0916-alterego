@@ -80,3 +80,7 @@ tr {
 .span3{
     box-shadow: 1px 1px 4px #696969;
 }
+
+.background_info_creneau{
+    background-color: rgba(0,175,242, 0.2);
+}

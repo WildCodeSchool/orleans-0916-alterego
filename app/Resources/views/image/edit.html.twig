@@ -1,0 +1,19 @@
+{% if is_granted('ROLE_WORKER') %}
+    {% set route = 'AlterEgoBundle:Worker:layout_worker.html.twig' %}
+{% endif %}
+{% if is_granted('ROLE_COACH') %}
+    {% set route = 'AlterEgoBundle:Coach:layout_coach.html.twig' %}
+{% endif %}
+
+    {% extends route %}
+{% block content %}
+
+<h1>Modifier ma photo de profil :</h1>
+
+{{ form_start(edit_form) }}
+
+    {{ form_row(edit_form.file) }}
+<input type="submit" value="Create" />
+{{ form_end(edit_form) }}
+
+{% endblock %}

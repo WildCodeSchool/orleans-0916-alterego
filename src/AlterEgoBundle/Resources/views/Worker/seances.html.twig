@@ -25,7 +25,8 @@
                     <h2 class="nom_seance"> |{{ seance.activite.activite | upper }}</h2>
                     <h3>{{ seance.lieu }}
                         avec </br> {{ seance.activite.user.firstname }} {{ seance.activite.user.lastname }}</h3>
-                    <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Date : Le {{ seance.dateheure | date('d M Y') }} à {{ seance.dateheure | date('H:i') }}</p>
+                    <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Date : Le {{ seance.dateheure | date('d M Y') }}
+                    <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Heure :  {{ seance.dateheure | date('H:i') }}</p>
                     <p class="pull-left"><i class="fa fa-arrow-circle-o-right"></i> Place(s) : {{ seance.placerestantes ~ '/' ~ seance.capacite }} place(s)</p>
                 </div>
                 <div class="tuile_body_right">

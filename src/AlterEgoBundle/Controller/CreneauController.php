@@ -63,7 +63,7 @@ class CreneauController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', 'Votre créneau a bien créé!');
+                ->add('success', 'Votre créneau a bien été créé!');
             return $this->redirectToRoute('creneau_edit', array('id' => $creneau->getId()));
         }
 

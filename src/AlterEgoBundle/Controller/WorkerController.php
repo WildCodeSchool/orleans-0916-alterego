@@ -190,7 +190,7 @@ class WorkerController extends Controller
     {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user, 'noteCoach' => null, 'ispresent' => 1));
+        $reservations = $em->getRepository('AlterEgoBundle:Reservation')->findBy(array('user' => $user, 'noteCoach' => null, 'ispresent' => [1,2]));
 
         return $this->render('AlterEgoBundle:Worker:rating.html.twig', array(
             'reservations' => $reservations,

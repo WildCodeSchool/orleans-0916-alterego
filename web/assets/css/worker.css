@@ -1,4 +1,7 @@
 /*---------------CSS WORKER----------------*/
+
+
+
 /*---------------Home Page-----------------*/
 body {
     font-family: alterFont;
@@ -270,6 +273,10 @@ span {
     border-bottom: 1px solid black;
 }
 
+.fc-today{
+    background: blue;
+}
+
 .agenda {
     padding: 0;
 }
@@ -321,6 +328,10 @@ span {
 .fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
     border-bottom: none;
     border-top: none;
+}
+
+.fc-next-button, .fc-prev-button {
+    padding: 2px !important;
 }
 
 /* ===================    Page Séances            ================================*/
@@ -396,13 +407,6 @@ input[type=radio] + label {
 
 .btn_resa{
     margin-bottom: 4px;
-}
-.cgu_worker{
-    text-align: center;
-    bottom: 1px;
-    position: fixed;
-    width: 88vw;
-    left: 12vw;
 }
 .worker_cgu_title{
     font-size: 25px;

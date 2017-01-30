@@ -11,10 +11,6 @@ body{
 }
 /* Profil */
 
-body {
-    font-family: alterFont;
-    background-color: rgb(242,242,242);
-}
 .top_worker {
     text-align: center;
 }
@@ -335,14 +331,6 @@ border-radius: 100%;
 
 .btn-info{
     margin-top: 0;
-}
-
-.cgu_coach{
-    text-align: center;
-    bottom: 1px;
-    position: fixed;
-    width: 88vw;
-    left: 12vw;
 }
 
 .coach_cgu_title{

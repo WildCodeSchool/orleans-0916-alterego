@@ -69,3 +69,24 @@
 .container-fluid {
     padding: 0;
 }
+
+h1 {
+    font-family: alterFont;
+    font-size: 30px;
+    padding: 25px;
+}
+
+h2 {
+    font-size: 18px;
+    padding: 15px;
+}
+
+*[class^=cgu]{
+    text-align: center;
+    position: fixed;
+    width: 88vw;
+    left: 12vw;
+    bottom: 0;
+    background-color: rgb(242,242,242);
+    z-index: 10;
+}

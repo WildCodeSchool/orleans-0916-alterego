@@ -9,21 +9,32 @@
 
 {% block content %}
     <link rel="stylesheet" href="{{ asset('assets/css/setting.css') }}">
+    {% if user.photoprofil %}
+
+        <a class="photo_edit_link" href="{{ path('image_edit', {'id':user.photoprofil.id}) }}">
+            <div class="edit_or_create_photo"><img class="photo_profile_edit"
+                                                   src="{{ asset('uploads/images/' ~ user.photoprofil.path) }}" alt="">
+            </div>
+            <p class="lien_text">Changer ma photo de profil</p>
+        </a>
+
+    {% else %}
+
+        <a class="photo_edit_link" href="{{ path('image_new') }}">
+            <div class="edit_or_create_photo"><img class="photo_profile_edit"
+                                                   src="{{ asset('assets/images/profil_picture/logo.jpg') }}" alt="">
+            </div>
+            <p class="lien_text">Ajouter ma photo de profil</p>
+        </a>
+
+    {% endif %}
+
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_errors(form) }}
-    <button class="btn btn-default" type="submit" value="create">send</button>
-    {% if user.photoprofil %}
+    <div class="valid_form">
+        <button class="btn btn-success" type="submit" value="create">Valider</button>
+    </div>
 
-        <a class="btn btn-success" href="{{ path('image_edit', {'id':user.photoprofil.id}) }}">Changer ma photo de
-            profil</a>
-
-    {% else %}
-        <a class="btn btn-success" href="{{ path('image_new') }}">Ajouter ma photo de profil</a>
-
-    {% endif %}
     {{ form_end(form) }}
-
-    <a href="{{ path('settings') }}">Retour</a>
-
 {% endblock %}

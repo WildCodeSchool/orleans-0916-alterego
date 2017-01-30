@@ -21,8 +21,8 @@ use AlterEgoBundle\FileUploader;
 class ImageController extends Controller
 {
     /**
-    * @Route("/new", name="image_new")
-    */
+     * @Route("/new", name="image_new")
+     */
     public function newAction(Request $request)
     {
         $image = new Image();
@@ -36,11 +36,12 @@ class ImageController extends Controller
             $em->persist($image);
             $em->flush($image);
 
-            return $this->redirectToRoute('image_show', array('id' => $image->getId()));
+            return $this->redirectToRoute('settings', array('id' => $image->getId()));
         }
 
         return $this->render('image/new.html.twig', array(
-        'form' => $form->createView(),
+            'form' => $form->createView(),
+            'user' => $user,
         ));
     }
 
@@ -68,6 +69,7 @@ class ImageController extends Controller
      */
     public function editAction(Request $request, Image $image)
     {
+        $user = $this->getUser();
         $deleteForm = $this->createDeleteForm($image);
         $editForm = $this->createForm('AlterEgoBundle\Form\ImageType', $image);
         $original_images = $image->getPath();
@@ -79,7 +81,7 @@ class ImageController extends Controller
             $em->persist($image);
             $em->flush();
 
-            return $this->redirectToRoute('image_show', array('id' => $image->getId()));
+            return $this->redirectToRoute('settings', array('id' => $image->getId()));
         }
 
         return $this->render('image/edit.html.twig', array(
@@ -87,6 +89,7 @@ class ImageController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'original' => $original_images,
+            'user' => $user,
         ));
     }
 
@@ -122,7 +125,6 @@ class ImageController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('image_delete', array('id' => $image->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-            ;
+            ->getForm();
     }
 }

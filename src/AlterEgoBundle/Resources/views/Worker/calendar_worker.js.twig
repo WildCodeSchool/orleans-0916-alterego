@@ -26,27 +26,29 @@ $(document).ready(function () {
             month: 'Mois'
         },
 
-        columnFormat: 'ddd D/MM',
+        {#columnFormat: 'ddd D/MM',#}
 
 
         header: {
             left: 'prev,next,today',
             center: 'title',
-            right: 'basicDay,agendaSevenDay,month',
+            right: 'basicDay,basicWeek,month'
         },
 
         views: {
 
-            agendaSevenDay: {
+            basicWeek: {
                 type: 'basic',
-                duration: {days: 7},
-                buttonText: '3 jours',
-                titleFormat: 'DD MMM YYYY'
+                titleFormat: 'ddd D/MM YYYY',
+                columnFormat: 'ddd D/MM'
             },
 
-            month: {
-                titleFormat: 'MMMM YYYY'
+            basicDay : {
+                type: 'basic',
+                titleFormat: 'YYYY',
+                columnFormat: 'dddd DD MMMM',
             }
+
 
         },
 

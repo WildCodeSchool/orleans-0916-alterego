@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\Request;
 use AlterEgoBundle\Entity\Image;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 /**
@@ -39,6 +41,17 @@ class User extends BaseUser
      * @ORM\OneToOne(targetEntity="\AlterEgoBundle\Entity\Image", mappedBy="user")
      */
     protected $photoprofil;
+
+
+    /**
+     * @Assert\Regex(pattern="/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/", message="numéro invalide")
+     */
+    protected $phone;
+
+    /**
+     * @Assert\Regex(pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", message="Email invalide")
+     */
+    protected  $email;
 
     /**
      * @return mixed

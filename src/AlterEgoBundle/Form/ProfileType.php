@@ -2,9 +2,11 @@
 
 namespace AlterEgoBundle\Form;
 
-use Nelmio\ApiDocBundle\Tests\Fixtures\Form\CollectionType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,12 +19,13 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('firstname')
-            ->add('lastname')
-            ->add('gender')
-            ->add('phone')
-            ->add('email')
-            ->add('date_of_birth');
+            ->add('gender', ChoiceType::class, ['choices' => [
+                'm' => 'Homme',
+                'f' => 'Femme',
+            ]])
+            ->add('phone', TextType::class,array('max_length'=>10))
+            ->add('email', EmailType::class)
+            ->add('date_of_birth', DateType::class , ['widget' => 'single_text']);
 
 
     }
@@ -44,6 +47,4 @@ class ProfileType extends AbstractType
     {
         return 'alteregobundle_activite';
     }
-
-
 }

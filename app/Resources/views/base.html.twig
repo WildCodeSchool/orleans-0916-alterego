@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/base.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/form_worker.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+            <script type="text/javascript" src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         {% block stylesheets %}{% endblock %}
     {% endblock %}
 </head>
@@ -30,8 +32,6 @@
 {% block body %}
 
 {% endblock %}
-<script type="text/javascript" src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

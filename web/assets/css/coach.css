@@ -199,15 +199,26 @@ body {
     margin-bottom: 20px;
 }
 
-.check_photo {
+.checking_img_container{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
     border-radius: 100%;
+
+}
+.check_photo {
     width: 60px;
 
 }
 
+.check_photo_default {
+    width: 60px;
+border-radius: 100%;
+}
+
 .check_name {
-    line-height: 60px;
-    margin: 0;
+    /*line-height: 60px;*/
+    /*margin: 0;*/
 }
 
 .btn_check {
@@ -266,6 +277,12 @@ body {
 
 .fa-clock-reverse {
     transform: rotate(180deg);
+}
+
+.check_center {
+    width: 110px;
+    margin: auto;
+    text-align: center;
 }
 
 /*======================     COACH_BADGE/RATING     ============================*/

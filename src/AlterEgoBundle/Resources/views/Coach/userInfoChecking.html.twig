@@ -1,13 +1,15 @@
 <div class="check_left">
-    {% if user.photoprofil  %}
-    <img class="check_photo" src="{{ asset('uploads/images/' ~ user.photoprofil.path) }}"
-         alt="photo de profile {{ user.username }}" />
-        {% else %}
-            <img class="check_photo" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
-                 alt="photo de profile {{ user.username }}" />
+    {% if user.photoprofil %}
+        <div class="checking_img_container">
+
+            <img class="check_photo" src="{{ asset('uploads/images/' ~ user.photoprofil.path) }}"
+                 alt="photo de profile {{ user.username }}"/>
+        </div>
+    {% else %}
+        <img class="check_photo_default" src="{{ asset('assets/images/profil_picture/logo.jpg') }}"
+             alt="photo de profile {{ user.username }}"/>
     {% endif %}
 </div>
 <div class="check_center">
-    <p class="check_name">{{ user.firstname }}
-        &nbsp;{{ user.lastname }}  {{ user.username }}</p>
+    <p class="check_name">{{ user.firstname|capitalize }} {{ user.lastname|capitalize }}</p>
 </div>

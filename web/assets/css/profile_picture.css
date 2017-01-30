@@ -1,0 +1,40 @@
+body {
+    background-color: darkslategrey;
+    text-align: center;
+    color: white;
+}
+
+
+#blah {
+    max-height: 180%;
+    max-width: 180%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    margin-left: 50%;
+    margin-top: 50%;
+}
+
+.photo_container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    height: 80vw;
+    width: 80vw;
+    max-height: 400px;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label{
+    display: none;
+}
+
+input[type=submit] {
+    position: absolute;
+    bottom: 100px;
+    transform: translateX(-50%);
+    width: 25%;
+}

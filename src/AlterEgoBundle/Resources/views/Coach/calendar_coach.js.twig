@@ -1,19 +1,18 @@
 $(document).ready(function () {
 
 
-
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
 
 
-        $('#calendar').fullCalendar({
+    $('#calendar').fullCalendar({
 
         locale: 'fr',
         timeFormat: 'H:mm',
         firstDay: 1,
-        defaultView: 'agendaThreeDay',
+        defaultView: 'basicDay',
         eventColor: '#378006',
         height: 650,
         contentHeight: 380,
@@ -22,28 +21,27 @@ $(document).ready(function () {
         monthNamesShort: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
         dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
         dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-        buttonText:{
-            today:'Aujourd\'hui',
-            day:'Jour',
-            week:'Semaine',
-            month:'Mois',
+        buttonText: {
+            today: 'now',
+            day: 'Jour',
+            week: 'Semaine',
+            month: 'Mois'
         },
 
-        columnFormat:'ddd D/MM',
-
+        columnFormat: 'ddd D/MM',
 
 
         header: {
             left: 'prev,next,today',
             center: 'title',
-            right: 'agendaThreeDay,month'
+            right: 'basicDay,agendaSevenDay,month',
         },
 
         views: {
 
-            agendaThreeDay: {
+            agendaSevenDay: {
                 type: 'basic',
-                duration: {days: 3},
+                duration: {days: 7},
                 buttonText: '3 jours',
                 titleFormat: 'DD MMM YYYY'
             },
@@ -68,7 +66,7 @@ $(document).ready(function () {
             {% endfor %}
         ],
 
-        eventClick: function(event) {
+        eventClick: function (event) {
             if (event.url) {
                 window.location(event.url);
                 return false;

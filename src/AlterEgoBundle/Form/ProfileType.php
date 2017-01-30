@@ -19,10 +19,10 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('gender', ChoiceType::class, ['choices' => [
-                'm' => 'Homme',
-                'f' => 'Femme',
-            ]])
+//            ->add('gender', ChoiceType::class, ['choices' => [
+//                'm' => 'Homme',
+//                'f' => 'Femme',
+//            ]])
             ->add('phone', TextType::class,array('max_length'=>10))
             ->add('email', EmailType::class)
             ->add('date_of_birth', DateType::class , ['widget' => 'single_text']);

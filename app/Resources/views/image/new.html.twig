@@ -8,21 +8,18 @@
     {% extends route %}
 
 {% block content %}
-    <link href="{{ asset('assets/cropper-master/src/css/cropper.css') }}" rel="stylesheet">
+    {#<link href="{{ asset('assets/cropper-master/src/css/cropper.css') }}" rel="stylesheet">#}
 
+    <link rel="stylesheet" href="{{ asset('assets/css/profile_picture.css') }}">
 
-      
-
-
-
-
-    <h1>Ajouter ma photo de profil :</h1>
+    <div class="photo_container" style="border: 2px solid white">
+        <img id="blah" src="#" alt="your image"/>
+    </div>
 
     {{ form_start(form) }}
 
     {{ form_row(form.file, {'id':'imgInp'}) }}
-    <input type="submit" value="Create" id="">
-    <img id="blah" src="http://i.imgur.com/zAyt4lX.jpg" alt="your image" height="100"/>
+    <input class="btn btn-success" type="submit" value="Créer" id="">
     {{ form_end(form) }}
 
 
@@ -31,7 +28,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('assets/cropper-master/src/js/cropper.js') }}"></script>
+    {#<script src="{{ asset('assets/cropper-master/src/js/cropper.js') }}"></script>#}
     {#<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.js"></script>#}
     <script>
 
@@ -50,23 +47,23 @@
         $("#imgInp").change(function () {
             readURL(this);
         });
-
-        var image = document.getElementById('blah');
-        var cropper = new Cropper(image, {
-            aspectRatio: 1 / 1,
-            crop: function(e) {
-                console.log(e.detail.x);
-                console.log(e.detail.y);
-                console.log(e.detail.width);
-                console.log(e.detail.height);
-                console.log(e.detail.rotate);
-                console.log(e.detail.scaleX);
-                console.log(e.detail.scaleY);
-            }
-        });
-
-
-
+//
+//        var image = document.getElementById('blah');
+//        var cropper = new Cropper(image, {
+//            aspectRatio: 1 / 1,
+//            crop: function(e) {
+//                console.log(e.detail.x);
+//                console.log(e.detail.y);
+//                console.log(e.detail.width);
+//                console.log(e.detail.height);
+//                console.log(e.detail.rotate);
+//                console.log(e.detail.scaleX);
+//                console.log(e.detail.scaleY);
+//            }
+//        });
+//
+//
+//
 
     </script>
 

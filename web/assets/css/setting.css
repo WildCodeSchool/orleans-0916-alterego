@@ -6,8 +6,9 @@ body {
     background-color: darkslategray;
 }
 
-*[class^="cgu"]{
-    color : white;
+*[class^=cgu]{
+    color: white;
+    background-color: darkslategrey;
 }
 
 
@@ -104,8 +105,21 @@ input[type=text], input[type=email], input[type=date] {
 }
 
 button {
-    position: absolute;
-    bottom: 40px;
-    transform: translateX(-50%);
-    width: 25%;
+    width: 200px;
+    margin-top: 20px;
+}
+.change_password {
+    margin-bottom: 50px;
+}
+.change_password a {
+    color: white;
+}
+
+#change_password_container {
+margin-top: 120px;
+}
+
+input[type=password]{
+    font-size: 40px;
+    letter-spacing: 5px;
 }

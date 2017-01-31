@@ -9,6 +9,15 @@
 
 
     {% block content %}
+
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success fade in">
+                {% for msg in app.session.flashBag.get('success') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
         <link rel="stylesheet" href="{{ asset('assets/css/setting.css') }}">
         <div class="content">
 
@@ -19,10 +28,9 @@
                     {% if user.photoprofil %}
                         <img class="photoprofile" src="{{ asset('uploads/images/' ~ user.photoprofil.path) }}" alt="">
                     {% else %}
-                        <img class="photoprofile" src="{{ asset('assets/images/profil_picture/logo.jpg') }}" alt="">
+                        <img class="photoprofile" src="{{ asset('assets/icons/user.svg') }}" alt="">
                     {% endif %}
                 </div>
-
 
                 <h1 class="profile_name">{{ user.firstname|capitalize }} {{ user.lastname|capitalize }}</h1>
             </div>

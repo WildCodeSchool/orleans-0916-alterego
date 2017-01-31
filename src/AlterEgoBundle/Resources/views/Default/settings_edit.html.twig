@@ -22,12 +22,13 @@
 
         <a class="photo_edit_link" href="{{ path('image_new') }}">
             <div class="edit_or_create_photo"><img class="photo_profile_edit"
-                                                   src="{{ asset('assets/images/profil_picture/logo.jpg') }}" alt="">
+                                                   src="{{ asset('assets/icons/user.svg') }}" alt="">
             </div>
             <p class="lien_text">Ajouter ma photo de profil</p>
         </a>
 
     {% endif %}
+
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
@@ -37,4 +38,8 @@
     </div>
 
     {{ form_end(form) }}
+
+
+    <button class="btn btn-danger change_password"><a  href="{{ path('change_password') }}">Modifier le mot de passe</a></button>
+
 {% endblock %}

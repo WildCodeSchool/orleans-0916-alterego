@@ -419,3 +419,30 @@ a:focus, a:hover {
     color: #23527c;
     text-decoration: none;
 }
+/*   RESERVATION   */
+
+.photo_container{
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.photo_coach {
+    max-width: 150%;
+    max-height: 150%;
+}
+
+.block_image {
+    width: 100%;
+    text-align: center;
+}
+
+.photo_coach_default {
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: auto;
+}

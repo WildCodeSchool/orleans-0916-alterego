@@ -422,3 +422,7 @@ border-radius: 100%;
     border-bottom: none;
     border-top: none;
 }
+
+.fc-next-button, .fc-prev-button {
+    padding: 2px !important;
+}

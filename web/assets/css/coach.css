@@ -181,6 +181,9 @@ body{
 }
 
 /*====================  CHECKING  ==============================*/
+.check_right {
+    width: 100%;
+}
 
 .check_container {
     width: 80vw;
@@ -213,8 +216,8 @@ border-radius: 100%;
 }
 
 .check_name {
-    /*line-height: 60px;*/
-    /*margin: 0;*/
+    line-height: 60px;
+    margin: 0;
 }
 
 .btn_check {
@@ -226,6 +229,8 @@ border-radius: 100%;
     border-radius: 90px;
     background-color: #00a7d0;
 }
+
+
 
 .check_link {
     float: right;
@@ -280,6 +285,7 @@ border-radius: 100%;
     margin: auto;
     text-align: center;
 }
+
 
 /*======================     COACH_BADGE/RATING     ============================*/
 

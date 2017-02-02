@@ -5,11 +5,9 @@
 {% endblock %}
 
 
-
-
 {% block content %}
 
-    {% if seance.dateheure|date_modify('+'~seance.duree~'minutes') < date('-30 min') %}
+    {% if seance.dateheure|date_modify('+'~seance.duree~'minutes +15 minutes')|date('YmdHi') > "now"|date('YmdHi') %}
 
     <h1>{{ seance.activite.activite }}</h1>
     <div class="seance_date">
